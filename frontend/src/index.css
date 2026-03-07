@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-black transition-all duration-500 ease-in-out min-h-screen bg-light-mesh;
+  }
+
+  .dark body {
+    @apply text-white bg-dark-mesh;
+  }
+
+  /* Prevent horizontal scroll during mesh gradient scale/animation if added later */
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+
+  /* Core Glassmorphism Utility */
+  .glass-panel {
+    @apply backdrop-blur-md border shadow-sm transition-all duration-500 ease-in-out;
+  }
+
+  .dark .glass-panel {
+    @apply bg-white/5 border-white/10 shadow-black/20;
+  }
+
+  .glass-panel {
+    @apply bg-white/60 border-black/5 shadow-black/5;
+  }
+
+  /* Specific variation for heavier blur / lighter content */
+  .glass-panel-heavy {
+    @apply backdrop-blur-xl border shadow-md transition-all duration-500 ease-in-out;
+  }
+
+  .dark .glass-panel-heavy {
+    @apply bg-black/40 border-white/10 shadow-black/30;
+  }
+
+  .glass-panel-heavy {
+    @apply bg-white/70 border-white/50 shadow-black/5;
+  }
+}
