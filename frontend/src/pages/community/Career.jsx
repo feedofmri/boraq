@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Briefcase, Code, Terminal, Zap, ArrowRight, HeartPulse, Coffee, MapPin } from 'lucide-react';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 const positions = [
   { title: 'Senior Golang Engineer', dept: 'Engineering', location: 'Remote (Global)', type: 'Full-time' },
@@ -135,6 +137,7 @@ export default function Career() {
           </button>
         </div>
       </section>
+      <CallToAction />
     </div>
   );
 }

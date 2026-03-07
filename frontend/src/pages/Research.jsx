@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Microscope, Database, Network, BrainCircuit, ArrowRight } from 'lucide-react';
+import CallToAction from '../components/sections/CallToAction';
+
 
 const researchAreas = [
   {
@@ -101,6 +103,7 @@ export default function Research() {
           </div>
         </div>
       </section>
+      <CallToAction />
     </div>
   );
 }

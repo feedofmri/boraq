@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Download, FileText, LayoutTemplate, Palette } from 'lucide-react';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 const resources = [
   { title: 'Enterprise React Boilerplate', desc: 'Our battle-tested Next.js setup with Tailwind, Zustand, and TRPC.', type: 'Code', icon: LayoutTemplate, dl: '4.2k' },
@@ -55,6 +57,7 @@ export default function Resources() {
           ))}
         </div>
       </section>
+      <CallToAction />
     </div>
   );
 }

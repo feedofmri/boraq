@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Terminal, FileJson, Shield, Zap, Search } from 'lucide-react';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 const categories = [
   { title: 'Authentication API', icon: Shield, desc: 'OAuth2, JWT flows, and SSO integration.' },
@@ -87,6 +89,7 @@ export default function Docs() {
           </motion.div>
         </div>
       </section>
+      <CallToAction />
     </div>
   );
 }

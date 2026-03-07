@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, MessageCircleQuestion } from 'lucide-react';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 const faqs = [
   {
@@ -90,6 +92,7 @@ export default function FAQ() {
           </a>
         </div>
       </section>
+      <CallToAction />
     </div>
   );
 }

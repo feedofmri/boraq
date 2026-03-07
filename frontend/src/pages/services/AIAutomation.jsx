@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 import { Cpu, Bot, Zap, Network } from 'lucide-react';
+import Testimonials from '../../components/sections/Testimonials';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 const capabilities = [
   { title: 'Generative AI Integration', desc: 'Securely implementing LLMs into your existing SaaS products.', icon: Bot },
@@ -83,6 +86,8 @@ export default function AIAutomation() {
           ))}
         </div>
       </section>
+      <Testimonials />
+      <CallToAction />
     </div>
   );
 }

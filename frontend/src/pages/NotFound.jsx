@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Terminal, Home, ArrowLeft } from 'lucide-react';
+import CallToAction from '../components/sections/CallToAction';
+
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function NotFound() {
@@ -46,6 +48,7 @@ export default function NotFound() {
           </div>
         </motion.div>
       </div>
+      <CallToAction />
     </div>
   );
 }

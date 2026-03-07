@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Github, Star, GitFork, ArrowUpRight } from 'lucide-react';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 const repos = [
   { name: 'boraq/react-use-motion', desc: 'A collection of custom React hooks bridging Framer Motion and intersection observers.', stars: '4.2k', forks: '342', lang: 'TypeScript' },
@@ -79,6 +81,7 @@ export default function OpenSource() {
           </button>
         </div>
       </section>
+      <CallToAction />
     </div>
   );
 }

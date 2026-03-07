@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 import { Cpu, Wifi, ShieldCheck, Activity } from 'lucide-react';
+import Testimonials from '../../components/sections/Testimonials';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 const features = [
   { title: 'IoT Architecture', desc: 'Secure, low-latency data pipelines connecting physical sensors to the cloud.', icon: Wifi },
@@ -86,6 +89,8 @@ export default function SmartDevice() {
           </div>
         </div>
       </section>
+      <Testimonials />
+      <CallToAction />
     </div>
   );
 }

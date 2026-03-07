@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 import { Eye, Mic, Fingerprint, Expand } from 'lucide-react';
+import Testimonials from '../../components/sections/Testimonials';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 const technologies = [
   { title: 'Optical Character Recognition', desc: 'Extracting structured data from unstructured physical documents.', icon: Expand },
@@ -92,6 +95,8 @@ export default function VisionSpeech() {
           </div>
         </div>
       </section>
+      <Testimonials />
+      <CallToAction />
     </div>
   );
 }

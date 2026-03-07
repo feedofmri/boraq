@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 import { Blocks, Key, Globe, Lock } from 'lucide-react';
+import Testimonials from '../../components/sections/Testimonials';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 const web3Features = [
   { title: 'Smart Contracts', desc: 'Audited, gas-optimized Solidity contracts for DeFi and NFT platforms.', icon: Blocks },
@@ -71,6 +74,8 @@ export default function Web3() {
           ))}
         </div>
       </section>
+      <Testimonials />
+      <CallToAction />
     </div>
   );
 }

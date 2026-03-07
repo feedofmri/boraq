@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { BookOpen, Play, Code, Award } from 'lucide-react';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 export default function Learning() {
   return (
@@ -90,6 +92,7 @@ export default function Learning() {
           </div>
         </div>
       </section>
+      <CallToAction />
     </div>
   );
 }

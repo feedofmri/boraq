@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 import { PenTool, Layers, Palette, MonitorPlay } from 'lucide-react';
+import Testimonials from '../../components/sections/Testimonials';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 const focusAreas = [
   { title: 'Brand Identity', desc: 'Crafting memorable, distinct visual languages that define market leaders.', icon: Palette },
@@ -79,6 +82,8 @@ export default function UIBranding() {
           ))}
         </div>
       </section>
+      <Testimonials />
+      <CallToAction />
     </div>
   );
 }

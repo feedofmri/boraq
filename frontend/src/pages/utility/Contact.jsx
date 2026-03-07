@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 export default function Contact() {
   return (
@@ -81,6 +83,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      <CallToAction />
     </div>
   );
 }

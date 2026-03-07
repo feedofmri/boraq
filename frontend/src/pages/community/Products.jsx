@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Package, Smartphone, ArrowRight } from 'lucide-react';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 const products = [
   {
@@ -74,6 +76,7 @@ export default function Products() {
           ))}
         </div>
       </section>
+      <CallToAction />
     </div>
   );
 }

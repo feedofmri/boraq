@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Linkedin, Twitter, Github } from 'lucide-react';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 const team = [
   {
@@ -96,6 +98,7 @@ export default function OurTeam() {
           ))}
         </div>
       </section>
+      <CallToAction />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import CallToAction from '../../components/sections/CallToAction';
 import { motion } from 'framer-motion';
 
 // Reusing the same LegalLayout structure locally for consistency

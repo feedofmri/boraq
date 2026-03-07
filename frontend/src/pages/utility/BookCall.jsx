@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Calendar, Clock, Video, ArrowRight } from 'lucide-react';
+import CallToAction from '../../components/sections/CallToAction';
+
 
 export default function BookCall() {
   return (
@@ -94,6 +96,7 @@ export default function BookCall() {
 
         </div>
       </section>
+      <CallToAction />
     </div>
   );
 }

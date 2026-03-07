@@ -1,3 +1,4 @@
+import CallToAction from '../../components/sections/CallToAction';
 import { motion } from 'framer-motion';
 
 const LegalLayout = ({ title, lastUpdated, children }) => {

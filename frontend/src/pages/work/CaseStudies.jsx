@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, BarChart3, Clock, Zap } from 'lucide-react';
+import CallToAction from '../../components/sections/CallToAction';
+
 import { Link } from 'react-router-dom';
 
 const cases = [
@@ -117,6 +119,7 @@ export default function CaseStudies() {
           ))}
         </div>
       </section>
+      <CallToAction />
     </div>
   );
 }
