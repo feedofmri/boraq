@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Quote } from 'lucide-react';
+import { Quote, Calendar, Award } from 'lucide-react';
 
 export default function FoundersNote() {
     return (
@@ -15,12 +15,21 @@ export default function FoundersNote() {
                             <div className="absolute inset-0 bg-gradient-to-t from-boraq-black/80 via-boraq-black/20 to-transparent z-10" />
                             <img
                                 src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
-                                alt="Founder"
+                                alt="Arifur Rahman - Founder & CEO"
                                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                             />
                             <div className="absolute bottom-6 left-6 right-6 z-20 text-boraq-white">
                                 <div className="font-bold text-xl">Arifur Rahman</div>
-                                <div className="text-boraq-white/70 text-sm">Founder & CEO</div>
+                                <div className="text-boraq-white/70 text-sm mb-3">Founder & CEO</div>
+                                {/* Personal credentials */}
+                                <div className="flex flex-wrap gap-2">
+                                    <span className="inline-flex items-center gap-1 text-xs bg-boraq-white/10 backdrop-blur-sm px-2 py-1 rounded-full">
+                                        <Calendar className="w-3 h-3" /> Founded 2019
+                                    </span>
+                                    <span className="inline-flex items-center gap-1 text-xs bg-boraq-white/10 backdrop-blur-sm px-2 py-1 rounded-full">
+                                        <Award className="w-3 h-3" /> 10+ yrs in tech
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -42,6 +51,19 @@ export default function FoundersNote() {
                                 </p>
                                 <p>
                                     Behind every line of code we write is a team of dedicated humans who care about your business goals. We succeed when you succeed. Our technical excellence is just the foundation; our true value lies in how we work with you to solve complex challenges together.
+                                </p>
+                            </div>
+
+                            {/* Personal signature */}
+                            <div className="mt-8 pt-8 border-t border-boraq-gray-silver/20 dark:border-boraq-teal-deep/20">
+                                <div className="font-serif italic text-3xl text-boraq-teal-steel mb-2 select-none" style={{ fontFamily: "'Georgia', serif" }}>
+                                    — Arifur Rahman
+                                </div>
+                                <p className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
+                                    I personally review every project inquiry. Reach me directly at{' '}
+                                    <a href="mailto:arifur@boraq.dev" className="text-boraq-teal-steel hover:underline font-medium">
+                                        arifur@boraq.dev
+                                    </a>
                                 </p>
                             </div>
                         </motion.div>

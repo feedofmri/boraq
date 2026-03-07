@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { PenTool, Layers, Palette, MonitorPlay } from 'lucide-react';
+import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
+import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
 import CallToAction from '../../components/sections/CallToAction';
 
@@ -10,6 +13,88 @@ const focusAreas = [
   { title: 'UX/UI Design', desc: 'Intuitive, conversion-optimized interfaces for web and mobile.', icon: MonitorPlay },
   { title: 'Prototyping', desc: 'High-fidelity, interactive models to validate concepts before code.', icon: PenTool },
 ];
+
+const shapeColors = [
+  'bg-blue-400 shadow-blue-400/50',
+  'bg-pink-400 shadow-pink-400/50',
+  'bg-purple-500 shadow-purple-500/50',
+  'bg-yellow-400 shadow-yellow-400/50',
+  'bg-green-400 shadow-green-400/50',
+  'bg-orange-400 shadow-orange-400/50',
+  'bg-cyan-400 shadow-cyan-400/50',
+  'bg-red-400 shadow-red-400/50',
+];
+
+const initialShapes = [
+  { id: 0, x: 20, y: 20, size: 80, radius: 'rounded-2xl', colorIdx: 0, rotation: 0 },
+  { id: 1, x: 140, y: 60, size: 70, radius: 'rounded-full', colorIdx: 1, rotation: 0 },
+  { id: 2, x: 60, y: 160, size: 90, radius: 'rounded-tl-3xl rounded-br-3xl', colorIdx: 2, rotation: 0 },
+  { id: 3, x: 180, y: 180, size: 50, radius: 'rounded-lg', colorIdx: 3, rotation: 45 },
+  { id: 4, x: 30, y: 280, size: 60, radius: 'rounded-full', colorIdx: 4, rotation: 0 },
+  { id: 5, x: 160, y: 280, size: 65, radius: 'rounded-2xl', colorIdx: 5, rotation: 15 },
+];
+
+function DesignPlayground() {
+  const [shapes, setShapes] = useState(initialShapes);
+
+  const cycleColor = (id) => {
+    setShapes((prev) =>
+      prev.map((s) =>
+        s.id === id ? { ...s, colorIdx: (s.colorIdx + 1) % shapeColors.length } : s
+      )
+    );
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="md:row-span-2 rounded-[2.5rem] p-1 glass-panel-heavy overflow-hidden min-h-[500px] relative group"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-blue-500/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-2 rounded-[2.25rem] bg-boraq-white/50 dark:bg-boraq-black/50 backdrop-blur-xl border border-boraq-gray-silver/20 dark:border-boraq-teal-deep/10 p-6 flex flex-col">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h3 className="text-2xl font-bold text-boraq-black dark:text-boraq-white">Pixel Perfect.</h3>
+            <p className="text-boraq-gray-mid dark:text-boraq-gray-silver font-light text-xs mt-1">Drag shapes • Double-click to change color</p>
+          </div>
+          <div className="flex gap-1">
+            {shapeColors.slice(0, 6).map((c, i) => (
+              <div key={i} className={`w-3 h-3 rounded-full ${c.split(' ')[0]}`} />
+            ))}
+          </div>
+        </div>
+        <div className="flex-1 relative overflow-hidden rounded-2xl bg-boraq-black/[0.03] dark:bg-boraq-white/[0.02] border border-dashed border-boraq-gray-silver/15 dark:border-boraq-teal-deep/15">
+          {/* Grid lines */}
+          <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(0,0,0,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.3)_1px,transparent_1px)] bg-[size:40px_40px]" />
+
+          {shapes.map((shape) => (
+            <motion.div
+              key={shape.id}
+              drag
+              dragConstraints={{ top: 0, left: 0, right: 200, bottom: 300 }}
+              dragElastic={0.1}
+              whileDrag={{ scale: 1.15, zIndex: 50 }}
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ rotate: shape.rotation + 45 }}
+              onDoubleClick={() => cycleColor(shape.id)}
+              className={`absolute cursor-grab active:cursor-grabbing ${shape.radius} ${shapeColors[shape.colorIdx]} shadow-[0_0_25px] transition-colors duration-500`}
+              style={{
+                width: shape.size,
+                height: shape.size,
+                left: shape.x,
+                top: shape.y,
+                rotate: shape.rotation,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function UIBranding() {
   return (
@@ -25,32 +110,23 @@ export default function UIBranding() {
           <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-3xl mx-auto font-light leading-relaxed">
             We don't just make things look pretty. We engineer visual hierarchies, interaction models, and brand personalities that drive engagement and trust.
           </p>
+
+          {/* Human trust strip */}
+            <HeroTrustStrip
+              centered
+              lead={{
+                name: 'Sarah Jenkins',
+                role: 'Head of Product',
+                avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400',
+              }}
+            />
         </motion.div>
       </section>
 
       <section className="max-w-7xl mx-auto px-6 pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Visual Showcase Block */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="md:row-span-2 rounded-[2.5rem] p-1 glass-panel-heavy overflow-hidden min-h-[500px] relative group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-boraq-teal-steel/20 via-transparent to-boraq-teal-deep/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="absolute inset-2 rounded-[2.25rem] bg-boraq-white/50 dark:bg-boraq-black/50 backdrop-blur-xl border border-boraq-gray-silver/20 dark:border-boraq-teal-deep/10 p-8 flex flex-col justify-between">
-              <div>
-                <h3 className="text-3xl font-bold mb-4 text-boraq-black dark:text-boraq-white">Pixel Perfect.</h3>
-                <p className="text-boraq-gray-mid dark:text-boraq-gray-silver font-light">Every detail meticulously scrutinized.</p>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-16 h-16 rounded-2xl bg-boraq-black dark:bg-boraq-white shadow-2xl animate-bounce" style={{ animationDuration: '3s' }} />
-                <div className="w-16 h-16 rounded-full bg-boraq-teal-steel/80 shadow-[0_0_30px_rgba(130,169,180,0.5)] animate-bounce" style={{ animationDelay: '0.2s', animationDuration: '3s' }} />
-                <div className="w-16 h-16 rounded-tl-2xl rounded-br-2xl bg-boraq-gray-mid/50 backdrop-blur shadow-xl animate-bounce" style={{ animationDelay: '0.4s', animationDuration: '3s' }} />
-              </div>
-            </div>
-          </motion.div>
+          {/* Interactive Design Playground */}
+          <DesignPlayground />
 
           {focusAreas.slice(0, 2).map((area, i) => (
             <motion.div
@@ -82,6 +158,31 @@ export default function UIBranding() {
           ))}
         </div>
       </section>
+
+      {/* NEW: Human trust section */}
+      <ServiceHumanSection
+        teamLead={{
+          name: 'Sarah Jenkins',
+          role: 'Head of Product',
+          avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400',
+          bio: 'Former product lead at Spotify. 8+ years creating interfaces that millions love. Sarah leads every design engagement personally, from first wireframe to final handoff.',
+          funFact: 'Coffee enthusiast & marathon runner',
+        }}
+        testimonial={{
+          quote: 'Their UI/UX team transformed our complex enterprise software into an intuitive dashboard that our employees actually love using.',
+          author: 'Marcus Johnson',
+          role: 'VP Operations, OmniCorp',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200',
+          result: '3x productivity boost',
+        }}
+        stats={[
+          { label: 'Interfaces Designed', value: '200+' },
+          { label: 'Avg. Conversion Lift', value: '47%' },
+          { label: 'Design Awards', value: '8' },
+        ]}
+        processNote="Sarah personally leads every design sprint — you'll review live prototypes together in weekly sessions."
+      />
+
       <Testimonials />
       <CallToAction />
     </div>

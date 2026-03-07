@@ -1,6 +1,13 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
+const teamAvatars = [
+    { name: 'Sarah', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100' },
+    { name: 'Michael', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100' },
+    { name: 'Elena', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=100' },
+    { name: 'Arifur', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100' },
+];
 
 export default function CallToAction() {
     return (
@@ -25,9 +32,22 @@ export default function CallToAction() {
                         Ready to transform your <span className="text-boraq-teal-steel">vision</span> into reality?
                     </h2>
 
-                    <p className="text-xl md:text-2xl text-boraq-gray-mid dark:text-boraq-gray-silver font-light mb-12 max-w-2xl mx-auto leading-relaxed">
-                        Stop waiting for the perfect moment. Schedule a complimentary technical consultation with our engineering architects today.
-                    </p>
+                    {/* Personal founder micro-quote */}
+                    <div className="glass-panel rounded-2xl px-6 py-4 max-w-xl mx-auto mb-8 text-left">
+                        <p className="text-base italic text-boraq-gray-mid dark:text-boraq-gray-silver">
+                            "I personally review every project inquiry to ensure we're the right fit for your vision."
+                        </p>
+                        <div className="flex items-center gap-3 mt-3">
+                            <img
+                                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100"
+                                alt="Arifur Rahman"
+                                className="w-8 h-8 rounded-full object-cover"
+                            />
+                            <span className="text-sm font-bold text-boraq-black dark:text-boraq-white">
+                                Arifur Rahman, <span className="font-normal text-boraq-teal-steel">Founder</span>
+                            </span>
+                        </div>
+                    </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <Link to="/book-a-call" className="h-14 px-8 rounded-full bg-boraq-black text-boraq-white dark:bg-boraq-white dark:text-boraq-black font-bold text-lg hover:scale-105 transition-all duration-300 flex items-center gap-2 group shadow-xl shadow-boraq-teal-deep/10">
@@ -37,6 +57,38 @@ export default function CallToAction() {
                         <Link to="/portfolio" className="h-14 px-8 rounded-full glass-panel-heavy border-boraq-gray-silver/30 dark:border-boraq-teal-deep/30 text-boraq-black dark:text-boraq-white font-bold text-lg hover:scale-105 transition-all duration-300 flex items-center justify-center">
                             View Portfolio
                         </Link>
+                    </div>
+
+                    {/* Team avatars + response time — human trust signals */}
+                    <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+                        <div className="flex items-center">
+                            <div className="flex -space-x-3">
+                                {teamAvatars.map((member, idx) => (
+                                    <img
+                                        key={idx}
+                                        src={member.image}
+                                        alt={member.name}
+                                        className="w-10 h-10 rounded-full border-2 border-boraq-white dark:border-boraq-black object-cover"
+                                    />
+                                ))}
+                            </div>
+                            <p className="ml-4 text-sm text-boraq-gray-mid dark:text-boraq-gray-silver text-left">
+                                <span className="font-bold text-boraq-black dark:text-boraq-white">You'll work with senior architects</span><br />
+                                Not outsourced or junior devs
+                            </p>
+                        </div>
+
+                        <div className="w-px h-10 bg-boraq-gray-silver/20 dark:bg-boraq-teal-deep/20 hidden sm:block" />
+
+                        <div className="flex items-center gap-2">
+                            <div className="relative">
+                                <Clock className="w-5 h-5 text-boraq-teal-steel" />
+                                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-green-500 rounded-full" />
+                            </div>
+                            <p className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
+                                <span className="font-bold text-boraq-black dark:text-boraq-white">Avg. response: 2 hours</span>
+                            </p>
+                        </div>
                     </div>
 
                     <p className="mt-8 text-sm text-boraq-gray-mid/60 dark:text-boraq-gray-silver/40 font-medium">

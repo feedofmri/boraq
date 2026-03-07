@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, MonitorSmartphone, Brush, BrainCircuit, Mic, Watch, Link as LinkIcon } from 'lucide-react';
+import { ArrowRight, MonitorSmartphone, Brush, BrainCircuit, Mic, Watch, Link as LinkIcon, Users, Check } from 'lucide-react';
 
 const services = [
     {
@@ -9,6 +9,9 @@ const services = [
         desc: 'High-performance, scalable applications engineered for iOS, Android, and Web.',
         link: '/services/web-app',
         colSpan: 'col-span-1 md:col-span-2 lg:col-span-2',
+        lead: { name: 'Michael Chang', role: 'CTO', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100' },
+        projectCount: '60+',
+        clientResult: 'Built NovaBank\'s platform — scaled to 1M users',
     },
     {
         icon: Brush,
@@ -16,6 +19,9 @@ const services = [
         desc: 'Strategic design that converts visitors into loyal customers through intuitive interfaces.',
         link: '/services/ui-branding',
         colSpan: 'col-span-1',
+        lead: { name: 'Sarah Jenkins', role: 'Product Lead', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100' },
+        projectCount: '45+',
+        clientResult: '3x conversion lift for OmniCorp',
     },
     {
         icon: BrainCircuit,
@@ -23,6 +29,9 @@ const services = [
         desc: 'Custom machine learning models to automate workflows and unlock data insights.',
         link: '/services/ai-automation',
         colSpan: 'col-span-1',
+        lead: { name: 'Elena Rodriguez', role: 'AI Lead', avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=100' },
+        projectCount: '30+',
+        clientResult: '40% cost reduction for HealthSync',
     },
     {
         icon: Mic,
@@ -30,6 +39,9 @@ const services = [
         desc: 'Advanced computer vision and NLP solutions for complex enterprise challenges.',
         link: '/services/vision-speech',
         colSpan: 'col-span-1 md:col-span-2 lg:col-span-1',
+        lead: { name: 'Elena Rodriguez', role: 'AI Lead', avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=100' },
+        projectCount: '15+',
+        clientResult: '99.8% accuracy for MediScan',
     },
     {
         icon: Watch,
@@ -37,13 +49,19 @@ const services = [
         desc: 'IoT integrations bridging software with hardware for connected ecosystems.',
         link: '/services/smart-device',
         colSpan: 'col-span-1',
+        lead: { name: 'Michael Chang', role: 'CTO', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100' },
+        projectCount: '20+',
+        clientResult: '12ms latency for UrbanGrid IoT',
     },
     {
-        icon: Link,
+        icon: LinkIcon,
         title: 'Web3 & Blockchain',
         desc: 'Secure distributed ledger technologies and smart contract development.',
         link: '/services/web3',
         colSpan: 'col-span-1 md:col-span-3 lg:col-span-1',
+        lead: { name: 'David Kim', role: 'Growth Director', avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=100' },
+        projectCount: '12+',
+        clientResult: '$50M+ TVL secured across protocols',
     },
 ];
 
@@ -63,9 +81,9 @@ export default function ServicesPreview() {
                         We deliver end-to-end digital solutions that transform complex business problems into elegant competitive advantages.
                     </p>
                 </div>
-                <button className="flex items-center gap-2 text-boraq-black dark:text-boraq-white font-bold hover:gap-4 transition-all w-max whitespace-nowrap hidden md:flex group">
+                <Link to="/services/web-app" className="hidden md:flex items-center gap-2 text-boraq-black dark:text-boraq-white font-bold hover:gap-4 transition-all w-max whitespace-nowrap group">
                     View All Services <ArrowRight className="w-5 h-5 group-hover:text-boraq-teal-steel transition-colors" />
-                </button>
+                </Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-fr">
@@ -78,7 +96,7 @@ export default function ServicesPreview() {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         className={`glass-panel p-8 rounded-[2rem] group hover:border-boraq-teal-steel/40 transition-colors flex flex-col ${service.colSpan}`}
                     >
-                        <div className="flex justify-between items-start mb-12">
+                        <div className="flex justify-between items-start mb-6">
                             <div className="w-14 h-14 rounded-2xl bg-boraq-teal-deep/10 flex items-center justify-center text-boraq-teal-steel group-hover:scale-110 group-hover:bg-boraq-teal-deep group-hover:text-boraq-white transition-all duration-300">
                                 <service.icon className="w-7 h-7" />
                             </div>
@@ -87,19 +105,43 @@ export default function ServicesPreview() {
                             </Link>
                         </div>
 
-                        <div className="mt-auto">
+                        <div className="flex-1">
                             <h3 className="text-2xl font-bold mb-3 text-boraq-black dark:text-boraq-white">{service.title}</h3>
-                            <p className="text-boraq-gray-mid dark:text-boraq-gray-silver text-sm font-light leading-relaxed">
+                            <p className="text-boraq-gray-mid dark:text-boraq-gray-silver text-sm font-light leading-relaxed mb-4">
                                 {service.desc}
                             </p>
+
+                            {/* Client result micro-proof */}
+                            <p className="text-xs text-boraq-teal-steel font-medium mb-4 italic flex items-center gap-1">
+                                <Check className="w-3 h-3 shrink-0" /> {service.clientResult}
+                            </p>
+                        </div>
+
+                        {/* Human footer: team lead + project count */}
+                        <div className="mt-auto pt-4 border-t border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                                <img
+                                    src={service.lead.avatar}
+                                    alt={service.lead.name}
+                                    className="w-7 h-7 rounded-full object-cover"
+                                />
+                                <div>
+                                    <p className="text-xs font-bold text-boraq-black dark:text-boraq-white leading-tight">{service.lead.name}</p>
+                                    <p className="text-[10px] text-boraq-gray-mid dark:text-boraq-gray-silver">{service.lead.role}</p>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-1 text-xs text-boraq-gray-mid dark:text-boraq-gray-silver">
+                                <Users className="w-3 h-3" />
+                                <span className="font-bold text-boraq-black dark:text-boraq-white">{service.projectCount}</span> projects
+                            </div>
                         </div>
                     </motion.div>
                 ))}
             </div>
 
-            <button className="flex items-center gap-2 text-boraq-black dark:text-boraq-white font-bold hover:gap-4 transition-all w-max mt-8 md:hidden group">
+            <Link to="/services/web-app" className="flex items-center gap-2 text-boraq-black dark:text-boraq-white font-bold hover:gap-4 transition-all w-max mt-8 md:hidden group">
                 View All Services <ArrowRight className="w-5 h-5 group-hover:text-boraq-teal-steel transition-colors" />
-            </button>
+            </Link>
         </section>
     );
 }

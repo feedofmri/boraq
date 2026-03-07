@@ -1,25 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="003da927-7d00-4dc8-8987-3806b0dc596b" name="Changes" comment="" />
+    <list default="true" id="003da927-7d00-4dc8-8987-3806b0dc596b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/sections/HeroTrustStrip.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/sections/LiveActivity.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/sections/ServiceHero.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/sections/ServiceHumanSection.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/sections/TrustBadges.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/CallToAction.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/CallToAction.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ClientsTicker.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ClientsTicker.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ExpertTeam.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ExpertTeam.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/FloatingContact.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/FloatingContact.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/FoundersNote.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/FoundersNote.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ProcessTimeline.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ProcessTimeline.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ServicesPreview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ServicesPreview.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/StatsCounter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/StatsCounter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/Testimonials.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/Testimonials.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/AIAutomation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/AIAutomation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/SmartDevice.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/SmartDevice.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/UIBranding.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/UIBranding.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/VisionSpeech.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/VisionSpeech.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/Web3.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/Web3.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/WebApp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/WebApp.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_F:/Areas/Development/Projects/React/boraq" value="3Acj6Q1yupqItpsgzIhN1wkrahr" />
+    </persistenceIdMap>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "feedofmri"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/feedofmri/boraq.git",
+    "accountId": "7dcdd4c1-121a-49a5-aa19-73e0686d08f9"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="3Acj6Q1yupqItpsgzIhN1wkrahr" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -39,8 +101,12 @@
       <option name="presentableId" value="Default" />
       <updated>1772898578101</updated>
       <workItem from="1772898579588" duration="2000" />
+      <workItem from="1772911471114" duration="3391000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

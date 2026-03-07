@@ -1,5 +1,8 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Cpu, Wifi, ShieldCheck, Activity } from 'lucide-react';
+import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
+import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
 import CallToAction from '../../components/sections/CallToAction';
 
@@ -10,6 +13,139 @@ const features = [
   { title: 'Device Lifecycle', desc: 'OTA (Over-The-Air) firmware updates, provisioning, and fleet management.', icon: Activity },
   { title: 'Hardware Security', desc: 'End-to-end encryption and secure enclaves to protect sensitive telemetry.', icon: ShieldCheck },
 ];
+
+const deviceIcons = [Cpu, Wifi, Activity, ShieldCheck, Cpu, Wifi];
+const deviceColors = [
+  { on: 'border-cyan-400/40 bg-cyan-400/5', dot: 'bg-cyan-400', icon: 'text-cyan-400', glow: 'shadow-cyan-400/20' },
+  { on: 'border-green-400/40 bg-green-400/5', dot: 'bg-green-400', icon: 'text-green-400', glow: 'shadow-green-400/20' },
+  { on: 'border-purple-400/40 bg-purple-400/5', dot: 'bg-purple-400', icon: 'text-purple-400', glow: 'shadow-purple-400/20' },
+  { on: 'border-orange-400/40 bg-orange-400/5', dot: 'bg-orange-400', icon: 'text-orange-400', glow: 'shadow-orange-400/20' },
+  { on: 'border-pink-400/40 bg-pink-400/5', dot: 'bg-pink-400', icon: 'text-pink-400', glow: 'shadow-pink-400/20' },
+  { on: 'border-yellow-400/40 bg-yellow-400/5', dot: 'bg-yellow-400', icon: 'text-yellow-400', glow: 'shadow-yellow-400/20' },
+];
+
+function InteractiveTelemetry() {
+  const [devices, setDevices] = useState([
+    { id: 'V-8', online: true, temp: 42, signal: 4 },
+    { id: 'S-3', online: true, temp: 38, signal: 3 },
+    { id: 'M-1', online: false, temp: 0, signal: 0 },
+    { id: 'K-5', online: true, temp: 55, signal: 5 },
+    { id: 'R-2', online: true, temp: 31, signal: 4 },
+    { id: 'X-7', online: false, temp: 0, signal: 0 },
+  ]);
+  const [latency, setLatency] = useState(12);
+  const [sparkData, setSparkData] = useState([4, 6, 3, 8, 5, 7, 4, 9, 6, 3, 7, 5]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLatency(Math.floor(8 + Math.random() * 10));
+      setSparkData((prev) => [...prev.slice(1), Math.floor(2 + Math.random() * 8)]);
+      setDevices((prev) =>
+        prev.map((d) =>
+          d.online ? { ...d, temp: Math.floor(30 + Math.random() * 30), signal: Math.floor(2 + Math.random() * 4) } : d
+        )
+      );
+    }, 1500);
+    return () => clearInterval(interval);
+  }, []);
+
+  const toggleDevice = (id) => {
+    setDevices((prev) =>
+      prev.map((d) =>
+        d.id === id
+          ? { ...d, online: !d.online, temp: !d.online ? Math.floor(30 + Math.random() * 30) : 0, signal: !d.online ? 4 : 0 }
+          : d
+      )
+    );
+  };
+
+  const onlineCount = devices.filter((d) => d.online).length;
+  const sparkMax = Math.max(...sparkData);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="w-full aspect-square md:aspect-video lg:aspect-square max-w-xl mx-auto glass-panel-heavy rounded-[3rem] border border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 overflow-hidden flex flex-col"
+    >
+      {/* Header */}
+      <div className="px-6 py-4 border-b border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 flex justify-between items-center">
+        <div className="flex items-center gap-3">
+          <span className="text-xs font-mono text-boraq-gray-mid dark:text-boraq-gray-silver/60">FLEET DASHBOARD</span>
+          {/* Mini spark chart */}
+          <div className="flex items-end gap-[2px] h-4">
+            {sparkData.map((val, i) => (
+              <motion.div
+                key={i}
+                className="w-[3px] rounded-full bg-gradient-to-t from-cyan-400 to-blue-400"
+                animate={{ height: `${(val / sparkMax) * 100}%` }}
+                transition={{ duration: 0.3 }}
+              />
+            ))}
+          </div>
+        </div>
+        <span className="text-xs font-mono text-boraq-teal-steel flex items-center gap-1.5">
+          <span className={`w-2 h-2 rounded-full ${onlineCount > 0 ? 'bg-green-500' : 'bg-red-400'} animate-pulse`} />
+          {onlineCount}/{devices.length} ONLINE
+        </span>
+      </div>
+
+      {/* Devices grid */}
+      <div className="flex-1 p-4 flex flex-col justify-center">
+        <div className="grid grid-cols-3 gap-3">
+          {devices.map((device, idx) => {
+            const DeviceIcon = deviceIcons[idx % deviceIcons.length];
+            const colors = deviceColors[idx % deviceColors.length];
+            return (
+              <motion.button
+                key={device.id}
+                whileHover={{ scale: 1.06 }}
+                whileTap={{ scale: 0.94 }}
+                onClick={() => toggleDevice(device.id)}
+                className={`p-3 rounded-2xl border cursor-pointer text-left transition-all duration-300 ${
+                  device.online
+                    ? `${colors.on} shadow-lg ${colors.glow}`
+                    : 'border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 bg-boraq-black/5 dark:bg-boraq-white/5 opacity-40'
+                }`}
+              >
+                <div className="flex items-center justify-between mb-1.5">
+                  <DeviceIcon className={`w-4 h-4 ${device.online ? colors.icon : 'text-boraq-gray-mid'}`} />
+                  <span className={`w-2 h-2 rounded-full ${device.online ? colors.dot : 'bg-red-400'}`} />
+                </div>
+                <p className="text-xs font-bold font-mono text-boraq-black dark:text-boraq-white">{device.id}</p>
+                <div className="flex items-center justify-between mt-1">
+                  <p className="text-[9px] font-mono text-boraq-gray-mid dark:text-boraq-gray-silver">
+                    {device.online ? `${device.temp}°C` : 'OFF'}
+                  </p>
+                  {device.online && (
+                    <div className="flex gap-[2px]">
+                      {[...Array(5)].map((_, b) => (
+                        <div
+                          key={b}
+                          className={`w-[3px] rounded-full ${b < device.signal ? colors.dot : 'bg-boraq-gray-silver/20'}`}
+                          style={{ height: `${6 + b * 2}px` }}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </motion.button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="px-6 pb-4 text-center">
+        <p className="text-[11px] text-boraq-gray-mid dark:text-boraq-gray-silver/50 font-mono">
+          Click devices to toggle • Latency: <span className={latency < 12 ? 'text-green-400' : latency < 15 ? 'text-yellow-400' : 'text-orange-400'}>{latency}ms</span>
+        </p>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function SmartDevice() {
   return (
@@ -25,43 +161,25 @@ export default function SmartDevice() {
           <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-3xl mx-auto font-light leading-relaxed">
             We build the invisible infrastructure that powers smart cities, automated factories, and next-generation consumer electronics.
           </p>
+
+          {/* Human trust strip */}
+          <HeroTrustStrip
+            centered
+            lead={{
+              name: 'Michael Chang',
+              role: 'Chief Technical Officer',
+              avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400',
+            }}
+          />
         </motion.div>
       </section>
 
+      {/* Device Graphic + Features — original unique spinning rings visual */}
       <section className="max-w-7xl mx-auto px-6 pb-24">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Device Graphic Container */}
           <div className="flex-1 w-full order-2 lg:order-1">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="w-full aspect-square md:aspect-video lg:aspect-square max-w-xl mx-auto glass-panel-heavy rounded-[3rem] border border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 p-8 md:p-12 relative flex items-center justify-center overflow-hidden"
-            >
-              {/* Abstract Sensor Ring Background */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-3/4 h-3/4 rounded-full border border-dashed border-boraq-teal-steel/30 animate-[spin_20s_linear_infinite]" />
-                <div className="absolute w-1/2 h-1/2 rounded-full border border-dashed border-boraq-teal-steel/50 animate-[spin_15s_linear_infinite_reverse]" />
-              </div>
-
-              <div className="relative z-10 glass-panel p-8 rounded-[2rem] border border-boraq-teal-steel/30 bg-boraq-black/40 backdrop-blur-md shadow-2xl flex flex-col items-center gap-6">
-                <Cpu className="w-16 h-16 text-boraq-teal-steel" />
-                <div className="text-center">
-                  <div className="text-xs font-mono text-boraq-teal-steel/80 mb-2">TELEMETRY STREAM</div>
-                  <div className="text-3xl font-bold text-boraq-white tracking-widest">
-                    V-8 <span className="text-boraq-teal-steel animate-pulse">●</span> ONLINE
-                  </div>
-                </div>
-                <div className="w-full bg-boraq-black/40 rounded-full h-2 mt-4 overflow-hidden">
-                  <div className="bg-boraq-teal-steel h-full w-[85%] rounded-full shadow-[0_0_10px_rgba(130,169,180,0.8)]" />
-                </div>
-                <div className="w-full flex justify-between text-xs text-boraq-white/50 font-mono">
-                  <span>LATENCY: 12ms</span>
-                  <span>STATUS: OPTIMAL</span>
-                </div>
-              </div>
-            </motion.div>
+            <InteractiveTelemetry />
           </div>
 
           {/* Features List */}
@@ -89,6 +207,31 @@ export default function SmartDevice() {
           </div>
         </div>
       </section>
+
+      {/* NEW: Human trust section */}
+      <ServiceHumanSection
+        teamLead={{
+          name: 'Michael Chang',
+          role: 'Chief Technical Officer',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400',
+          bio: 'Ex-Google engineer who has architected IoT platforms processing millions of device events daily. Michael leads the hardware-software bridge, ensuring every integration is rock-solid.',
+          funFact: 'Weekend guitarist & open-source contributor',
+        }}
+        testimonial={{
+          quote: 'Their IoT architecture handles 50,000 concurrent device connections with 12ms latency. The infrastructure just works.',
+          author: 'Thomas Park',
+          role: 'VP Engineering, UrbanGrid',
+          avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200',
+          result: '12ms avg. latency',
+        }}
+        stats={[
+          { label: 'Devices Connected', value: '500K+' },
+          { label: 'Uptime SLA', value: '99.99%' },
+          { label: 'IoT Platforms Built', value: '20+' },
+        ]}
+        processNote="Michael personally reviews every device architecture before a single line of firmware ships."
+      />
+
       <Testimonials />
       <CallToAction />
     </div>

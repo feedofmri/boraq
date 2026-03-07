@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Cpu, Bot, Zap, Network } from 'lucide-react';
+import { Cpu, Bot, Zap, Network, Check, Trophy } from 'lucide-react';
+import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
+import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
 import CallToAction from '../../components/sections/CallToAction';
 
@@ -10,6 +13,104 @@ const capabilities = [
   { title: 'Workflow Automation', desc: 'Replacing manual bottlenecks with intelligent, condition-based triggers.', icon: Zap },
   { title: 'Neural Networks', desc: 'Custom deep learning models tailored to hyper-specific industry use cases.', icon: Network },
 ];
+
+const nodeColors = [
+  'bg-blue-400 shadow-blue-400/60',
+  'bg-purple-400 shadow-purple-400/60',
+  'bg-pink-400 shadow-pink-400/60',
+  'bg-cyan-400 shadow-cyan-400/60',
+  'bg-green-400 shadow-green-400/60',
+  'bg-yellow-400 shadow-yellow-400/60',
+  'bg-orange-400 shadow-orange-400/60',
+  'bg-red-400 shadow-red-400/60',
+  'bg-indigo-400 shadow-indigo-400/60',
+  'bg-teal-400 shadow-teal-400/60',
+  'bg-rose-400 shadow-rose-400/60',
+  'bg-violet-400 shadow-violet-400/60',
+  'bg-emerald-400 shadow-emerald-400/60',
+  'bg-amber-400 shadow-amber-400/60',
+  'bg-fuchsia-400 shadow-fuchsia-400/60',
+  'bg-sky-400 shadow-sky-400/60',
+];
+
+function InteractiveNeuralNet() {
+  const [activeNodes, setActiveNodes] = useState(new Set());
+  const trained = activeNodes.size >= 12;
+  const accuracy = Math.min(99.9, 42.0 + activeNodes.size * 4.8);
+
+  const toggleNode = (idx) => {
+    setActiveNodes((prev) => {
+      const next = new Set(prev);
+      if (next.has(idx)) next.delete(idx);
+      else next.add(idx);
+      return next;
+    });
+  };
+
+  return (
+    <div className="relative w-full max-w-md aspect-square">
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-blue-500/10 to-pink-500/10 blur-[100px] rounded-full animate-pulse" style={{ animationDuration: '4s' }} />
+      <div className="relative h-full w-full glass-panel-heavy rounded-[3rem] border border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 flex flex-col overflow-hidden">
+        {/* Header */}
+        <div className="px-6 pt-5 pb-3 border-b border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 flex justify-between items-center">
+          <span className="text-xs font-mono text-boraq-gray-mid dark:text-boraq-gray-silver/60">neural_net.model</span>
+          <span className={`text-xs font-mono font-bold ${trained ? 'text-green-400' : 'text-boraq-teal-steel'}`}>
+            {trained ? <span className="flex items-center justify-end gap-1"><Check className="w-3 h-3" /> TRAINED</span> : `${accuracy.toFixed(1)}% accuracy`}
+          </span>
+        </div>
+
+        {/* Progress bar */}
+        <div className="px-6 pt-3">
+          <div className="h-1.5 w-full rounded-full bg-boraq-gray-silver/10 dark:bg-boraq-teal-deep/10 overflow-hidden">
+            <motion.div
+              className={`h-full rounded-full ${trained ? 'bg-gradient-to-r from-green-400 to-emerald-400' : 'bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400'}`}
+              animate={{ width: `${(activeNodes.size / 16) * 100}%` }}
+              transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+            />
+          </div>
+        </div>
+
+        {/* 4×4 Grid */}
+        <div className="flex-1 flex items-center justify-center p-6">
+          <div className="grid grid-cols-4 gap-4">
+            {[...Array(16)].map((_, i) => (
+              <motion.button
+                key={i}
+                whileHover={{ scale: 1.4, rotate: 10 }}
+                whileTap={{ scale: 0.8, rotate: -10 }}
+                animate={activeNodes.has(i) ? { scale: [1, 1.2, 1] } : {}}
+                transition={activeNodes.has(i) ? { repeat: Infinity, duration: 2, repeatDelay: Math.random() * 2 } : {}}
+                onClick={() => toggleNode(i)}
+                className={`w-7 h-7 md:w-8 md:h-8 rounded-full cursor-pointer transition-all duration-300 ${
+                  activeNodes.has(i)
+                    ? `${nodeColors[i]} shadow-[0_0_18px]`
+                    : 'bg-boraq-gray-silver/20 dark:bg-boraq-teal-deep/20 hover:bg-boraq-gray-silver/40 dark:hover:bg-boraq-teal-deep/40'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="px-6 pb-5 text-center">
+          {trained ? (
+            <motion.p
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-[11px] text-green-400 font-mono font-bold flex items-center justify-center gap-1"
+            >
+              <Trophy className="w-3 h-3" /> Model trained! 99.9% accuracy achieved
+            </motion.p>
+          ) : (
+            <p className="text-[11px] text-boraq-gray-mid dark:text-boraq-gray-silver/50 font-mono">
+              Click neurons to train → {activeNodes.size}/16 active
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function AIAutomation() {
   return (
@@ -33,30 +134,19 @@ export default function AIAutomation() {
             <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver font-light leading-relaxed">
               We bridge the gap between AI research and enterprise reality. Deploy production-ready machine learning models that optimize efficiency and create new revenue streams.
             </p>
+
+            {/* Human trust strip */}
+            <HeroTrustStrip
+              lead={{
+                name: 'Elena Rodriguez',
+                role: 'Lead AI Engineer',
+                avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400',
+              }}
+            />
           </div>
 
           <div className="flex-1 w-full flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md aspect-square">
-              {/* Neural Network Graphic */}
-              <div className="absolute inset-0 bg-boraq-teal-deep/10 blur-[100px] rounded-full animate-pulse" style={{ animationDuration: '4s' }} />
-              <div className="relative h-full w-full glass-panel-heavy rounded-[3rem] border border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 p-12 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 opacity-20">
-                  {/* Abstract Grid Lines */}
-                  <div className="w-full h-full bg-[linear-gradient(rgba(130,169,180,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(130,169,180,0.1)_1px,transparent_1px)] bg-[size:20px_20px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_70%)]" />
-                </div>
-                <div className="relative z-10 grid grid-cols-3 gap-6">
-                  {[...Array(9)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: i * 0.1, repeat: Infinity, repeatType: 'reverse', repeatDelay: Math.random() * 2 }}
-                      className="w-4 h-4 rounded-full bg-boraq-teal-steel shadow-[0_0_15px_rgba(130,169,180,0.8)]"
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
+            <InteractiveNeuralNet />
           </div>
         </motion.div>
       </section>
@@ -86,6 +176,31 @@ export default function AIAutomation() {
           ))}
         </div>
       </section>
+
+      {/* NEW: Human trust section */}
+      <ServiceHumanSection
+        teamLead={{
+          name: 'Elena Rodriguez',
+          role: 'Lead AI Engineer',
+          avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400',
+          bio: 'PhD in Machine Learning from MIT. 12+ published papers. Elena personally designs every model architecture and ensures your AI solution is production-ready, not just a proof of concept.',
+          funFact: 'Watercolor painter & AI ethics advocate',
+        }}
+        testimonial={{
+          quote: 'The level of transparency is unprecedented. We felt like we had an in-house engineering team, not an external agency.',
+          author: 'Amanda Lee',
+          role: 'Founder, HealthSync',
+          avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200',
+          result: '40% cost reduction',
+        }}
+        stats={[
+          { label: 'ML Models Deployed', value: '30+' },
+          { label: 'Avg. Accuracy', value: '96.4%' },
+          { label: 'Data Points Processed', value: '2B+' },
+        ]}
+        processNote="Elena walks you through every model decision in plain language — no black boxes, full transparency."
+      />
+
       <Testimonials />
       <CallToAction />
     </div>

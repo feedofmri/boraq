@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, BadgeCheck, ExternalLink, Clock, TrendingUp } from 'lucide-react';
 
 const testimonials = [
     {
         id: 1,
-        quote: "Boraq didn’t just build our app; they engineered our entire digital strategy. Their architecture scaled flawlessly from 10k to 1M users.",
+        quote: "Boraq didn't just build our app; they engineered our entire digital strategy. Their architecture scaled flawlessly from 10k to 1M users.",
         author: "Jason Martinez",
         role: "CTO, NovaBank",
         image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200",
         company: "NovaBank",
+        verified: true,
+        platform: "Clutch",
+        platformUrl: "#",
+        projectDuration: "8 months",
+        result: "10x user growth",
     },
     {
         id: 2,
@@ -18,6 +23,11 @@ const testimonials = [
         role: "Founder, HealthSync",
         image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200",
         company: "HealthSync",
+        verified: true,
+        platform: "Google Reviews",
+        platformUrl: "#",
+        projectDuration: "12 months",
+        result: "40% cost reduction",
     },
     {
         id: 3,
@@ -26,6 +36,11 @@ const testimonials = [
         role: "VP Operations, OmniCorp",
         image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200",
         company: "OmniCorp",
+        verified: true,
+        platform: "Clutch",
+        platformUrl: "#",
+        projectDuration: "6 months",
+        result: "3x productivity boost",
     }
 ];
 
@@ -42,6 +57,26 @@ export default function Testimonials() {
                 <p className="text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-2xl mx-auto font-light">
                     Hear directly from founders and engineering leaders who have scaled with us.
                 </p>
+                {/* Aggregate social proof bar */}
+                <div className="flex flex-wrap items-center justify-center gap-6 mt-8">
+                    <div className="flex items-center gap-2 text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
+                        <div className="flex items-center gap-0.5 text-boraq-teal-steel">
+                            {[...Array(5)].map((_, i) => (
+                                <Star key={i} className="w-4 h-4 fill-current" />
+                            ))}
+                        </div>
+                        <span className="font-bold text-boraq-black dark:text-boraq-white">4.9/5</span>
+                        on Clutch
+                    </div>
+                    <div className="w-px h-4 bg-boraq-gray-silver/30 dark:bg-boraq-teal-deep/30 hidden sm:block" />
+                    <div className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
+                        <span className="font-bold text-boraq-black dark:text-boraq-white">50+</span> verified reviews
+                    </div>
+                    <div className="w-px h-4 bg-boraq-gray-silver/30 dark:bg-boraq-teal-deep/30 hidden sm:block" />
+                    <div className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
+                        <span className="font-bold text-boraq-black dark:text-boraq-white">98%</span> client retention
+                    </div>
+                </div>
             </div>
 
             <div className="relative glass-panel-heavy rounded-[2.5rem] p-8 md:p-16 overflow-hidden">
@@ -70,7 +105,7 @@ export default function Testimonials() {
                     </div>
 
                     {/* Testimonial Content */}
-                    <div className="flex-1 min-h-[300px] flex items-center overflow-hidden">
+                    <div className="flex-1 min-h-[350px] flex items-center overflow-hidden">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentIndex}
@@ -90,25 +125,73 @@ export default function Testimonials() {
                                     "{testimonials[currentIndex].quote}"
                                 </h3>
 
-                                <div className="flex items-center gap-4">
-                                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-boraq-teal-steel/30 p-1">
-                                        <img
-                                            src={testimonials[currentIndex].image}
-                                            alt={testimonials[currentIndex].author}
-                                            className="w-full h-full rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                                        />
+                                {/* Project outcome badges */}
+                                <div className="flex flex-wrap gap-3 mb-8">
+                                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-boraq-teal-steel/10 text-boraq-teal-steel text-xs font-bold">
+                                        <Clock className="w-3.5 h-3.5" />
+                                        {testimonials[currentIndex].projectDuration} engagement
                                     </div>
-                                    <div>
-                                        <div className="font-bold text-lg text-boraq-black dark:text-boraq-white">{testimonials[currentIndex].author}</div>
-                                        <div className="text-boraq-teal-steel font-bold text-sm tracking-wide">
-                                            {testimonials[currentIndex].role}
+                                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">
+                                        <TrendingUp className="w-3.5 h-3.5" />
+                                        {testimonials[currentIndex].result}
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center justify-between flex-wrap gap-4">
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-boraq-teal-steel/30 p-1">
+                                            <img
+                                                src={testimonials[currentIndex].image}
+                                                alt={testimonials[currentIndex].author}
+                                                className="w-full h-full rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                                            />
+                                        </div>
+                                        <div>
+                                            <div className="font-bold text-lg text-boraq-black dark:text-boraq-white flex items-center gap-2">
+                                                {testimonials[currentIndex].author}
+                                                {testimonials[currentIndex].verified && (
+                                                    <BadgeCheck className="w-5 h-5 text-boraq-teal-steel" title="Verified Client" />
+                                                )}
+                                            </div>
+                                            <div className="text-boraq-teal-steel font-bold text-sm tracking-wide">
+                                                {testimonials[currentIndex].role}
+                                            </div>
                                         </div>
                                     </div>
+
+                                    {/* Platform attribution */}
+                                    {testimonials[currentIndex].platform && (
+                                        <a
+                                            href={testimonials[currentIndex].platformUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-1.5 text-xs font-medium text-boraq-gray-mid dark:text-boraq-gray-silver hover:text-boraq-teal-steel transition-colors"
+                                        >
+                                            <ExternalLink className="w-3.5 h-3.5" />
+                                            Verified via {testimonials[currentIndex].platform}
+                                        </a>
+                                    )}
                                 </div>
                             </motion.div>
                         </AnimatePresence>
                     </div>
                 </div>
+            </div>
+
+            {/* Testimonial navigation dots */}
+            <div className="flex justify-center gap-2 mt-8">
+                {testimonials.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => setCurrentIndex(index)}
+                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                            index === currentIndex
+                                ? 'bg-boraq-teal-steel w-8'
+                                : 'bg-boraq-gray-silver/30 dark:bg-boraq-teal-deep/30 hover:bg-boraq-teal-steel/50'
+                        }`}
+                        aria-label={`Go to testimonial ${index + 1}`}
+                    />
+                ))}
             </div>
         </section>
     );

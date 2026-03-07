@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Code, Sparkles } from 'lucide-react';
+import { ArrowRight, Code, Sparkles, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Hero() {
@@ -18,6 +18,13 @@ export default function Hero() {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
     };
+
+    const teamFaces = [
+        'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=60',
+        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=60',
+        'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=60',
+        'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=60',
+    ];
 
     return (
         <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center pt-32 pb-12 md:pt-24 md:pb-0 overflow-hidden">
@@ -51,14 +58,49 @@ export default function Hero() {
                         <span className="text-sm font-medium tracking-wide text-boraq-black/80 dark:text-boraq-white/80">Next-Gen Software Agency</span>
                     </motion.div>
 
-                    {/* Main Headline */}
-                    <motion.h1
-                        variants={itemVariants}
-                        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] text-boraq-black dark:text-boraq-white"
-                    >
-                        Engineering the <br className="hidden md:block" />
-                        future of tech.
-                    </motion.h1>
+                    {/* Main Headline with walking cat */}
+                    <motion.div variants={itemVariants} className="relative inline-block w-full">
+                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] text-boraq-black dark:text-boraq-white">
+                            Engineering the <br className="hidden md:block" />
+                            future of tech.
+                        </h1>
+
+                        {/* Walking Cat */}
+                        <motion.div
+                            className="absolute pointer-events-none"
+                            style={{ bottom: '0.15em', left: 0 }}
+                            initial={{ x: '-40px', rotate: 0, opacity: 0 }}
+                            animate={{
+                                x: ['-40px', '105%', '115%', '115%'],
+                                opacity: [0, 1, 1, 0],
+                                rotate: [0, 0, 0, 180],
+                                y: [0, 0, 0, 80],
+                            }}
+                            transition={{
+                                duration: 6,
+                                delay: 2,
+                                times: [0, 0.7, 0.82, 1],
+                                ease: ['easeInOut', 'easeInOut', 'easeIn', 'easeIn'],
+                                repeat: Infinity,
+                                repeatDelay: 8,
+                            }}
+                        >
+                            {/* Cat body */}
+                            <motion.div
+                                className="relative"
+                                animate={{ y: [0, -3, 0] }}
+                                transition={{ duration: 0.4, repeat: Infinity, ease: 'easeInOut' }}
+                            >
+                                <Cat className="w-6 h-6 md:w-8 md:h-8 text-boraq-teal-steel" />
+                                {/* Tail wag */}
+                                <motion.div
+                                    className="absolute -left-2 top-0.5 w-3 h-[2px] md:w-4 md:h-[3px] bg-boraq-teal-steel rounded-full origin-right"
+                                    animate={{ rotate: [-20, 20, -20] }}
+                                    transition={{ duration: 0.6, repeat: Infinity, ease: 'easeInOut' }}
+                                />
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
 
                     {/* Subheadline */}
                     <motion.p
@@ -102,6 +144,31 @@ export default function Hero() {
                                 <span className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver mt-1">{stat.label}</span>
                             </div>
                         ))}
+                    </motion.div>
+
+                    {/* Social proof bar — human trust signal */}
+                    <motion.div variants={itemVariants} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
+                        <div className="flex items-center gap-3">
+                            <div className="flex -space-x-2">
+                                {teamFaces.map((src, i) => (
+                                    <img key={i} src={src} alt="" className="w-8 h-8 rounded-full border-2 border-boraq-white dark:border-boraq-black object-cover" />
+                                ))}
+                            </div>
+                            <span className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
+                                Meet the <span className="font-bold text-boraq-black dark:text-boraq-white">real humans</span> behind your project
+                            </span>
+                        </div>
+                        <div className="w-px h-5 bg-boraq-gray-silver/20 dark:bg-boraq-teal-deep/20 hidden sm:block" />
+                        <div className="flex items-center gap-1.5">
+                            <div className="flex gap-0.5 text-boraq-teal-steel">
+                                {[...Array(5)].map((_, i) => (
+                                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                                ))}
+                            </div>
+                            <span className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
+                                <span className="font-bold text-boraq-black dark:text-boraq-white">4.9/5</span> from 50+ reviews
+                            </span>
+                        </div>
                     </motion.div>
 
                 </motion.div>

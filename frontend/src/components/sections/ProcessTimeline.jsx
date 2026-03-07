@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Search, PenTool, Code, Rocket, RefreshCcw } from 'lucide-react';
+import { Search, PenTool, Code, Rocket, RefreshCcw, UserCheck, Video, MessageSquare } from 'lucide-react';
 
 const steps = [
     {
@@ -7,30 +7,40 @@ const steps = [
         title: 'Discovery & Strategy',
         description: 'We start by listening. We dive deep into your business goals, target audience, and technical constraints to formulate a roadmap.',
         timeline: 'Week 1-2',
+        humanTouch: 'You\'ll meet your dedicated project lead who stays with you from day one.',
+        touchIcon: UserCheck,
     },
     {
         icon: PenTool,
         title: 'UI/UX Design',
         description: 'Our design team creates wireframes and high-fidelity prototypes, focusing on user journeys and conversion optimization.',
         timeline: 'Week 3-5',
+        humanTouch: 'Live design review sessions with your direct feedback shaping every pixel.',
+        touchIcon: Video,
     },
     {
         icon: Code,
         title: 'Development & Engineering',
         description: 'We write clean, scalable code. You get full transparency with weekly sprint demos and access to staging environments.',
         timeline: 'Week 6-12+',
+        humanTouch: 'Weekly video demos — see real progress, ask questions, steer direction.',
+        touchIcon: Video,
     },
     {
         icon: Rocket,
         title: 'Testing & Launch',
         description: 'Rigorous QA testing ensures a bug-free experience. We handle the deployment architecture to ensure a smooth launch.',
         timeline: 'Week 13-14',
+        humanTouch: 'Joint launch call with our team — we celebrate milestones together.',
+        touchIcon: MessageSquare,
     },
     {
         icon: RefreshCcw,
         title: 'Growth & Iterate',
         description: 'Post-launch, we monitor analytics, gather user feedback, and iterate to continuously improve performance and ROI.',
         timeline: 'Ongoing',
+        humanTouch: 'Monthly strategy calls to align tech efforts with your business growth.',
+        touchIcon: MessageSquare,
     },
 ];
 
@@ -71,9 +81,19 @@ export default function ProcessTimeline() {
                                             </div>
                                         </div>
                                         <h3 className="text-2xl font-bold mb-3 text-boraq-black dark:text-boraq-white">{step.title}</h3>
-                                        <p className="text-boraq-gray-mid dark:text-boraq-gray-silver leading-relaxed">
+                                        <p className="text-boraq-gray-mid dark:text-boraq-gray-silver leading-relaxed mb-4">
                                             {step.description}
                                         </p>
+
+                                        {/* Human touchpoint callout */}
+                                        <div className={`flex items-start gap-3 pt-4 border-t border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 ${isEven ? '' : 'lg:flex-row-reverse lg:text-left'}`}>
+                                            <div className="w-8 h-8 rounded-full bg-boraq-teal-steel/10 flex items-center justify-center flex-shrink-0">
+                                                <step.touchIcon className="w-4 h-4 text-boraq-teal-steel" />
+                                            </div>
+                                            <p className="text-sm text-boraq-teal-steel font-medium leading-relaxed">
+                                                {step.humanTouch}
+                                            </p>
+                                        </div>
                                     </motion.div>
                                 </div>
 
@@ -94,6 +114,22 @@ export default function ProcessTimeline() {
                     })}
                 </div>
             </div>
+
+            {/* Human-first promise */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="mt-16 text-center"
+            >
+                <div className="inline-flex items-center gap-3 glass-panel px-6 py-4 rounded-2xl">
+                    <UserCheck className="w-5 h-5 text-boraq-teal-steel" />
+                    <p className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
+                        <span className="font-bold text-boraq-black dark:text-boraq-white">Every step includes direct access to our engineering leads</span> — no project managers as middlemen.
+                    </p>
+                </div>
+            </motion.div>
         </section>
     );
 }

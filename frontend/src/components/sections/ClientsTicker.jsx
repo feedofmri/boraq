@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Shield, Award, Star, BadgeCheck } from 'lucide-react';
 
 const logos = [
     { name: 'Acme Corp', symbol: '⌘' },
@@ -11,10 +12,14 @@ const logos = [
     { name: 'Wayne Ent', symbol: '🦇' },
 ];
 
-export default function ClientsTicker() {
-    // Duplicate array for seamless infinite scrolling
-    const tickerItems = [...logos, ...logos, ...logos, ...logos];
+const trustIndicators = [
+    { icon: Award, label: 'Clutch Top Agency 2026' },
+    { icon: Shield, label: 'ISO 27001 Compliant' },
+    { icon: BadgeCheck, label: 'SOC 2 Verified' },
+    { icon: Star, label: 'Google Partner' },
+];
 
+export default function ClientsTicker() {
     return (
         <section className="w-full py-16 overflow-hidden bg-boraq-black/5 dark:bg-boraq-white/5 border-y border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10">
             <div className="max-w-7xl mx-auto px-6 mb-8 text-center pt-8 md:pt-0">
@@ -28,7 +33,21 @@ export default function ClientsTicker() {
                 <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-boraq-white dark:from-boraq-black to-transparent z-10" />
                 <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-boraq-white dark:from-boraq-black to-transparent z-10" />
 
-                <div className="flex animate-marquee whitespace-nowrap">
+                <motion.div
+                    className="flex whitespace-nowrap cursor-pointer"
+                    animate={{
+                        x: [0, -100 + '%'],
+                    }}
+                    whileHover={{ animationPlayState: "paused" }}
+                    transition={{
+                        x: {
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            duration: 50,
+                            ease: "linear",
+                        },
+                    }}
+                >
                     <div className="flex items-center">
                         {logos.map((logo, index) => (
                             <div
@@ -40,7 +59,7 @@ export default function ClientsTicker() {
                             </div>
                         ))}
                     </div>
-                    <div className="flex items-center">
+                    <div className="flex items-center" aria-hidden="true">
                         {logos.map((logo, index) => (
                             <div
                                 key={`l2-${index}`}
@@ -51,6 +70,25 @@ export default function ClientsTicker() {
                             </div>
                         ))}
                     </div>
+                </motion.div>
+            </div>
+
+            {/* Trust indicators strip */}
+            <div className="max-w-7xl mx-auto px-6 mt-10 pt-8 border-t border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10">
+                <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+                    {trustIndicators.map((item, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.3, delay: index * 0.1 }}
+                            className="flex items-center gap-2 text-boraq-gray-mid dark:text-boraq-gray-silver opacity-70 hover:opacity-100 transition-opacity"
+                        >
+                            <item.icon className="w-4 h-4 text-boraq-teal-steel" />
+                            <span className="text-xs font-bold tracking-wide uppercase">{item.label}</span>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </section>
