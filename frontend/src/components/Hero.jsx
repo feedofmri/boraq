@@ -1,8 +1,103 @@
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Sparkles, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+/* ── Cute side-profile walking cat SVG ── */
+function WalkingCat() {
+    return (
+        <motion.div
+            className="relative"
+            animate={{ y: [0, -2, 0] }}
+            transition={{ duration: 0.3, repeat: Infinity, ease: 'easeInOut' }}
+        >
+            <svg width="28" height="22" viewBox="0 0 28 22" fill="none" className="text-boraq-teal-steel drop-shadow-sm">
+                {/* Tail — curvy, behind the body */}
+                <motion.path
+                    d="M3 10 Q0 4 2 1"
+                    stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round"
+                    animate={{ d: ['M3 10 Q0 4 2 1', 'M3 10 Q-1 6 4 2', 'M3 10 Q0 4 2 1'] }}
+                    transition={{ duration: 0.7, repeat: Infinity, ease: 'easeInOut' }}
+                />
+
+                {/* Body */}
+                <ellipse cx="12" cy="12" rx="8" ry="5" fill="currentColor" />
+
+                {/* Head */}
+                <circle cx="21" cy="8" r="5.5" fill="currentColor" />
+
+                {/* Left ear */}
+                <polygon points="17.5,4 19,0 20.5,3.5" fill="currentColor" />
+                {/* Right ear */}
+                <polygon points="22,3 23.5,-0.5 25,3" fill="currentColor" />
+                {/* Inner ear pink */}
+                <polygon points="18.2,3.8 19,1.2 19.8,3.5" fill="#f8a4b8" />
+                <polygon points="22.5,2.8 23.3,0.5 24.1,2.5" fill="#f8a4b8" />
+
+                {/* Eyes — big round cute eyes */}
+                <circle cx="20" cy="7" r="1.5" fill="white" />
+                <circle cx="24" cy="7" r="1.5" fill="white" />
+                <circle cx="20.5" cy="7" r="0.8" fill="#1a1a2e" />
+                <circle cx="24.5" cy="7" r="0.8" fill="#1a1a2e" />
+                {/* Eye shine */}
+                <circle cx="20.8" cy="6.4" r="0.3" fill="white" />
+                <circle cx="24.8" cy="6.4" r="0.3" fill="white" />
+
+                {/* Nose */}
+                <ellipse cx="26" cy="8.5" rx="0.8" ry="0.5" fill="#f8a4b8" />
+
+                {/* Mouth — little smile */}
+                <path d="M24.5 9.5 Q25.5 10.5 26.5 9.5" stroke="#1a1a2e" strokeWidth="0.4" fill="none" />
+
+                {/* Whiskers */}
+                <line x1="26" y1="8" x2="28" y2="7" stroke="currentColor" strokeWidth="0.3" opacity="0.4" />
+                <line x1="26" y1="9" x2="28" y2="9.5" stroke="currentColor" strokeWidth="0.3" opacity="0.4" />
+
+                {/* Front legs — alternating walk */}
+                <motion.line
+                    x1="16" y1="16" x2="15" y2="21"
+                    stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"
+                    animate={{ x2: [14, 17, 14] }}
+                    transition={{ duration: 0.3, repeat: Infinity, ease: 'easeInOut' }}
+                />
+                <motion.line
+                    x1="18" y1="16" x2="19" y2="21"
+                    stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"
+                    animate={{ x2: [20, 17, 20] }}
+                    transition={{ duration: 0.3, repeat: Infinity, ease: 'easeInOut', delay: 0.15 }}
+                />
+                {/* Back legs */}
+                <motion.line
+                    x1="7" y1="15" x2="6" y2="21"
+                    stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"
+                    animate={{ x2: [5, 8, 5] }}
+                    transition={{ duration: 0.3, repeat: Infinity, ease: 'easeInOut', delay: 0.15 }}
+                />
+                <motion.line
+                    x1="9" y1="15" x2="10" y2="21"
+                    stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"
+                    animate={{ x2: [11, 8, 11] }}
+                    transition={{ duration: 0.3, repeat: Infinity, ease: 'easeInOut' }}
+                />
+            </svg>
+        </motion.div>
+    );
+}
+
 export default function Hero() {
+    const badgeRef = useRef(null);
+    const [badgeWidth, setBadgeWidth] = useState(300);
+
+    useEffect(() => {
+        const measure = () => {
+            if (badgeRef.current) {
+                setBadgeWidth(badgeRef.current.offsetWidth);
+            }
+        };
+        measure();
+        window.addEventListener('resize', measure);
+        return () => window.removeEventListener('resize', measure);
+    }, []);
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -52,55 +147,45 @@ export default function Hero() {
                     animate="visible"
                     className="flex flex-col items-center text-center gap-6"
                 >
-                    {/* Badge */}
-                    <motion.div variants={itemVariants} className="glass-panel px-4 py-1.5 rounded-full inline-flex items-center gap-2 mb-4">
-                        <Sparkles className="w-4 h-4 text-boraq-teal-steel" />
-                        <span className="text-sm font-medium tracking-wide text-boraq-black/80 dark:text-boraq-white/80">Next-Gen Software Agency</span>
-                    </motion.div>
+                    {/* Badge with walking cat */}
+                    <motion.div variants={itemVariants} className="relative inline-block mb-4">
+                        <div ref={badgeRef} className="glass-panel px-4 py-1.5 rounded-full inline-flex items-center gap-2">
+                            <Sparkles className="w-4 h-4 text-boraq-teal-steel" />
+                            <span className="text-sm font-medium tracking-wide text-boraq-black/80 dark:text-boraq-white/80">Next-Gen Software Agency</span>
+                        </div>
 
-                    {/* Main Headline with walking cat */}
-                    <motion.div variants={itemVariants} className="relative inline-block w-full">
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] text-boraq-black dark:text-boraq-white">
-                            Engineering the <br className="hidden md:block" />
-                            future of tech.
-                        </h1>
-
-                        {/* Walking Cat */}
+                        {/* Walking Cat — walks on top of badge, falls off right edge */}
                         <motion.div
-                            className="absolute pointer-events-none"
-                            style={{ bottom: '0.15em', left: 0 }}
-                            initial={{ x: '-40px', rotate: 0, opacity: 0 }}
+                            className="absolute pointer-events-none z-20"
+                            style={{ top: '-20px', left: '-28px' }}
+                            initial={{ x: 0, opacity: 0 }}
                             animate={{
-                                x: ['-40px', '105%', '115%', '115%'],
+                                x: [0, badgeWidth, badgeWidth + 8, badgeWidth + 8],
                                 opacity: [0, 1, 1, 0],
-                                rotate: [0, 0, 0, 180],
-                                y: [0, 0, 0, 80],
+                                rotate: [0, 0, 0, 90],
+                                y: [0, 0, 0, 50],
                             }}
                             transition={{
-                                duration: 6,
-                                delay: 2,
-                                times: [0, 0.7, 0.82, 1],
-                                ease: ['easeInOut', 'easeInOut', 'easeIn', 'easeIn'],
+                                duration: 4.5,
+                                delay: 2.5,
+                                times: [0, 0.78, 0.9, 1],
+                                ease: 'linear',
                                 repeat: Infinity,
-                                repeatDelay: 8,
+                                repeatDelay: 12,
                             }}
                         >
-                            {/* Cat body */}
-                            <motion.div
-                                className="relative"
-                                animate={{ y: [0, -3, 0] }}
-                                transition={{ duration: 0.4, repeat: Infinity, ease: 'easeInOut' }}
-                            >
-                                <Cat className="w-6 h-6 md:w-8 md:h-8 text-boraq-teal-steel" />
-                                {/* Tail wag */}
-                                <motion.div
-                                    className="absolute -left-2 top-0.5 w-3 h-[2px] md:w-4 md:h-[3px] bg-boraq-teal-steel rounded-full origin-right"
-                                    animate={{ rotate: [-20, 20, -20] }}
-                                    transition={{ duration: 0.6, repeat: Infinity, ease: 'easeInOut' }}
-                                />
-                            </motion.div>
+                            <WalkingCat />
                         </motion.div>
                     </motion.div>
+
+                    {/* Main Headline */}
+                    <motion.h1
+                        variants={itemVariants}
+                        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] text-boraq-black dark:text-boraq-white"
+                    >
+                        Engineering the <br className="hidden md:block" />
+                        future of tech.
+                    </motion.h1>
 
                     {/* Subheadline */}
                     <motion.p

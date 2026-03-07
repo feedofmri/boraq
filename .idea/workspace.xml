@@ -5,32 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003da927-7d00-4dc8-8987-3806b0dc596b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/sections/HeroTrustStrip.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/sections/LiveActivity.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/sections/ServiceHero.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/sections/ServiceHumanSection.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/sections/TrustBadges.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/CallToAction.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/CallToAction.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ClientsTicker.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ClientsTicker.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ExpertTeam.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ExpertTeam.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/FloatingContact.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/FloatingContact.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/FoundersNote.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/FoundersNote.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ProcessTimeline.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ProcessTimeline.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ServicesPreview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ServicesPreview.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/StatsCounter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/StatsCounter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/Testimonials.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/Testimonials.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/AIAutomation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/AIAutomation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/SmartDevice.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/SmartDevice.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/UIBranding.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/UIBranding.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/VisionSpeech.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/VisionSpeech.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/Web3.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/Web3.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/WebApp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/WebApp.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1772898578101</updated>
       <workItem from="1772898579588" duration="2000" />
-      <workItem from="1772911471114" duration="3391000" />
+      <workItem from="1772911471114" duration="3704000" />
     </task>
     <servers />
   </component>
