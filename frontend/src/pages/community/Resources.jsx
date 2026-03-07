@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Download, FileText, LayoutTemplate, Palette } from 'lucide-react';
 import CallToAction from '../../components/sections/CallToAction';
+import Testimonials from '../../components/sections/Testimonials';
 
 
 const resources = [
@@ -57,6 +58,8 @@ export default function Resources() {
           ))}
         </div>
       </section>
+
+      <Testimonials />
       <CallToAction />
     </div>
   );

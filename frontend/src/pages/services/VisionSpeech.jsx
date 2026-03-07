@@ -21,13 +21,13 @@ export default function VisionSpeech() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel border border-boraq-cyan/20 text-boraq-cyan text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel border border-[#82A9B4]/20 text-boraq-teal-steel text-sm font-bold mb-6">
             Sensory Computing
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-            Machines that <br /> <span className="text-boraq-cyan italic">see and hear.</span>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-boraq-black dark:text-boraq-white">
+            Machines that <br /> <span className="text-boraq-teal-steel italic">see and hear.</span>
           </h1>
-          <p className="text-lg md:text-xl text-black/70 dark:text-white/70 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-3xl mx-auto font-light leading-relaxed">
             We build sophisticated computer vision and natural language processing pipelines that allow software to understand the physical world in real-time.
           </p>
         </motion.div>
@@ -47,12 +47,12 @@ export default function VisionSpeech() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="flex gap-6 group"
               >
-                <div className="mt-1 w-12 h-12 rounded-full glass-panel-heavy flex items-center justify-center shrink-0 border border-transparent group-hover:border-boraq-cyan/30 transition-colors duration-300">
-                  <tech.icon className="w-5 h-5 text-black/70 dark:text-white/70 group-hover:text-boraq-cyan transition-colors" />
+                <div className="mt-1 w-12 h-12 rounded-full glass-panel-heavy flex items-center justify-center shrink-0 border border-transparent group-hover:border-boraq-teal-steel/30 transition-colors duration-300">
+                  <tech.icon className="w-5 h-5 text-boraq-gray-mid dark:text-boraq-gray-silver group-hover:text-boraq-teal-steel transition-colors" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-boraq-cyan transition-colors">{tech.title}</h3>
-                  <p className="text-black/60 dark:text-white/60 leading-relaxed">{tech.desc}</p>
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-boraq-teal-steel transition-colors text-boraq-black dark:text-boraq-white">{tech.title}</h3>
+                  <p className="text-boraq-gray-mid dark:text-boraq-gray-silver leading-relaxed font-light">{tech.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -67,27 +67,27 @@ export default function VisionSpeech() {
               transition={{ duration: 0.7 }}
               className="w-full aspect-[4/5] glass-panel-heavy rounded-[3rem] p-8 md:p-12 relative overflow-hidden flex flex-col justify-between"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-white/5" />
+              <div className="absolute inset-0 bg-gradient-to-t from-boraq-black/20 to-transparent dark:from-boraq-white/5" />
 
               {/* Scanning Animation */}
-              <div className="absolute top-1/4 left-0 w-full h-[2px] bg-boraq-cyan shadow-[0_0_20px_rgba(6,182,212,1)] animate-[scan_3s_ease-in-out_infinite]" />
+              <div className="absolute top-1/4 left-0 w-full h-[2px] bg-boraq-teal-steel shadow-[0_0_20px_rgba(130,169,180,1)] animate-[scan_3s_ease-in-out_infinite]" />
 
               <div className="relative z-10 flex justify-between items-start">
-                <div className="px-3 py-1 rounded-full bg-black/50 dark:bg-black/50 backdrop-blur-md text-white text-xs font-mono border border-white/10">
+                <div className="px-3 py-1 rounded-full bg-boraq-black/50 dark:bg-boraq-black/50 backdrop-blur-md text-boraq-white text-xs font-bold font-mono border border-boraq-white/10">
                   ANALYSIS ACTIVE
                 </div>
-                <div className="px-3 py-1 rounded-full bg-boraq-cyan/20 text-boraq-cyan text-xs font-mono border border-boraq-cyan/30 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-boraq-cyan animate-pulse" />
+                <div className="px-3 py-1 rounded-full bg-boraq-teal-deep/20 text-boraq-teal-steel text-xs font-bold font-mono border border-boraq-teal-steel/30 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-boraq-teal-steel animate-pulse" />
                   99.8% ACCURACY
                 </div>
               </div>
 
               <div className="relative z-10">
-                <div className="border border-boraq-cyan/30 rounded-2xl p-6 bg-black/10 dark:bg-black/40 backdrop-blur-sm">
-                  <div className="space-y-3 font-mono text-sm text-boraq-cyan/80">
+                <div className="border border-boraq-teal-steel/30 rounded-2xl p-6 bg-boraq-black/10 dark:bg-boraq-black/40 backdrop-blur-sm">
+                  <div className="space-y-3 font-mono text-sm text-boraq-teal-steel/80">
                     <p>&gt; Target Acquired.</p>
                     <p>&gt; Processing bounding boxes...</p>
-                    <p className="text-white">&gt; Classification: Human Entity.</p>
+                    <p className="text-boraq-white">&gt; Classification: Human Entity.</p>
                   </div>
                 </div>
               </div>

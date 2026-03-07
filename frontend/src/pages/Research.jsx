@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Microscope, Database, Network, BrainCircuit, ArrowRight } from 'lucide-react';
 import CallToAction from '../components/sections/CallToAction';
+import ProcessTimeline from '../components/sections/ProcessTimeline';
+import StatsCounter from '../components/sections/StatsCounter';
 
 
 const researchAreas = [
@@ -29,14 +31,14 @@ export default function Research() {
     <div className="w-full pb-32">
       <section className="max-w-7xl mx-auto px-6 pt-12 pb-24 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel border border-boraq-cyan/20 text-boraq-cyan text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel border border-boraq-teal-steel/20 text-boraq-teal-steel text-sm font-bold mb-6">
             <Microscope className="w-4 h-4" />
             Innovation Lab
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-            Pushing the <span className="text-boraq-cyan italic">boundaries.</span>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-boraq-black dark:text-boraq-white">
+            Pushing the <span className="text-boraq-teal-steel italic">boundaries.</span>
           </h1>
-          <p className="text-lg md:text-xl text-black/70 dark:text-white/70 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-3xl mx-auto font-light leading-relaxed">
             The Boraq Research Hub is an internal sandbox dedicated to exploring bleeding-edge paradigms. This is where tomorrow's enterprise standards are codified today.
           </p>
         </motion.div>
@@ -53,21 +55,21 @@ export default function Research() {
               transition={{ duration: 0.6 }}
               className="glass-panel-heavy p-8 md:p-12 rounded-[2.5rem] h-full flex flex-col justify-between group overflow-hidden relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-boraq-cyan/10 to-transparent mix-blend-overlay z-0" />
+              <div className="absolute inset-0 bg-gradient-to-br from-boraq-teal-steel/10 to-transparent mix-blend-overlay z-0" />
               <div className="relative z-10">
-                <div className="text-sm font-bold text-boraq-cyan uppercase tracking-widest mb-4">Featured Paper • Q3 2026</div>
-                <h2 className="text-3xl md:text-5xl font-bold mb-6">The End of Manual QA: Synthetic User Synthesis via LLMs</h2>
-                <p className="text-lg text-black/70 dark:text-white/70 max-w-2xl mb-8 leading-relaxed">
+                <div className="text-[10px] font-bold text-boraq-teal-steel uppercase tracking-widest mb-4">Featured Paper • Q3 2026</div>
+                <h2 className="text-3xl md:text-5xl font-bold mb-6 text-boraq-black dark:text-boraq-white">The End of Manual QA: Synthetic User Synthesis via LLMs</h2>
+                <p className="text-lg text-boraq-gray-mid dark:text-boraq-gray-silver max-w-2xl mb-8 leading-relaxed font-light">
                   Our latest findings on deploying localized Language Models to generate hyper-realistic, adversarial user traffic against frontend architectures, effectively replacing 94% of manual regression testing bandwidth.
                 </p>
               </div>
 
-              <div className="relative z-10 flex items-center justify-between border-t border-black/10 dark:border-white/10 pt-6 mt-8">
+              <div className="relative z-10 flex items-center justify-between border-t border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 pt-6 mt-8">
                 <div className="flex -space-x-4">
-                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop" className="w-12 h-12 rounded-full border-2 border-black dark:border-white" alt="Researcher 1" />
-                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop" className="w-12 h-12 rounded-full border-2 border-black dark:border-white" alt="Researcher 2" />
+                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop" className="w-12 h-12 rounded-full border-2 border-boraq-white dark:border-boraq-black" alt="Researcher 1" />
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop" className="w-12 h-12 rounded-full border-2 border-boraq-white dark:border-boraq-black" alt="Researcher 2" />
                 </div>
-                <button className="glass-panel px-6 py-3 rounded-full flex items-center gap-2 hover:bg-boraq-cyan hover:text-black transition-colors font-medium">
+                <button className="glass-panel px-6 py-3 rounded-full flex items-center gap-2 hover:bg-boraq-teal-steel hover:text-boraq-black transition-colors font-bold text-sm tracking-widest uppercase">
                   Read Abstract <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -86,23 +88,27 @@ export default function Research() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="glass-panel p-6 rounded-3xl hover:border-boraq-cyan/30 transition-colors"
+                className="glass-panel p-6 rounded-3xl hover:border-boraq-teal-steel/30 transition-colors"
               >
                 <div className="flex justify-between items-start mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-boraq-cyan/10 flex items-center justify-center">
-                    <area.icon className="w-5 h-5 text-boraq-cyan" />
+                  <div className="w-10 h-10 rounded-xl bg-boraq-teal-steel/10 flex items-center justify-center">
+                    <area.icon className="w-5 h-5 text-boraq-teal-steel" />
                   </div>
-                  <div className={`text-xs px-2 py-1 rounded-full border ${area.status === 'In Production' ? 'border-green-500 text-green-500' : area.status === 'Active Trial' ? 'border-boraq-cyan text-boraq-cyan' : 'border-white/50 text-white/50'}`}>
+                  <div className={`text-[10px] px-2 py-1 rounded-full border font-bold tracking-widest uppercase ${area.status === 'In Production' ? 'border-green-500/50 text-green-500' : area.status === 'Active Trial' ? 'border-boraq-teal-steel/50 text-boraq-teal-steel' : 'border-boraq-gray-silver/50 text-boraq-gray-silver'}`}>
                     {area.status}
                   </div>
                 </div>
-                <h4 className="font-bold text-lg mb-2">{area.title}</h4>
-                <p className="text-sm text-black/60 dark:text-white/60">{area.desc}</p>
+                <h4 className="font-bold text-lg mb-2 text-boraq-black dark:text-boraq-white">{area.title}</h4>
+                <p className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver font-light leading-relaxed">{area.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+
+      <StatsCounter />
+      <ProcessTimeline />
+
       <CallToAction />
     </div>
   );

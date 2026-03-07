@@ -38,15 +38,15 @@ export default function Testimonials() {
     return (
         <section className="max-w-7xl mx-auto px-6 py-24">
             <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Don't Take Our <span className="text-boraq-cyan">Word For It</span></h2>
-                <p className="text-xl text-black/60 dark:text-white/60 max-w-2xl mx-auto font-light">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-boraq-black dark:text-boraq-white">Don't Take Our <span className="text-boraq-teal-steel">Word For It</span></h2>
+                <p className="text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-2xl mx-auto font-light">
                     Hear directly from founders and engineering leaders who have scaled with us.
                 </p>
             </div>
 
             <div className="relative glass-panel-heavy rounded-[2.5rem] p-8 md:p-16 overflow-hidden">
                 {/* Decorative Quote Mark */}
-                <div className="absolute top-10 left-10 text-boraq-cyan/10 text-[10rem] font-serif leading-none pointer-events-none select-none">
+                <div className="absolute top-10 left-10 text-boraq-teal-steel/10 text-[10rem] font-serif leading-none pointer-events-none select-none">
                     "
                 </div>
 
@@ -55,14 +55,14 @@ export default function Testimonials() {
                     <div className="flex gap-4 md:flex-col order-last md:order-first">
                         <button
                             onClick={prev}
-                            className="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:bg-boraq-cyan hover:text-black transition-colors focus:outline-none focus:ring-4 focus:ring-boraq-cyan/30"
+                            className="w-12 h-12 rounded-full glass-panel-heavy flex items-center justify-center hover:bg-boraq-black hover:text-boraq-white dark:hover:bg-boraq-white dark:hover:text-boraq-black transition-all focus:outline-none focus:ring-4 focus:ring-boraq-teal-steel/30"
                             aria-label="Previous testimonial"
                         >
                             <ChevronLeft className="w-6 h-6" />
                         </button>
                         <button
                             onClick={next}
-                            className="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:bg-boraq-cyan hover:text-black transition-colors focus:outline-none focus:ring-4 focus:ring-boraq-cyan/30"
+                            className="w-12 h-12 rounded-full glass-panel-heavy flex items-center justify-center hover:bg-boraq-black hover:text-boraq-white dark:hover:bg-boraq-white dark:hover:text-boraq-black transition-all focus:outline-none focus:ring-4 focus:ring-boraq-teal-steel/30"
                             aria-label="Next testimonial"
                         >
                             <ChevronRight className="w-6 h-6" />
@@ -80,27 +80,27 @@ export default function Testimonials() {
                                 transition={{ duration: 0.4, ease: "easeInOut" }}
                                 className="w-full"
                             >
-                                <div className="flex items-center gap-1 mb-6 text-yellow-400">
+                                <div className="flex items-center gap-1 mb-6 text-boraq-teal-steel">
                                     {[...Array(5)].map((_, i) => (
                                         <Star key={i} className="w-5 h-5 fill-current" />
                                     ))}
                                 </div>
 
-                                <h3 className="text-2xl md:text-4xl font-medium tracking-tight mb-8 leading-snug text-black dark:text-white">
+                                <h3 className="text-2xl md:text-4xl font-medium tracking-tight mb-8 leading-snug text-boraq-black dark:text-boraq-white">
                                     "{testimonials[currentIndex].quote}"
                                 </h3>
 
                                 <div className="flex items-center gap-4">
-                                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-boraq-cyan p-1">
+                                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-boraq-teal-steel/30 p-1">
                                         <img
                                             src={testimonials[currentIndex].image}
                                             alt={testimonials[currentIndex].author}
-                                            className="w-full h-full rounded-full object-cover"
+                                            className="w-full h-full rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                                         />
                                     </div>
                                     <div>
-                                        <div className="font-bold text-lg">{testimonials[currentIndex].author}</div>
-                                        <div className="text-boraq-cyan font-medium text-sm">
+                                        <div className="font-bold text-lg text-boraq-black dark:text-boraq-white">{testimonials[currentIndex].author}</div>
+                                        <div className="text-boraq-teal-steel font-bold text-sm tracking-wide">
                                             {testimonials[currentIndex].role}
                                         </div>
                                     </div>

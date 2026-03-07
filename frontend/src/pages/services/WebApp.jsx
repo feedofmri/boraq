@@ -42,32 +42,32 @@ export default function WebApp() {
           className="flex flex-col lg:flex-row gap-12 items-center"
         >
           <div className="flex-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel border border-boraq-cyan/20 text-boraq-cyan text-sm font-medium mb-6">
-              <span className="w-2 h-2 rounded-full bg-boraq-cyan animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel border border-[#82A9B4]/20 text-boraq-teal-steel text-sm font-bold mb-6">
+              <span className="w-2 h-2 rounded-full bg-boraq-teal-steel animate-pulse" />
               Core Expertise
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
-              Digital <br /> Experiences. <br /> <span className="text-boraq-cyan">Elevated.</span>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight text-boraq-black dark:text-boraq-white">
+              Digital <br /> Experiences. <br /> <span className="text-boraq-teal-steel">Elevated.</span>
             </h1>
-            <p className="text-lg md:text-xl text-black/70 dark:text-white/70 max-w-2xl font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-2xl font-light leading-relaxed">
               We architect and build premium web and mobile applications that dominate markets. From high-conversion SaaS platforms to seamless cross-platform mobile apps.
             </p>
           </div>
           <div className="flex-1 w-full">
             {/* Abstract Tech Graphic */}
             <div className="relative w-full aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 rounded-full bg-boraq-cyan/10 blur-3xl animate-pulse" />
-              <div className="relative h-full w-full glass-panel-heavy rounded-[2.5rem] border border-white/10 p-8 flex flex-col justify-between overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 rounded-full bg-boraq-teal-deep/10 blur-3xl animate-pulse" />
+              <div className="relative h-full w-full glass-panel-heavy rounded-[2.5rem] border border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 p-8 flex flex-col justify-between overflow-hidden shadow-2xl">
                 <div className="space-y-4">
-                  <div className="h-4 w-1/3 bg-black/10 dark:bg-white/10 rounded-full" />
-                  <div className="h-32 w-full bg-black/5 dark:bg-white/5 rounded-xl border border-black/5 dark:border-white/5 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-transparent via-boraq-cyan/10 to-transparent animate-[shimmer_2s_infinite]" />
+                  <div className="h-4 w-1/3 bg-boraq-black/10 dark:bg-boraq-white/10 rounded-full" />
+                  <div className="h-32 w-full bg-boraq-black/5 dark:bg-boraq-white/5 rounded-xl border border-boraq-black/5 dark:border-boraq-white/5 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-transparent via-boraq-teal-steel/10 to-transparent animate-[shimmer_2s_infinite]" />
                   </div>
-                  <div className="h-4 w-1/2 bg-black/10 dark:bg-white/10 rounded-full" />
+                  <div className="h-4 w-1/2 bg-boraq-black/10 dark:bg-boraq-white/10 rounded-full" />
                 </div>
                 <div className="flex gap-4">
-                  <div className="h-12 w-12 rounded-full bg-boraq-cyan/20 flex items-center justify-center">
-                    <Code2 className="w-6 h-6 text-boraq-cyan" />
+                  <div className="h-12 w-12 rounded-full bg-boraq-teal-deep/20 flex items-center justify-center">
+                    <Code2 className="w-6 h-6 text-boraq-teal-steel" />
                   </div>
                   <div className="h-12 flex-1 glass-panel rounded-full" />
                 </div>
@@ -87,13 +87,13 @@ export default function WebApp() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-panel p-8 md:p-12 rounded-3xl group hover:border-boraq-cyan/30 transition-colors duration-300"
+              className="glass-panel p-8 md:p-12 rounded-3xl group hover:border-boraq-teal-steel/30 transition-colors duration-300"
             >
-              <div className="w-14 h-14 rounded-2xl bg-boraq-cyan/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                <feature.icon className="w-7 h-7 text-boraq-cyan" />
+              <div className="w-14 h-14 rounded-2xl bg-boraq-teal-deep/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                <feature.icon className="w-7 h-7 text-boraq-teal-steel" />
               </div>
-              <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-              <p className="text-black/60 dark:text-white/60 leading-relaxed">
+              <h3 className="text-2xl font-bold mb-4 text-boraq-black dark:text-boraq-white">{feature.title}</h3>
+              <p className="text-boraq-gray-mid dark:text-boraq-gray-silver leading-relaxed font-light">
                 {feature.description}
               </p>
             </motion.div>
@@ -104,13 +104,13 @@ export default function WebApp() {
       {/* Tech Stack Marquee (Static Alternative) */}
       <section className="max-w-7xl mx-auto px-6 mb-24">
         <div className="glass-panel rounded-3xl p-12 text-center overflow-hidden relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-boraq-cyan/5 via-transparent to-boraq-cyan/5" />
-          <h3 className="text-xl font-medium mb-8 relative z-10">Technologies We Command</h3>
+          <div className="absolute inset-0 bg-gradient-to-r from-boraq-teal-deep/5 via-transparent to-boraq-teal-deep/5" />
+          <h3 className="text-xl font-bold mb-8 relative z-10 text-boraq-black dark:text-boraq-white">Technologies We Command</h3>
           <div className="flex flex-wrap justify-center gap-4 relative z-10">
             {techStack.map((tech) => (
               <span
                 key={tech}
-                className="px-6 py-3 rounded-full glass-panel-heavy border border-black/5 dark:border-white/5 text-sm font-medium hover:text-boraq-cyan transition-colors"
+                className="px-6 py-3 rounded-full glass-panel-heavy border border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 text-sm font-bold hover:text-boraq-teal-steel transition-colors"
               >
                 {tech}
               </span>

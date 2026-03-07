@@ -34,14 +34,14 @@ export default function FAQ() {
     <div className="w-full pb-32">
       <section className="max-w-7xl mx-auto px-6 pt-12 pb-24 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel border border-boraq-cyan/20 text-boraq-cyan text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel border border-boraq-teal-steel/20 text-boraq-teal-steel text-sm font-bold mb-6">
             <MessageCircleQuestion className="w-4 h-4" />
             Knowledge Base
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-            Frequently Asked <span className="text-boraq-cyan italic">Questions.</span>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-boraq-black dark:text-boraq-white">
+            Frequently Asked <span className="text-boraq-teal-steel italic">Questions.</span>
           </h1>
-          <p className="text-lg md:text-xl text-black/70 dark:text-white/70 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-3xl mx-auto font-light leading-relaxed">
             Radical transparency regarding our processes, pricing, and engineering methodology.
           </p>
         </motion.div>
@@ -56,16 +56,18 @@ export default function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="glass-panel rounded-2xl overflow-hidden border border-black/5 dark:border-white/5"
+              className="glass-panel rounded-2xl overflow-hidden border border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full text-left p-6 md:p-8 flex justify-between items-center gap-4 hover:bg-black/5 dark:hover:bg-white/5 transition-colors focus:outline-none"
+                className="w-full text-left p-6 md:p-8 flex justify-between items-center gap-4 hover:bg-boraq-black/5 dark:hover:bg-boraq-white/5 transition-colors focus:outline-none"
               >
-                <h3 className={`text-lg md:text-xl font-bold ${openIndex === i ? 'text-boraq-cyan' : ''} transition-colors`}>
+                <h3 className={`text-lg md:text-xl font-bold ${openIndex === i ? 'text-boraq-teal-steel' : 'text-boraq-black dark:text-boraq-white'} transition-colors`}>
                   {faq.question}
                 </h3>
-                <ChevronDown className={`w-6 h-6 shrink-0 transition-transform duration-300 ${openIndex === i ? 'rotate-180 text-boraq-cyan' : 'text-black/40 dark:text-white/40'}`} />
+                <span className={`transition-transform duration-300 ${openIndex === i ? 'rotate-180 text-boraq-teal-steel' : 'text-boraq-gray-mid'}`}>
+                  <ChevronDown className="w-6 h-6 shrink-0" />
+                </span>
               </button>
               <AnimatePresence>
                 {openIndex === i && (
@@ -75,7 +77,7 @@ export default function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="px-6 md:px-8 pb-8 text-black/70 dark:text-white/70 leading-relaxed border-t border-black/5 dark:border-white/5 pt-6 mt-2">
+                    <div className="px-6 md:px-8 pb-8 text-boraq-gray-mid dark:text-boraq-gray-silver leading-relaxed border-t border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 pt-6 mt-2 font-light">
                       {faq.answer}
                     </div>
                   </motion.div>
@@ -86,8 +88,8 @@ export default function FAQ() {
         </div>
 
         <div className="mt-16 text-center">
-          <p className="text-black/60 dark:text-white/60 mb-4">Still have a question?</p>
-          <a href="/contact" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-black dark:bg-white text-white dark:text-black font-bold hover:scale-[1.02] transition-transform">
+          <p className="text-boraq-gray-mid dark:text-boraq-gray-silver mb-4 font-bold text-[10px] uppercase tracking-widest">Still have a question?</p>
+          <a href="/contact" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-boraq-black dark:bg-boraq-white text-boraq-white dark:text-boraq-black font-bold text-sm tracking-widest uppercase hover:scale-[1.02] transition-transform">
             Reach out to our team
           </a>
         </div>

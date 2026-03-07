@@ -48,10 +48,10 @@ export default function StatsCounter() {
         <section className="max-w-7xl mx-auto px-6 py-24">
             <div className="glass-panel-heavy rounded-[2.5rem] p-12 relative overflow-hidden">
                 {/* Background Animation */}
-                <div className="absolute inset-0 bg-gradient-to-br from-boraq-cyan/10 via-transparent to-transparent opacity-50 pointer-events-none" />
-                <div className="absolute -top-24 -right-24 w-64 h-64 bg-boraq-cyan/20 blur-[100px] rounded-full" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#032F38]/20 via-transparent to-transparent opacity-50 pointer-events-none" />
+                <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#032F38]/20 blur-[100px] rounded-full" />
 
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 relative z-10 divide-x divide-black/10 dark:divide-white/10">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 relative z-10 divide-x divide-boraq-gray-silver/30 dark:divide-boraq-teal-deep/30">
                     {stats.map((stat, index) => (
                         <motion.div
                             key={index}
@@ -61,12 +61,12 @@ export default function StatsCounter() {
                             transition={{ duration: 0.5, delay: stat.delay }}
                             className="text-center px-4"
                         >
-                            <div className="flex items-baseline justify-center text-4xl md:text-5xl lg:text-6xl font-black mb-4">
-                                {stat.prefix && <span className="text-3xl text-boraq-cyan mr-1">{stat.prefix}</span>}
+                            <div className="flex items-baseline justify-center text-4xl md:text-5xl lg:text-6xl font-black mb-4 text-boraq-black dark:text-boraq-white">
+                                {stat.prefix && <span className="text-3xl text-boraq-teal-steel mr-1">{stat.prefix}</span>}
                                 <CountUp value={stat.value} />
-                                {stat.suffix && <span className="text-3xl text-boraq-cyan ml-1">{stat.suffix}</span>}
+                                {stat.suffix && <span className="text-3xl text-boraq-teal-steel ml-1">{stat.suffix}</span>}
                             </div>
-                            <p className="text-black/60 dark:text-white/60 font-medium tracking-wide uppercase text-sm">
+                            <p className="text-boraq-gray-mid dark:text-boraq-gray-silver font-bold tracking-widest uppercase text-xs">
                                 {stat.label}
                             </p>
                         </motion.div>

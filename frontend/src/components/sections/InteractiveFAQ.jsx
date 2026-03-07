@@ -34,19 +34,19 @@ export default function InteractiveFAQ() {
                 {/* Left: Text & CTA */}
                 <div className="lg:w-1/3 flex flex-col justify-between">
                     <div>
-                        <h2 className="text-4xl font-bold tracking-tight mb-6">Honest Answers to <span className="text-boraq-cyan">Hard Questions</span></h2>
-                        <p className="text-lg text-black/70 dark:text-white/70 mb-8 font-light">
+                        <h2 className="text-4xl font-bold tracking-tight mb-6 text-boraq-black dark:text-boraq-white">Honest Answers to <span className="text-boraq-teal-steel">Hard Questions</span></h2>
+                        <p className="text-lg text-boraq-gray-mid dark:text-boraq-gray-silver mb-8 font-light">
                             We believe in full transparency. Here are the most common questions our partners ask us before we start working together.
                         </p>
                     </div>
 
                     <div className="glass-panel p-8 rounded-3xl group">
-                        <MessageSquare className="w-10 h-10 text-boraq-cyan mb-4" />
-                        <h3 className="text-xl font-bold mb-2">Still have questions?</h3>
-                        <p className="text-black/60 dark:text-white/60 text-sm mb-6">
+                        <MessageSquare className="w-10 h-10 text-boraq-teal-steel mb-4" />
+                        <h3 className="text-xl font-bold mb-2 text-boraq-black dark:text-boraq-white">Still have questions?</h3>
+                        <p className="text-boraq-gray-mid dark:text-boraq-gray-silver text-sm mb-6">
                             Our technical architects are happy to jump on a no-pressure discovery call.
                         </p>
-                        <button className="w-full bg-boraq-dark dark:bg-white text-white dark:text-black py-4 rounded-xl font-medium hover:bg-boraq-cyan hover:text-black transition-colors duration-300">
+                        <button className="w-full bg-boraq-black dark:bg-boraq-white text-boraq-white dark:text-boraq-black py-4 rounded-xl font-bold hover:bg-boraq-teal-deep dark:hover:bg-boraq-teal-light transition-all duration-300">
                             Ask an Expert
                         </button>
                     </div>
@@ -60,16 +60,16 @@ export default function InteractiveFAQ() {
                         return (
                             <div
                                 key={index}
-                                className={`glass-panel rounded-2xl overflow-hidden transition-all duration-300 ${isOpen ? 'border-boraq-cyan/50 shadow-md' : 'hover:border-black/10 dark:hover:border-white/10'}`}
+                                className={`glass-panel rounded-2xl overflow-hidden transition-all duration-300 ${isOpen ? 'border-boraq-teal-steel/50 shadow-md' : 'hover:border-boraq-gray-silver/30 dark:hover:border-boraq-teal-deep/30'}`}
                             >
                                 <button
                                     className="w-full text-left px-8 py-6 flex items-center justify-between gap-4"
                                     onClick={() => setOpenIndex(isOpen ? -1 : index)}
                                 >
-                                    <span className={`font-medium text-lg ${isOpen ? 'text-boraq-cyan' : ''}`}>
+                                    <span className={`font-bold text-lg ${isOpen ? 'text-boraq-teal-steel' : 'text-boraq-black dark:text-boraq-white'}`}>
                                         {faq.question}
                                     </span>
-                                    <div className={`p-2 rounded-full transition-colors ${isOpen ? 'bg-boraq-cyan/10 text-boraq-cyan' : 'bg-black/5 dark:bg-white/5'}`}>
+                                    <div className={`p-2 rounded-full transition-colors ${isOpen ? 'bg-boraq-teal-deep/10 text-boraq-teal-steel' : 'bg-boraq-black/5 dark:bg-boraq-white/5 text-boraq-black dark:text-boraq-white'}`}>
                                         {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                                     </div>
                                 </button>
@@ -83,7 +83,7 @@ export default function InteractiveFAQ() {
                                             transition={{ duration: 0.3 }}
                                             className="px-8 pb-6"
                                         >
-                                            <p className="text-black/70 dark:text-white/70 font-light leading-relaxed pt-2 border-t border-black/5 dark:border-white/5">
+                                            <p className="text-boraq-gray-mid dark:text-boraq-gray-silver font-light leading-relaxed pt-2 border-t border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10">
                                                 {faq.answer}
                                             </p>
                                         </motion.div>

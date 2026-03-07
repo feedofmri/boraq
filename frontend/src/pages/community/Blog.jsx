@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import CallToAction from '../../components/sections/CallToAction';
+import Testimonials from '../../components/sections/Testimonials';
 
 
 const posts = [
@@ -35,10 +37,10 @@ export default function Blog() {
     <div className="w-full pb-32">
       <section className="max-w-7xl mx-auto px-6 pt-12 pb-24 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-            Transmission <span className="text-boraq-cyan italic">Signals.</span>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-boraq-black dark:text-boraq-white">
+            Transmission <span className="text-boraq-teal-steel italic">Signals.</span>
           </h1>
-          <p className="text-lg md:text-xl text-black/70 dark:text-white/70 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-3xl mx-auto font-light leading-relaxed">
             Deep technical essays, design philosophy, and transparent company updates directly from our leadership and engineering teams.
           </p>
         </motion.div>
@@ -51,20 +53,22 @@ export default function Blog() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="glass-panel p-2 rounded-[2.5rem] mb-12 group cursor-pointer"
+          className="mb-12"
         >
-          <div className="relative h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden">
-            <img src={posts[0].image} alt={posts[0].title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white">
-              <div className="flex items-center gap-4 mb-4">
-                <span className="px-3 py-1 rounded-full bg-boraq-cyan text-black text-xs font-bold uppercase tracking-wider">{posts[0].category}</span>
-                <span className="flex items-center gap-1 text-sm text-white/70"><Clock className="w-4 h-4" /> {posts[0].readTime}</span>
+          <Link to={`/blog/${posts[0].title.toLowerCase().replace(/ /g, '-')}`} className="block glass-panel p-2 rounded-[2.5rem] group cursor-pointer w-full border border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10">
+            <div className="relative h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden">
+              <img src={posts[0].image} alt={posts[0].title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-boraq-black/95 via-boraq-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-boraq-white">
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="px-3 py-1 rounded-full bg-boraq-teal-steel text-boraq-black text-[10px] font-bold uppercase tracking-widest">{posts[0].category}</span>
+                  <span className="flex items-center gap-1 text-[10px] font-bold tracking-widest uppercase text-boraq-white/70"><Clock className="w-4 h-4" /> {posts[0].readTime}</span>
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold mb-4">{posts[0].title}</h2>
+                <p className="text-lg text-boraq-white/70 max-w-2xl hidden md:block font-light leading-relaxed">{posts[0].excerpt}</p>
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">{posts[0].title}</h2>
-              <p className="text-lg text-white/70 max-w-2xl hidden md:block">{posts[0].excerpt}</p>
             </div>
-          </div>
+          </Link>
         </motion.div>
 
         {/* Grid Posts */}
@@ -76,28 +80,34 @@ export default function Blog() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glass-panel rounded-3xl overflow-hidden group cursor-pointer hover:border-boraq-cyan/30 transition-colors"
             >
-              <div className="h-64 overflow-hidden relative">
-                <img src={post.image} alt={post.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
-              </div>
-              <div className="p-8">
-                <div className="flex flex-wrap items-center gap-4 mb-4 text-xs font-bold uppercase tracking-wider">
-                  <span className="text-boraq-cyan">{post.category}</span>
-                  <span className="text-black/30 dark:text-white/30">•</span>
-                  <span className="text-black/50 dark:text-white/50">{post.date}</span>
+              <Link
+                to={`/blog/${post.title.toLowerCase().replace(/ /g, '-')}`}
+                className="block glass-panel rounded-3xl overflow-hidden group hover:border-boraq-teal-steel/30 transition-colors h-full border border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10"
+              >
+                <div className="h-64 overflow-hidden relative">
+                  <img src={post.image} alt={post.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-boraq-black/20 group-hover:bg-transparent transition-colors duration-500" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-boraq-cyan transition-colors">{post.title}</h3>
-                <p className="text-black/60 dark:text-white/60 mb-6">{post.excerpt}</p>
-                <div className="flex items-center text-sm font-medium gap-2">
-                  Read Article <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                <div className="p-8 flex flex-col h-[calc(100%-16rem)]">
+                  <div className="flex flex-wrap items-center gap-4 mb-4 text-[10px] font-bold uppercase tracking-widest">
+                    <span className="text-boraq-teal-steel">{post.category}</span>
+                    <span className="text-boraq-gray-silver/30">•</span>
+                    <span className="text-boraq-gray-mid dark:text-boraq-gray-silver">{post.date}</span>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3 group-hover:text-boraq-teal-steel transition-colors text-boraq-black dark:text-boraq-white">{post.title}</h3>
+                  <p className="text-boraq-gray-mid dark:text-boraq-gray-silver mb-6 flex-grow font-light leading-relaxed">{post.excerpt}</p>
+                  <div className="flex items-center text-[10px] font-bold tracking-widest uppercase gap-2 mt-auto text-boraq-black dark:text-boraq-white group-hover:text-boraq-teal-steel transition-colors">
+                    Read Article <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>
       </section>
+
+      <Testimonials />
       <CallToAction />
     </div>
   );

@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 const LegalLayout = ({ title, lastUpdated, children }) => {
   return (
     <div className="w-full pb-32">
-      <section className="max-w-4xl mx-auto px-6 pt-12 pb-12 border-b border-black/10 dark:border-white/10 mb-12">
+      <section className="max-w-4xl mx-auto px-6 pt-12 pb-12 border-b border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 mb-12">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <div className="text-sm font-mono text-black/50 dark:text-white/50 mb-4 uppercase tracking-widest">
+          <div className="text-[10px] font-bold uppercase tracking-widest text-boraq-gray-mid dark:text-boraq-gray-silver mb-4">
             Legal Documentation
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-boraq-black dark:text-boraq-white">
             {title}
           </h1>
-          <p className="text-boraq-cyan font-medium">
+          <p className="text-boraq-teal-steel font-bold text-sm tracking-widest uppercase">
             Last Updated: {lastUpdated}
           </p>
         </motion.div>
@@ -23,11 +23,12 @@ const LegalLayout = ({ title, lastUpdated, children }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-a:text-boraq-cyan hover:prose-a:text-boraq-cyan/80 prose-li:marker:text-boraq-cyan"
+          className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:text-boraq-black dark:prose-headings:text-boraq-white prose-p:text-boraq-gray-mid dark:prose-p:text-boraq-gray-silver prose-p:font-light prose-a:text-boraq-teal-steel hover:prose-a:text-boraq-teal-steel/80 prose-li:marker:text-boraq-teal-steel"
         >
           {children}
         </motion.div>
       </section>
+      <CallToAction />
     </div>
   );
 };

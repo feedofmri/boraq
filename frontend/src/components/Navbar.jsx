@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, ChevronDown, ExternalLink } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import logoWhite from '../assets/Logo/boraq_logo_white.svg';
+import logoDark from '../assets/Logo/boraq_logo_dark.svg';
 import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
-    { name: 'Home', path: '/' },
     {
         name: 'Services',
         path: '#',
@@ -18,9 +19,29 @@ const navLinks = [
             { name: 'Web3 Platform', path: '/services/web3' },
         ]
     },
-    { name: 'About', path: '/about' },
+    {
+        name: 'About',
+        path: '#',
+        dropdown: [
+            { name: 'Our Story', path: '/about' },
+            { name: 'Our Team', path: '/about/team' }
+        ]
+    },
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Research', path: '/research' },
+    {
+        name: 'Community',
+        path: '#',
+        dropdown: [
+            { name: 'Resources', path: '/resources' },
+            { name: 'Blog', path: '/blog' },
+            { name: 'Products', path: '/products' },
+            { name: 'Learning', path: '/learning' },
+            { name: 'Docs', path: '/docs' },
+            { name: 'Open Source', path: '/open-source' },
+            { name: 'Career', path: '/career' }
+        ]
+    }
 ];
 
 export default function Navbar() {
@@ -50,9 +71,16 @@ export default function Navbar() {
 
                 {/* Logo */}
                 <Link to="/" className="flex items-center gap-2 group">
-                    <span className="font-bold text-2xl tracking-tight text-black dark:text-white transition-colors duration-300 group-hover:text-boraq-cyan">
-                        Boraq<span className="text-boraq-cyan">.</span>
-                    </span>
+                    <img
+                        src={logoDark}
+                        alt="Boraq Logo"
+                        className="block dark:hidden h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <img
+                        src={logoWhite}
+                        alt="Boraq Logo"
+                        className="hidden dark:block h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                    />
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -66,7 +94,7 @@ export default function Navbar() {
                         >
                             <Link
                                 to={link.path}
-                                className="text-sm font-medium text-black/70 dark:text-white/70 hover:text-boraq-cyan dark:hover:text-boraq-cyan transition-colors flex items-center gap-1 py-2"
+                                className="text-sm font-medium text-boraq-black/70 dark:text-boraq-white/70 hover:text-boraq-teal-steel dark:hover:text-boraq-teal-light transition-colors flex items-center gap-1 py-2"
                             >
                                 {link.name}
                                 {link.dropdown && <ChevronDown className="w-4 h-4" />}
@@ -87,7 +115,7 @@ export default function Navbar() {
                                                 <Link
                                                     key={dIdx}
                                                     to={dropItem.path}
-                                                    className="px-4 py-2 text-sm text-black/70 dark:text-white/70 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 rounded-lg transition-colors"
+                                                    className="px-4 py-2 text-sm text-boraq-black/70 dark:text-boraq-white/70 hover:text-boraq-black dark:hover:text-boraq-white hover:bg-boraq-black/5 dark:hover:bg-boraq-white/10 rounded-lg transition-colors"
                                                 >
                                                     {dropItem.name}
                                                 </Link>
@@ -105,7 +133,7 @@ export default function Navbar() {
                     <ThemeToggle />
                     <Link
                         to="/contact"
-                        className="px-5 py-2 text-sm font-medium rounded-full bg-black text-white dark:bg-white dark:text-black hover:bg-boraq-cyan dark:hover:bg-boraq-cyan hover:text-black transition-colors duration-300 shadow-sm"
+                        className="px-5 py-2 text-sm font-bold rounded-full bg-boraq-black text-boraq-white dark:bg-boraq-white dark:text-boraq-black hover:bg-boraq-teal-deep dark:hover:bg-boraq-teal-light hover:text-boraq-white dark:hover:text-boraq-black transition-all duration-300 shadow-sm"
                     >
                         Contact
                     </Link>

@@ -9,17 +9,48 @@ export default {
     extend: {
       colors: {
         boraq: {
-          cyan: '#00E5FF',
-          dark: '#050A0F',
-          light: '#F8FBFF',
+          black: '#020607',
+          white: '#FFFFFF',
+          // Cyan & Teal Accents
+          teal: {
+            deep: '#032F38',
+            slate: '#2F555F',
+            muted: '#587E88',
+            steel: '#82A9B4',
+            light: '#AFD7E2',
+          },
+          // Neutral Grays
+          gray: {
+            charcoal: '#313334',
+            mid: '#5E6161',
+            lightmid: '#909393',
+            silver: '#C5C8C8',
+          },
+          // Pastel Glows
+          pastel: {
+            cyan: '#C1EFED',
+            wash: '#D7F3F4',
+            lavender: '#EBDFEB',
+            ice: '#D7E5F0',
+            frost: '#FDFEFE',
+          }
         }
       },
       backgroundImage: {
-        'dark-mesh': 'radial-gradient(at 80% 10%, rgba(0, 229, 255, 0.15) 0px, transparent 50%), radial-gradient(at 50% 0%, rgba(0, 229, 255, 0.1) 0px, transparent 50%), linear-gradient(180deg, #050A0F 0%, #020406 100%)',
-        'light-mesh': 'radial-gradient(at 80% 10%, rgba(0, 229, 255, 0.2) 0px, transparent 50%), radial-gradient(at 10% 90%, rgba(230, 204, 255, 0.3) 0px, transparent 50%), linear-gradient(180deg, #F8FBFF 0%, #FFFFFF 100%)',
+        'boraq-dark': 'linear-gradient(180deg, #020607 0%, #010304 100%)',
+        'boraq-light': 'linear-gradient(180deg, #FFFFFF 0%, #FDFEFE 100%)',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Outfit', 'sans-serif'],
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        }
+      },
+      animation: {
+        marquee: 'marquee 40s linear infinite',
       }
     },
   },

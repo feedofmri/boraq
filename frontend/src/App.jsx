@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import GlobalBackground from './components/layout/GlobalBackground';
 import Home from './pages/Home';
 import FloatingContact from './components/sections/FloatingContact';
 
@@ -17,7 +19,7 @@ import OurTeam from './pages/about/OurTeam';
 
 // Work
 import Portfolio from './pages/work/Portfolio';
-import CaseStudies from './pages/work/CaseStudies';
+import CaseStudyDetail from './pages/work/CaseStudyDetail';
 
 // Research
 import Research from './pages/Research';
@@ -25,6 +27,7 @@ import Research from './pages/Research';
 // Community
 import Resources from './pages/community/Resources';
 import Blog from './pages/community/Blog';
+import BlogDetail from './pages/community/BlogDetail';
 import Products from './pages/community/Products';
 import Learning from './pages/community/Learning';
 import Docs from './pages/community/Docs';
@@ -45,7 +48,8 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen relative text-black dark:text-white transition-colors duration-400">
+    <div className="flex flex-col min-h-screen relative text-boraq-black dark:text-boraq-white transition-colors duration-400">
+      <GlobalBackground />
       <Navbar />
       <main className="flex-grow flex flex-col pt-20">
         <Routes>
@@ -65,7 +69,7 @@ function App() {
 
           {/* Work */}
           <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
 
           {/* Research */}
           <Route path="/research" element={<Research />} />
@@ -73,6 +77,7 @@ function App() {
           {/* Community */}
           <Route path="/resources" element={<Resources />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/products" element={<Products />} />
           <Route path="/learning" element={<Learning />} />
           <Route path="/docs" element={<Docs />} />
@@ -93,6 +98,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
+      <Footer />
       <FloatingContact />
     </div>
   );

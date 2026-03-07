@@ -44,10 +44,10 @@ export default function OurTeam() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-            The minds behind the <span className="text-boraq-cyan">machine.</span>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-boraq-black dark:text-boraq-white">
+            The minds behind the <span className="text-boraq-teal-steel">machine.</span>
           </h1>
-          <p className="text-lg md:text-2xl text-black/70 dark:text-white/70 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-lg md:text-2xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-3xl mx-auto font-light leading-relaxed">
             We are a collective of elite engineers, designers, and strategists dedicated to pushing the boundaries of what software can achieve.
           </p>
         </motion.div>
@@ -62,34 +62,34 @@ export default function OurTeam() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              className="glass-panel p-6 rounded-3xl flex flex-col items-center group hover:border-boraq-cyan/30 transition-colors duration-300 text-center"
+              className="glass-panel p-6 rounded-3xl flex flex-col items-center group hover:border-boraq-teal-steel/30 transition-colors duration-300 text-center"
             >
               <div className="w-32 h-32 rounded-full overflow-hidden mb-6 relative">
-                <div className="absolute inset-0 bg-boraq-cyan/20 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-boraq-teal-steel/20 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <img
                   src={member.image}
                   alt={member.name}
                   className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-110"
                 />
               </div>
-              <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-              <p className="text-sm text-boraq-cyan font-medium mb-4">{member.role}</p>
-              <p className="text-sm text-black/60 dark:text-white/60 mb-6 flex-grow">
+              <h3 className="text-xl font-bold mb-1 text-boraq-black dark:text-boraq-white">{member.name}</h3>
+              <p className="text-sm text-boraq-teal-steel font-bold mb-4">{member.role}</p>
+              <p className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver font-light mb-6 flex-grow">
                 {member.bio}
               </p>
               <div className="flex items-center gap-4 mt-auto pt-4 border-t border-black/5 dark:border-white/5 w-full justify-center">
                 {member.social.linkedin && (
-                  <a href={member.social.linkedin} className="text-black/40 dark:text-white/40 hover:text-boraq-cyan transition-colors">
+                  <a href={member.social.linkedin} className="text-boraq-gray-mid dark:text-boraq-gray-silver hover:text-boraq-teal-steel transition-colors">
                     <Linkedin className="w-5 h-5" />
                   </a>
                 )}
                 {member.social.twitter && (
-                  <a href={member.social.twitter} className="text-black/40 dark:text-white/40 hover:text-boraq-cyan transition-colors">
+                  <a href={member.social.twitter} className="text-boraq-gray-mid dark:text-boraq-gray-silver hover:text-boraq-teal-steel transition-colors">
                     <Twitter className="w-5 h-5" />
                   </a>
                 )}
                 {member.social.github && (
-                  <a href={member.social.github} className="text-black/40 dark:text-white/40 hover:text-boraq-cyan transition-colors">
+                  <a href={member.social.github} className="text-boraq-gray-mid dark:text-boraq-gray-silver hover:text-boraq-teal-steel transition-colors">
                     <Github className="w-5 h-5" />
                   </a>
                 )}

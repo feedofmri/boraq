@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,14 +6,30 @@
 
 @layer base {
   body {
-    @apply font-sans antialiased text-black transition-all duration-500 ease-in-out min-h-screen bg-light-mesh;
+    @apply font-sans antialiased bg-boraq-white text-boraq-black transition-colors duration-700 ease-in-out min-h-screen;
   }
 
   .dark body {
-    @apply text-white bg-dark-mesh;
+    @apply bg-boraq-black text-boraq-white;
   }
 
-  /* Prevent horizontal scroll during mesh gradient scale/animation if added later */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans;
+  }
+
+  /* Strict brand font enforcement */
+  *,
+  *::before,
+  *::after {
+    font-family: 'Outfit', sans-serif !important;
+  }
+
+  /* Prevent horizontal scroll */
   html,
   body {
     overflow-x: hidden;
@@ -22,29 +38,31 @@
 
 @layer components {
 
-  /* Core Glassmorphism Utility */
+  /* Core Glassmorphism Utility - Brand Compliant */
   .glass-panel {
     @apply backdrop-blur-md border shadow-sm transition-all duration-500 ease-in-out;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-color: #C5C8C8;
+    /* neutral-gray-silver */
   }
 
   .dark .glass-panel {
-    @apply bg-white/5 border-white/10 shadow-black/20;
-  }
-
-  .glass-panel {
-    @apply bg-white/60 border-black/5 shadow-black/5;
+    background-color: rgba(2, 6, 7, 0.4);
+    border-color: #313334;
+    /* neutral-gray-charcoal */
   }
 
   /* Specific variation for heavier blur / lighter content */
   .glass-panel-heavy {
     @apply backdrop-blur-xl border shadow-md transition-all duration-500 ease-in-out;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: #D7E5F0;
+    /* pastel-ice */
   }
 
   .dark .glass-panel-heavy {
-    @apply bg-black/40 border-white/10 shadow-black/30;
-  }
-
-  .glass-panel-heavy {
-    @apply bg-white/70 border-white/50 shadow-black/5;
+    background-color: rgba(2, 6, 7, 0.6);
+    border-color: #032F38;
+    /* deep-tech-teal */
   }
 }

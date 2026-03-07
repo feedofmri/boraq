@@ -38,15 +38,15 @@ export default function ProcessTimeline() {
     return (
         <section className="max-w-7xl mx-auto px-6 py-24">
             <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">How We <span className="text-boraq-cyan">Work With You</span></h2>
-                <p className="text-xl text-black/60 dark:text-white/60 max-w-2xl mx-auto font-light">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-boraq-black dark:text-boraq-white">How We <span className="text-boraq-teal-steel">Work With You</span></h2>
+                <p className="text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-2xl mx-auto font-light">
                     A transparent, human-driven process designed to eliminate surprises and deliver predictable excellence.
                 </p>
             </div>
 
             <div className="relative">
                 {/* Central Line */}
-                <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-boraq-cyan/50 to-transparent -translate-x-1/2" />
+                <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-boraq-teal-steel/30 to-transparent -translate-x-1/2" />
 
                 <div className="space-y-12 lg:space-y-24">
                     {steps.map((step, index) => {
@@ -60,18 +60,18 @@ export default function ProcessTimeline() {
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true, margin: '-100px' }}
                                         transition={{ duration: 0.6 }}
-                                        className="glass-panel p-8 rounded-3xl max-w-lg hover:border-boraq-cyan/30 transition-colors relative group"
+                                        className="glass-panel p-8 rounded-3xl max-w-lg hover:border-boraq-teal-steel/30 transition-colors relative group"
                                     >
                                         <div className="absolute top-0 right-0 p-4 opacity-10 font-bold text-6xl pointer-events-none group-hover:scale-110 transition-transform hidden sm:block">
                                             0{index + 1}
                                         </div>
-                                        <div className="flex items-center gap-4 mb-4 justify-start ${!isEven && 'lg:justify-end'}">
-                                            <div className="px-3 py-1 rounded-full bg-boraq-cyan/10 text-boraq-cyan text-xs font-bold uppercase tracking-wider">
+                                        <div className="flex items-center gap-4 mb-4 justify-start">
+                                            <div className="px-3 py-1 rounded-full bg-boraq-teal-deep/10 text-boraq-teal-steel text-xs font-bold uppercase tracking-wider">
                                                 {step.timeline}
                                             </div>
                                         </div>
-                                        <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                                        <p className="text-black/60 dark:text-white/60 leading-relaxed">
+                                        <h3 className="text-2xl font-bold mb-3 text-boraq-black dark:text-boraq-white">{step.title}</h3>
+                                        <p className="text-boraq-gray-mid dark:text-boraq-gray-silver leading-relaxed">
                                             {step.description}
                                         </p>
                                     </motion.div>
@@ -84,9 +84,9 @@ export default function ProcessTimeline() {
                                         whileInView={{ scale: 1 }}
                                         viewport={{ once: true, margin: '-100px' }}
                                         transition={{ duration: 0.4, type: "spring" }}
-                                        className="w-12 h-12 rounded-full glass-panel-heavy border-boraq-cyan flex items-center justify-center z-10"
+                                        className="w-12 h-12 rounded-full glass-panel-heavy border-boraq-teal-steel/30 flex items-center justify-center z-10"
                                     >
-                                        <step.icon className="w-5 h-5 text-boraq-cyan" />
+                                        <step.icon className="w-5 h-5 text-boraq-teal-steel" />
                                     </motion.div>
                                 </div>
                             </div>

@@ -20,21 +20,21 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative min-h-[90vh] flex items-center justify-center pt-24 overflow-hidden">
+        <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center pt-32 pb-12 md:pt-24 md:pb-0 overflow-hidden">
 
             {/* Background Decorative Blobs for extra depth (optional, complements the CSS mesh) */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden flex justify-center items-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 0.5, scale: 1 }}
+                    animate={{ opacity: 0.4, scale: 1 }}
                     transition={{ duration: 2, ease: "easeOut" }}
-                    className="absolute top-[20%] right-[10%] w-72 h-72 bg-boraq-cyan/20 blur-[100px] rounded-full"
+                    className="absolute top-[20%] right-[10%] w-72 h-72 bg-[#032F38]/30 blur-[100px] rounded-full"
                 />
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 0.3, scale: 1 }}
+                    animate={{ opacity: 0.2, scale: 1 }}
                     transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
-                    className="absolute bottom-[20%] left-[10%] w-96 h-96 bg-purple-500/10 dark:bg-boraq-cyan/10 blur-[120px] rounded-full"
+                    className="absolute bottom-[20%] left-[10%] w-96 h-96 bg-[#EBDFEB]/10 dark:bg-[#032F38]/20 blur-[120px] rounded-full"
                 />
             </div>
 
@@ -47,25 +47,23 @@ export default function Hero() {
                 >
                     {/* Badge */}
                     <motion.div variants={itemVariants} className="glass-panel px-4 py-1.5 rounded-full inline-flex items-center gap-2 mb-4">
-                        <Sparkles className="w-4 h-4 text-boraq-cyan" />
-                        <span className="text-sm font-medium tracking-wide">Next-Gen Software Agency</span>
+                        <Sparkles className="w-4 h-4 text-boraq-teal-steel" />
+                        <span className="text-sm font-medium tracking-wide text-boraq-black/80 dark:text-boraq-white/80">Next-Gen Software Agency</span>
                     </motion.div>
 
                     {/* Main Headline */}
                     <motion.h1
                         variants={itemVariants}
-                        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05]"
+                        className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] text-boraq-black dark:text-boraq-white"
                     >
                         Engineering the <br className="hidden md:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-black to-zinc-500 dark:from-white dark:to-zinc-400">
-                            future of tech.
-                        </span>
+                        future of tech.
                     </motion.h1>
 
                     {/* Subheadline */}
                     <motion.p
                         variants={itemVariants}
-                        className="text-lg md:text-xl text-black/60 dark:text-white/60 max-w-2xl mt-4 font-light leading-relaxed"
+                        className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-2xl mt-4 font-light leading-relaxed"
                     >
                         We build premium, scalable, and intelligent software systems for forward-thinking enterprises. From Web3 platforms to AI integration.
                     </motion.p>
@@ -74,10 +72,9 @@ export default function Hero() {
                     <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4 mt-8 w-full sm:w-auto">
                         <Link
                             to="/contact"
-                            className="group relative w-full sm:w-auto px-8 py-4 bg-black text-white dark:bg-white dark:text-black rounded-full font-medium overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-boraq-cyan/20"
+                            className="group relative w-full sm:w-auto px-8 py-4 bg-boraq-black text-boraq-white dark:bg-boraq-white dark:text-boraq-black rounded-full font-bold overflow-hidden transition-all duration-300 hover:scale-105 shadow-xl shadow-boraq-teal-deep/10"
                         >
-                            <div className="absolute inset-0 bg-boraq-cyan translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
-                            <span className="relative flex items-center justify-center gap-2 group-hover:text-black transition-colors">
+                            <span className="relative flex items-center justify-center gap-2">
                                 Start a Project
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </span>
@@ -85,7 +82,7 @@ export default function Hero() {
 
                         <Link
                             to="/portfolio"
-                            className="w-full sm:w-auto px-8 py-4 glass-panel rounded-full font-medium flex items-center justify-center gap-2 hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+                            className="w-full sm:w-auto px-8 py-4 glass-panel rounded-full font-bold flex items-center justify-center gap-2 hover:bg-boraq-black/5 dark:hover:bg-boraq-white/10 transition-colors text-boraq-black dark:text-boraq-white"
                         >
                             <Code className="w-4 h-4" />
                             View Our Work
@@ -93,7 +90,7 @@ export default function Hero() {
                     </motion.div>
 
                     {/* Metrics/Trust Indicators */}
-                    <motion.div variants={itemVariants} className="mt-16 pt-8 border-t border-black/10 dark:border-white/10 w-full grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <motion.div variants={itemVariants} className="mt-16 pt-8 border-t border-boraq-gray-silver/20 dark:border-boraq-teal-deep/30 w-full grid grid-cols-2 md:grid-cols-4 gap-8">
                         {[
                             { label: 'Enterprise Clients', value: '40+' },
                             { label: 'Systems Shipped', value: '150+' },
@@ -101,8 +98,8 @@ export default function Hero() {
                             { label: 'Global Reach', value: '8 Countries' }
                         ].map((stat, idx) => (
                             <div key={idx} className="flex flex-col items-center">
-                                <span className="text-3xl font-bold tracking-tight">{stat.value}</span>
-                                <span className="text-sm text-black/60 dark:text-white/60 mt-1">{stat.label}</span>
+                                <span className="text-3xl font-bold tracking-tight text-boraq-black dark:text-boraq-white">{stat.value}</span>
+                                <span className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver mt-1">{stat.label}</span>
                             </div>
                         ))}
                     </motion.div>
