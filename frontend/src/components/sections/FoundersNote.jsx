@@ -2,6 +2,18 @@ import { motion } from 'framer-motion';
 import { Quote, Calendar, Award } from 'lucide-react';
 
 export default function FoundersNote() {
+    const wordVariants = {
+        hidden: { opacity: 0, y: 10 },
+        visible: (i) => ({
+            opacity: 1,
+            y: 0,
+            transition: { delay: i * 0.04, duration: 0.4, ease: 'easeOut' },
+        }),
+    };
+
+    const quoteText = "We don't just build software. We partner with visionaries to engineer the future.";
+    const words = quoteText.split(' ');
+
     return (
         <section className="max-w-7xl mx-auto px-6 py-24">
             <div className="glass-panel-heavy rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden">
@@ -10,8 +22,8 @@ export default function FoundersNote() {
 
                 <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
                     <div className="flex-1 w-full max-w-md mx-auto md:max-w-none">
-                        {/* Image Placeholder representing the founder / leader */}
-                        <div className="aspect-[4/5] rounded-[2rem] overflow-hidden glass-panel relative group">
+                        {/* Image with Ken Burns slow zoom — CSS animation */}
+                        <div className="aspect-[4/5] rounded-[2rem] overflow-hidden glass-panel relative group animate-ken-burns" style={{ willChange: 'transform' }}>
                             <div className="absolute inset-0 bg-gradient-to-t from-boraq-black/80 via-boraq-black/20 to-transparent z-10" />
                             <img
                                 src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
@@ -37,35 +49,73 @@ export default function FoundersNote() {
                     <div className="flex-[1.5]">
                         <Quote className="w-12 h-12 text-boraq-teal-steel/30 mb-6" />
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial="hidden"
+                            whileInView="visible"
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
                         >
+                            {/* Word-by-word reveal */}
                             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 leading-tight text-boraq-black dark:text-boraq-white">
-                                "We don't just build software. We <span className="text-boraq-teal-steel">partner</span> with visionaries to engineer the future."
+                                "
+                                {words.map((word, i) => (
+                                    <motion.span
+                                        key={i}
+                                        custom={i}
+                                        variants={wordVariants}
+                                        className={word === 'partner' ? 'text-boraq-teal-steel' : ''}
+                                    >
+                                        {word}{' '}
+                                    </motion.span>
+                                ))}
+                                "
                             </h2>
-                            <div className="space-y-6 text-lg text-boraq-gray-mid dark:text-boraq-gray-silver font-light">
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.8 }}
+                                className="space-y-6 text-lg text-boraq-gray-mid dark:text-boraq-gray-silver font-light"
+                            >
                                 <p>
                                     When we established Boraq, our goal was simple: bridge the gap between ambitious ideas and technical execution. We saw too many companies treating software development as a transactional process rather than a collaborative partnership.
                                 </p>
                                 <p>
                                     Behind every line of code we write is a team of dedicated humans who care about your business goals. We succeed when you succeed. Our technical excellence is just the foundation; our true value lies in how we work with you to solve complex challenges together.
                                 </p>
-                            </div>
+                            </motion.div>
 
-                            {/* Personal signature */}
-                            <div className="mt-8 pt-8 border-t border-boraq-gray-silver/20 dark:border-boraq-teal-deep/20">
-                                <div className="font-serif italic text-3xl text-boraq-teal-steel mb-2 select-none" style={{ fontFamily: "'Georgia', serif" }}>
+                            {/* Animated signature */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 1.2 }}
+                                className="mt-8 pt-8 border-t border-boraq-gray-silver/20 dark:border-boraq-teal-deep/20"
+                            >
+                                <div className="mb-2">
+                                    <motion.svg width="180" height="40" viewBox="0 0 180 40" className="text-boraq-teal-steel">
+                                        <motion.path
+                                            d="M5 30 Q15 5 30 20 Q45 35 55 15 Q65 -5 80 20 Q90 35 100 18 L115 18 Q125 18 130 25 Q140 35 155 20 Q165 10 175 15"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            initial={{ pathLength: 0 }}
+                                            whileInView={{ pathLength: 1 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 2, delay: 1.5, ease: 'easeInOut' }}
+                                        />
+                                    </motion.svg>
+                                </div>
+                                <div className="font-serif italic text-lg text-boraq-teal-steel select-none" style={{ fontFamily: "'Georgia', serif" }}>
                                     — Arifur Rahman
                                 </div>
-                                <p className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
+                                <p className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver mt-1">
                                     I personally review every project inquiry. Reach me directly at{' '}
                                     <a href="mailto:arifur@boraq.dev" className="text-boraq-teal-steel hover:underline font-medium">
                                         arifur@boraq.dev
                                     </a>
                                 </p>
-                            </div>
+                            </motion.div>
                         </motion.div>
                     </div>
                 </div>

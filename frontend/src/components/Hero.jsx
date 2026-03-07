@@ -6,81 +6,41 @@ import { Link } from 'react-router-dom';
 /* ── Cute side-profile walking cat SVG ── */
 function WalkingCat() {
     return (
-        <motion.div
-            className="relative"
-            animate={{ y: [0, -2, 0] }}
-            transition={{ duration: 0.3, repeat: Infinity, ease: 'easeInOut' }}
-        >
-            <svg width="28" height="22" viewBox="0 0 28 22" fill="none" className="text-boraq-teal-steel drop-shadow-sm">
-                {/* Tail — curvy, behind the body */}
-                <motion.path
-                    d="M3 10 Q0 4 2 1"
-                    stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round"
-                    animate={{ d: ['M3 10 Q0 4 2 1', 'M3 10 Q-1 6 4 2', 'M3 10 Q0 4 2 1'] }}
-                    transition={{ duration: 0.7, repeat: Infinity, ease: 'easeInOut' }}
-                />
+        <div className="relative animate-cat-bounce" style={{ willChange: 'transform' }}>
+            <svg width="28" height="22" viewBox="0 0 28 22" fill="none" className="text-boraq-teal-steel">
+                {/* Tail — CSS animated */}
+                <path d="M3 10 Q0 4 2 1" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" className="animate-cat-tail origin-bottom-right" />
 
                 {/* Body */}
                 <ellipse cx="12" cy="12" rx="8" ry="5" fill="currentColor" />
-
                 {/* Head */}
                 <circle cx="21" cy="8" r="5.5" fill="currentColor" />
-
-                {/* Left ear */}
+                {/* Ears */}
                 <polygon points="17.5,4 19,0 20.5,3.5" fill="currentColor" />
-                {/* Right ear */}
                 <polygon points="22,3 23.5,-0.5 25,3" fill="currentColor" />
-                {/* Inner ear pink */}
                 <polygon points="18.2,3.8 19,1.2 19.8,3.5" fill="#f8a4b8" />
                 <polygon points="22.5,2.8 23.3,0.5 24.1,2.5" fill="#f8a4b8" />
-
-                {/* Eyes — big round cute eyes */}
+                {/* Eyes */}
                 <circle cx="20" cy="7" r="1.5" fill="white" />
                 <circle cx="24" cy="7" r="1.5" fill="white" />
                 <circle cx="20.5" cy="7" r="0.8" fill="#1a1a2e" />
                 <circle cx="24.5" cy="7" r="0.8" fill="#1a1a2e" />
-                {/* Eye shine */}
                 <circle cx="20.8" cy="6.4" r="0.3" fill="white" />
                 <circle cx="24.8" cy="6.4" r="0.3" fill="white" />
-
                 {/* Nose */}
                 <ellipse cx="26" cy="8.5" rx="0.8" ry="0.5" fill="#f8a4b8" />
-
-                {/* Mouth — little smile */}
+                {/* Mouth */}
                 <path d="M24.5 9.5 Q25.5 10.5 26.5 9.5" stroke="#1a1a2e" strokeWidth="0.4" fill="none" />
-
                 {/* Whiskers */}
                 <line x1="26" y1="8" x2="28" y2="7" stroke="currentColor" strokeWidth="0.3" opacity="0.4" />
                 <line x1="26" y1="9" x2="28" y2="9.5" stroke="currentColor" strokeWidth="0.3" opacity="0.4" />
-
-                {/* Front legs — alternating walk */}
-                <motion.line
-                    x1="16" y1="16" x2="15" y2="21"
-                    stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"
-                    animate={{ x2: [14, 17, 14] }}
-                    transition={{ duration: 0.3, repeat: Infinity, ease: 'easeInOut' }}
-                />
-                <motion.line
-                    x1="18" y1="16" x2="19" y2="21"
-                    stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"
-                    animate={{ x2: [20, 17, 20] }}
-                    transition={{ duration: 0.3, repeat: Infinity, ease: 'easeInOut', delay: 0.15 }}
-                />
-                {/* Back legs */}
-                <motion.line
-                    x1="7" y1="15" x2="6" y2="21"
-                    stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"
-                    animate={{ x2: [5, 8, 5] }}
-                    transition={{ duration: 0.3, repeat: Infinity, ease: 'easeInOut', delay: 0.15 }}
-                />
-                <motion.line
-                    x1="9" y1="15" x2="10" y2="21"
-                    stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"
-                    animate={{ x2: [11, 8, 11] }}
-                    transition={{ duration: 0.3, repeat: Infinity, ease: 'easeInOut' }}
-                />
+                {/* Legs — CSS animated via transform */}
+                <line x1="16" y1="16" x2="15" y2="21" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="animate-cat-leg-1 origin-top" />
+                <line x1="18" y1="16" x2="19" y2="21" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="animate-cat-leg-2 origin-top" />
+                <line x1="7" y1="15" x2="6" y2="21" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="animate-cat-leg-2 origin-top" />
+                <line x1="9" y1="15" x2="10" y2="21" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="animate-cat-leg-1 origin-top" />
             </svg>
-        </motion.div>
+        </div>
     );
 }
 
@@ -124,20 +84,10 @@ export default function Hero() {
     return (
         <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center pt-32 pb-12 md:pt-24 md:pb-0 overflow-hidden">
 
-            {/* Background Decorative Blobs for extra depth (optional, complements the CSS mesh) */}
+            {/* Background Decorative Blobs */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden flex justify-center items-center">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 0.4, scale: 1 }}
-                    transition={{ duration: 2, ease: "easeOut" }}
-                    className="absolute top-[20%] right-[10%] w-72 h-72 bg-[#032F38]/30 blur-[100px] rounded-full"
-                />
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 0.2, scale: 1 }}
-                    transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
-                    className="absolute bottom-[20%] left-[10%] w-96 h-96 bg-[#EBDFEB]/10 dark:bg-[#032F38]/20 blur-[120px] rounded-full"
-                />
+                <div className="absolute top-[20%] right-[10%] w-72 h-72 bg-[#032F38]/30 blur-[100px] rounded-full opacity-40" />
+                <div className="absolute bottom-[20%] left-[10%] w-96 h-96 bg-[#EBDFEB]/10 dark:bg-[#032F38]/20 blur-[120px] rounded-full opacity-20" />
             </div>
 
             <div className="max-w-5xl mx-auto px-6 relative z-10 w-full">

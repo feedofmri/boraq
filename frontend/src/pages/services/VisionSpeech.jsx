@@ -105,11 +105,9 @@ function InteractiveVisionDetector() {
 
       {/* Live bounding box */}
       {detected && (
-        <motion.div
-          className={`absolute w-24 h-24 ${currentClass.color} border-2 rounded-lg transition-all duration-100 ease-out pointer-events-none`}
-          style={{ left: `calc(${mousePos.x}% - 48px)`, top: `calc(${mousePos.y}% - 48px)` }}
-          animate={{ opacity: [0.8, 1, 0.8] }}
-          transition={{ repeat: Infinity, duration: 1 }}
+        <div
+          className={`absolute w-24 h-24 ${currentClass.color} border-2 rounded-lg transition-all duration-100 ease-out pointer-events-none animate-pulse-soft`}
+          style={{ left: `calc(${mousePos.x}% - 48px)`, top: `calc(${mousePos.y}% - 48px)`, willChange: 'left, top' }}
         >
           <span className={`absolute -top-5 left-0 text-[10px] font-mono font-bold ${currentClass.textColor} ${currentClass.bg} px-1.5 py-0.5 rounded`}>
             {currentClass.label} {confidence}%
@@ -118,7 +116,7 @@ function InteractiveVisionDetector() {
           <div className={`absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 ${currentClass.color}`} />
           <div className={`absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 ${currentClass.color}`} />
           <div className={`absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 ${currentClass.color}`} />
-        </motion.div>
+        </div>
       )}
 
       {/* Top bar */}

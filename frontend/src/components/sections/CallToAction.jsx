@@ -9,12 +9,30 @@ const teamAvatars = [
     { name: 'Arifur', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100' },
 ];
 
+const orbs = [
+    { size: 'w-3 h-3', color: 'bg-blue-400/60', x: '10%', y: '20%', duration: '6s' },
+    { size: 'w-2 h-2', color: 'bg-purple-400/60', x: '80%', y: '15%', duration: '8s' },
+    { size: 'w-4 h-4', color: 'bg-pink-400/40', x: '70%', y: '70%', duration: '7s' },
+    { size: 'w-2 h-2', color: 'bg-cyan-400/60', x: '20%', y: '75%', duration: '5s' },
+    { size: 'w-3 h-3', color: 'bg-green-400/40', x: '50%', y: '10%', duration: '9s' },
+    { size: 'w-2 h-2', color: 'bg-yellow-400/60', x: '90%', y: '50%', duration: '6.5s' },
+];
+
 export default function CallToAction() {
     return (
         <section className="w-full relative py-32 overflow-hidden bg-transparent">
-            {/* Ambient Section Glows - Complements Global BG */}
+            {/* Ambient Section Glows */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-boraq-teal-deep/20 via-transparent to-transparent opacity-60 pointer-events-none" />
             <div className="absolute -left-[10%] top-0 w-[40%] h-[40%] rounded-full bg-boraq-teal-steel/10 blur-[120px] pointer-events-none" />
+
+            {/* Floating orbs — pure CSS animation */}
+            {orbs.map((orb, i) => (
+                <div
+                    key={i}
+                    className={`absolute ${orb.size} ${orb.color} rounded-full pointer-events-none blur-[1px] animate-float-orb`}
+                    style={{ left: orb.x, top: orb.y, '--orb-duration': orb.duration, animationDelay: `${i * -1.2}s` }}
+                />
+            ))}
 
             <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
                 <motion.div
@@ -50,11 +68,11 @@ export default function CallToAction() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <Link to="/book-a-call" className="h-14 px-8 rounded-full bg-boraq-black text-boraq-white dark:bg-boraq-white dark:text-boraq-black font-bold text-lg hover:scale-105 transition-all duration-300 flex items-center gap-2 group shadow-xl shadow-boraq-teal-deep/10">
+                        <Link to="/book-a-call" className="h-14 px-8 rounded-full bg-boraq-black text-boraq-white dark:bg-boraq-white dark:text-boraq-black font-bold text-lg flex items-center gap-2 group shadow-xl shadow-boraq-teal-deep/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-boraq-teal-steel/20">
                             Start Your Project
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <Link to="/portfolio" className="h-14 px-8 rounded-full glass-panel-heavy border-boraq-gray-silver/30 dark:border-boraq-teal-deep/30 text-boraq-black dark:text-boraq-white font-bold text-lg hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                        <Link to="/portfolio" className="h-14 px-8 rounded-full glass-panel-heavy border-boraq-gray-silver/30 dark:border-boraq-teal-deep/30 text-boraq-black dark:text-boraq-white font-bold text-lg flex items-center justify-center transition-all duration-300 hover:scale-105">
                             View Portfolio
                         </Link>
                     </div>

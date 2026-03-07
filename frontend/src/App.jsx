@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import GlobalBackground from './components/layout/GlobalBackground';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import FloatingContact from './components/sections/FloatingContact';
 
@@ -50,6 +51,7 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen relative text-boraq-black dark:text-boraq-white transition-colors duration-400">
       <GlobalBackground />
+      <ScrollToTop />
       <Navbar />
       <main className="flex-grow flex flex-col pt-20">
         <Routes>

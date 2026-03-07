@@ -68,11 +68,9 @@ function InteractiveBlockchain() {
           <div className="flex items-center gap-3">
             <span className="text-xs font-mono text-boraq-gray-mid dark:text-boraq-gray-silver/60">LIVE CHAIN</span>
             {mining && (
-              <motion.span
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
-                className="inline-block text-yellow-400"
-              ><Pickaxe className="w-4 h-4" /></motion.span>
+              <span className="inline-block text-yellow-400 animate-spin">
+                <Pickaxe className="w-4 h-4" />
+              </span>
             )}
           </div>
           <div className="flex items-center gap-4">

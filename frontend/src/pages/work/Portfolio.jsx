@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Code, Layout, Smartphone, Eye, Zap, Cpu, Globe } from 'lucide-react';
+import { ArrowUpRight, Code, Layout, Smartphone, Eye, Zap, Cpu, Globe, Search } from 'lucide-react';
 import Testimonials from '../../components/sections/Testimonials';
 import StatsCounter from '../../components/sections/StatsCounter';
 import CallToAction from '../../components/sections/CallToAction';
@@ -67,10 +67,16 @@ const categories = ['All', 'Web & App', 'UI & Branding', 'AI & Automation', 'Vis
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [search, setSearch] = useState('');
 
-  const filteredProjects = projects.filter(
-    (project) => activeFilter === 'All' || project.category === activeFilter
-  );
+  const filteredProjects = projects.filter((project) => {
+    const matchesCategory = activeFilter === 'All' || project.category === activeFilter;
+    const matchesSearch = !search ||
+      project.title.toLowerCase().includes(search.toLowerCase()) ||
+      project.description.toLowerCase().includes(search.toLowerCase()) ||
+      project.tags.some(t => t.toLowerCase().includes(search.toLowerCase()));
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className="w-full">
@@ -90,6 +96,16 @@ export default function Portfolio() {
               A premium showcase of our most ambitious technical endeavors across six key specializations.
             </p>
           </div>
+          <div className="w-full md:w-80 relative shrink-0">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-boraq-gray-mid dark:text-boraq-gray-silver" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search projects..."
+              className="w-full bg-boraq-black/5 dark:bg-boraq-white/5 border border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 rounded-full py-3.5 pl-12 pr-6 focus:outline-none focus:border-boraq-teal-steel/50 focus:ring-1 focus:ring-boraq-teal-steel/50 transition-all text-sm text-boraq-black dark:text-boraq-white placeholder:text-boraq-gray-mid/50"
+            />
+          </div>
         </motion.div>
       </section>
 
@@ -97,33 +113,50 @@ export default function Portfolio() {
       <section className="max-w-7xl mx-auto px-6 pb-12 overflow-x-auto no-scrollbar">
         <div className="flex flex-nowrap md:flex-wrap gap-4 min-w-max pb-4">
           {categories.map((category) => (
-            <button
+            <motion.button
               key={category}
               onClick={() => setActiveFilter(category)}
-              className={`px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 backdrop-blur-md border ${activeFilter === category
-                ? 'bg-boraq-black text-boraq-white dark:bg-boraq-white dark:text-boraq-black border-transparent'
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`relative px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 backdrop-blur-md border ${activeFilter === category
+                ? 'text-boraq-white dark:text-boraq-black border-transparent'
                 : 'bg-boraq-white/5 border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 hover:border-boraq-teal-steel/50 text-boraq-gray-mid dark:text-boraq-gray-silver'
                 }`}
             >
-              {category}
-            </button>
+              {activeFilter === category && (
+                <motion.div
+                  layoutId="activeFilter"
+                  className="absolute inset-0 bg-boraq-black dark:bg-boraq-white rounded-full"
+                  transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">{category}</span>
+            </motion.button>
           ))}
         </div>
+        <motion.p
+          key={filteredProjects.length}
+          initial={{ opacity: 0, y: -5 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-xs font-mono text-boraq-gray-mid/50 dark:text-boraq-gray-silver/40 mt-2"
+        >
+          Showing {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''}
+        </motion.p>
       </section>
 
       {/* Grid Section */}
       <section className="max-w-7xl mx-auto px-6 pb-32">
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <AnimatePresence>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
               <motion.div
                 key={project.id}
-                layout
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5 }}
-                className="group relative rounded-3xl overflow-hidden glass-panel flex flex-col h-[500px]"
+                transition={{ duration: 0.4 }}
+                whileHover={{ y: -6 }}
+                className="group relative rounded-3xl overflow-hidden glass-panel flex flex-col h-[500px] transition-transform duration-300"
               >
                 <Link to={`/case-studies/${project.id}`} className="block h-full w-full relative overflow-hidden">
                   {/* Image Container */}
@@ -171,7 +204,14 @@ export default function Portfolio() {
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
+
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-20">
+            <p className="text-boraq-gray-mid dark:text-boraq-gray-silver text-lg">No projects match your search</p>
+            <button onClick={() => { setSearch(''); setActiveFilter('All'); }} className="mt-4 text-sm text-boraq-teal-steel font-bold hover:underline">Clear filters</button>
+          </div>
+        )}
       </section>
 
       {/* Trust & Conversion Sections */}

@@ -66,3 +66,78 @@
     /* deep-tech-teal */
   }
 }
+
+/* ═══════════════════════════════════════════════
+   GPU-Accelerated CSS Animations
+   (replaces framer-motion Infinity loops for perf)
+   ═══════════════════════════════════════════════ */
+
+/* ── Background blobs ── */
+@keyframes blob-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.15); }
+  66% { transform: translate(-15px, 10px) scale(1.05); }
+}
+@keyframes blob-medium {
+  0%, 100% { transform: scale(1.1); }
+  50% { transform: scale(1); }
+}
+@keyframes blob-slow-reverse {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-20px, 15px) scale(1.1); }
+}
+.animate-blob-slow { animation: blob-slow 20s ease-in-out infinite; will-change: transform; }
+.animate-blob-medium { animation: blob-medium 15s ease-in-out infinite; will-change: transform; }
+.animate-blob-slow-reverse { animation: blob-slow-reverse 25s ease-in-out infinite; will-change: transform; }
+
+/* ── Cat walking ── */
+@keyframes cat-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+@keyframes cat-leg-1 {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+}
+@keyframes cat-leg-2 {
+  0%, 100% { transform: rotate(8deg); }
+  50% { transform: rotate(-8deg); }
+}
+@keyframes cat-tail {
+  0%, 100% { transform: rotate(-12deg); }
+  50% { transform: rotate(12deg); }
+}
+.animate-cat-bounce { animation: cat-bounce 0.35s ease-in-out infinite; will-change: transform; }
+.animate-cat-leg-1 { animation: cat-leg-1 0.35s ease-in-out infinite; transform-origin: top center; will-change: transform; }
+.animate-cat-leg-2 { animation: cat-leg-2 0.35s ease-in-out infinite; transform-origin: top center; will-change: transform; }
+.animate-cat-tail { animation: cat-tail 0.7s ease-in-out infinite; transform-origin: bottom right; will-change: transform; }
+
+/* ── Floating orbs ── */
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(10px, -15px) scale(1.1); }
+  50% { transform: translate(-8px, -5px) scale(1); }
+  75% { transform: translate(5px, 10px) scale(1.05); }
+}
+.animate-float-orb { animation: float-orb var(--orb-duration, 6s) ease-in-out infinite; will-change: transform; }
+
+/* ── Pulse soft (replaces framer Infinity opacity loops) ── */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+.animate-pulse-soft { animation: pulse-soft 1.5s ease-in-out infinite; }
+
+/* ── Ken Burns zoom (Founders Note photo) ── */
+@keyframes ken-burns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.03); }
+}
+.animate-ken-burns { animation: ken-burns 12s ease-out forwards; will-change: transform; }
+
+/* ── Ticker scroll (ClientsTicker) ── */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-ticker { animation: ticker 50s linear infinite; will-change: transform; }

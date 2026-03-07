@@ -1,11 +1,25 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Play, Code, Award } from 'lucide-react';
+import { BookOpen, Play, Code, Award, Search } from 'lucide-react';
 import CallToAction from '../../components/sections/CallToAction';
 import ExpertTeam from '../../components/sections/ExpertTeam';
 import StatsCounter from '../../components/sections/StatsCounter';
 
+const courses = [
+  { title: 'Framer Motion Internals', desc: 'Building complex layout animations and orchestrating timeline events.' },
+  { title: 'PostgreSQL Deep Dive', desc: 'Indexing, window functions, and optimizing slow queries.' },
+  { title: 'Serverless Edge Config', desc: 'Deploying Vercel Edge functions for sub-20ms global latency.' },
+  { title: 'Web3 Security', desc: 'Auditing Solidity contracts for reentrancy and overflow vulnerabilities.' }
+];
 
 export default function Learning() {
+  const [search, setSearch] = useState('');
+
+  const filteredCourses = courses.filter(c =>
+    c.title.toLowerCase().includes(search.toLowerCase()) ||
+    c.desc.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="w-full pb-32">
       <section className="max-w-7xl mx-auto px-6 pt-12 pb-24 text-center">
@@ -17,9 +31,21 @@ export default function Learning() {
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-boraq-black dark:text-boraq-white">
             Master the <span className="text-boraq-teal-steel italic">Craft.</span>
           </h1>
-          <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-3xl mx-auto font-light leading-relaxed mb-10">
             Intensive bootcamps, technical workshops, and engineering deep-dives taught by the senior developers who build Boraq's enterprise products.
           </p>
+
+          {/* Search Bar */}
+          <div className="max-w-lg mx-auto relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-boraq-gray-mid dark:text-boraq-gray-silver" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search courses & workshops..."
+              className="w-full bg-boraq-black/5 dark:bg-boraq-white/5 border border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 rounded-full py-3.5 pl-12 pr-6 focus:outline-none focus:border-boraq-teal-steel/50 focus:ring-1 focus:ring-boraq-teal-steel/50 transition-all text-sm text-boraq-black dark:text-boraq-white placeholder:text-boraq-gray-mid/50"
+            />
+          </div>
         </motion.div>
       </section>
 
@@ -68,12 +94,7 @@ export default function Learning() {
 
           {/* Short Courses Grid */}
           <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {[
-              { title: 'Framer Motion Internals', desc: 'Building complex layout animations and orchestrating timeline events.' },
-              { title: 'PostgreSQL Deep Dive', desc: 'Indexing, window functions, and optimizing slow queries.' },
-              { title: 'Serverless Edge Config', desc: 'Deploying Vercel Edge functions for sub-20ms global latency.' },
-              { title: 'Web3 Security', desc: 'Auditing Solidity contracts for reentrancy and overflow vulnerabilities.' }
-            ].map((course, i) => (
+            {filteredCourses.map((course, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, x: 20 }}
@@ -91,6 +112,12 @@ export default function Learning() {
                 </span>
               </motion.div>
             ))}
+            {filteredCourses.length === 0 && (
+              <div className="col-span-full text-center py-12">
+                <p className="text-boraq-gray-mid dark:text-boraq-gray-silver text-lg">No courses match "<span className="font-bold text-boraq-black dark:text-boraq-white">{search}</span>"</p>
+                <button onClick={() => setSearch('')} className="mt-4 text-sm text-boraq-teal-steel font-bold hover:underline">Clear search</button>
+              </div>
+            )}
           </div>
         </div>
       </section>

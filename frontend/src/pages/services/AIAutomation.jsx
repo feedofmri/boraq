@@ -62,10 +62,9 @@ function InteractiveNeuralNet() {
         {/* Progress bar */}
         <div className="px-6 pt-3">
           <div className="h-1.5 w-full rounded-full bg-boraq-gray-silver/10 dark:bg-boraq-teal-deep/10 overflow-hidden">
-            <motion.div
-              className={`h-full rounded-full ${trained ? 'bg-gradient-to-r from-green-400 to-emerald-400' : 'bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400'}`}
-              animate={{ width: `${(activeNodes.size / 16) * 100}%` }}
-              transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+            <div
+              className={`h-full rounded-full transition-all duration-700 ease-out ${trained ? 'bg-gradient-to-r from-green-400 to-emerald-400' : 'bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400'}`}
+              style={{ width: `${(activeNodes.size / 16) * 100}%` }}
             />
           </div>
         </div>
@@ -74,16 +73,12 @@ function InteractiveNeuralNet() {
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="grid grid-cols-4 gap-4">
             {[...Array(16)].map((_, i) => (
-              <motion.button
+              <button
                 key={i}
-                whileHover={{ scale: 1.4, rotate: 10 }}
-                whileTap={{ scale: 0.8, rotate: -10 }}
-                animate={activeNodes.has(i) ? { scale: [1, 1.2, 1] } : {}}
-                transition={activeNodes.has(i) ? { repeat: Infinity, duration: 2, repeatDelay: Math.random() * 2 } : {}}
                 onClick={() => toggleNode(i)}
-                className={`w-7 h-7 md:w-8 md:h-8 rounded-full cursor-pointer transition-all duration-300 ${
+                className={`w-7 h-7 md:w-8 md:h-8 rounded-full cursor-pointer transition-all duration-300 hover:scale-125 active:scale-90 ${
                   activeNodes.has(i)
-                    ? `${nodeColors[i]} shadow-[0_0_18px]`
+                    ? `${nodeColors[i]} shadow-[0_0_18px] animate-pulse`
                     : 'bg-boraq-gray-silver/20 dark:bg-boraq-teal-deep/20 hover:bg-boraq-gray-silver/40 dark:hover:bg-boraq-teal-deep/40'
                 }`}
               />

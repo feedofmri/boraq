@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Code, Terminal, Zap, ArrowRight, HeartPulse, Coffee, MapPin } from 'lucide-react';
+import { Briefcase, Code, Terminal, Zap, ArrowRight, HeartPulse, Coffee, MapPin, Search } from 'lucide-react';
 import CallToAction from '../../components/sections/CallToAction';
 import ExpertTeam from '../../components/sections/ExpertTeam';
 import InteractiveFAQ from '../../components/sections/InteractiveFAQ';
@@ -13,6 +14,14 @@ const positions = [
 ];
 
 export default function Career() {
+  const [search, setSearch] = useState('');
+
+  const filteredPositions = positions.filter(p =>
+    p.title.toLowerCase().includes(search.toLowerCase()) ||
+    p.dept.toLowerCase().includes(search.toLowerCase()) ||
+    p.location.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="w-full pb-32">
       <section className="max-w-7xl mx-auto px-6 pt-12 pb-24 text-center">
@@ -99,9 +108,21 @@ export default function Career() {
 
       {/* Open Roles */}
       <section className="max-w-4xl mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-8">Open Positions</h2>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+          <h2 className="text-3xl font-bold text-boraq-black dark:text-boraq-white">Open Positions</h2>
+          <div className="relative w-full md:w-80">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-boraq-gray-mid dark:text-boraq-gray-silver" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search roles..."
+              className="w-full bg-boraq-black/5 dark:bg-boraq-white/5 border border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 rounded-full py-3 pl-11 pr-5 focus:outline-none focus:border-boraq-teal-steel/50 focus:ring-1 focus:ring-boraq-teal-steel/50 transition-all text-sm text-boraq-black dark:text-boraq-white placeholder:text-boraq-gray-mid/50"
+            />
+          </div>
+        </div>
         <div className="space-y-4">
-          {positions.map((pos, i) => (
+          {filteredPositions.map((pos, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
@@ -130,6 +151,13 @@ export default function Career() {
             </motion.div>
           ))}
         </div>
+
+        {filteredPositions.length === 0 && (
+          <div className="text-center py-16">
+            <p className="text-boraq-gray-mid dark:text-boraq-gray-silver text-lg">No positions match "<span className="font-bold text-boraq-black dark:text-boraq-white">{search}</span>"</p>
+            <button onClick={() => setSearch('')} className="mt-4 text-sm text-boraq-teal-steel font-bold hover:underline">Clear search</button>
+          </div>
+        )}
 
         <div className="mt-12 text-center p-8 glass-panel border-dashed border-2 border-boraq-gray-silver/20 dark:border-boraq-teal-deep/20 rounded-3xl">
           <h4 className="font-bold mb-2 text-boraq-black dark:text-boraq-white">Don't see a fit?</h4>

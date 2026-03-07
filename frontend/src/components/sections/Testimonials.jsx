@@ -46,9 +46,16 @@ const testimonials = [
 
 export default function Testimonials() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [direction, setDirection] = useState(1);
 
-    const next = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    const next = () => { setDirection(1); setCurrentIndex((prev) => (prev + 1) % testimonials.length); };
+    const prev = () => { setDirection(-1); setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length); };
+
+    const handleDragEnd = (e, info) => {
+        const threshold = 50;
+        if (info.offset.x < -threshold) next();
+        else if (info.offset.x > threshold) prev();
+    };
 
     return (
         <section className="max-w-7xl mx-auto px-6 py-24">
@@ -105,14 +112,19 @@ export default function Testimonials() {
                     </div>
 
                     {/* Testimonial Content */}
-                    <div className="flex-1 min-h-[350px] flex items-center overflow-hidden">
-                        <AnimatePresence mode="wait">
+                    <div className="flex-1 min-h-[350px] flex items-center overflow-hidden cursor-grab active:cursor-grabbing">
+                        <AnimatePresence mode="wait" custom={direction}>
                             <motion.div
                                 key={currentIndex}
-                                initial={{ opacity: 0, x: 50 }}
+                                custom={direction}
+                                initial={{ opacity: 0, x: direction * 80 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -50 }}
+                                exit={{ opacity: 0, x: direction * -80 }}
                                 transition={{ duration: 0.4, ease: "easeInOut" }}
+                                drag="x"
+                                dragConstraints={{ left: 0, right: 0 }}
+                                dragElastic={0.3}
+                                onDragEnd={handleDragEnd}
                                 className="w-full"
                             >
                                 <div className="flex items-center gap-1 mb-6 text-boraq-teal-steel">
@@ -178,20 +190,23 @@ export default function Testimonials() {
                 </div>
             </div>
 
-            {/* Testimonial navigation dots */}
-            <div className="flex justify-center gap-2 mt-8">
-                {testimonials.map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => setCurrentIndex(index)}
-                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                            index === currentIndex
-                                ? 'bg-boraq-teal-steel w-8'
-                                : 'bg-boraq-gray-silver/30 dark:bg-boraq-teal-deep/30 hover:bg-boraq-teal-steel/50'
-                        }`}
-                        aria-label={`Go to testimonial ${index + 1}`}
-                    />
-                ))}
+            {/* Testimonial navigation dots + swipe hint */}
+            <div className="flex flex-col items-center gap-3 mt-8">
+                <div className="flex justify-center gap-2">
+                    {testimonials.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => { setDirection(index > currentIndex ? 1 : -1); setCurrentIndex(index); }}
+                            className={`h-2.5 rounded-full transition-all duration-300 ${
+                                index === currentIndex
+                                    ? 'bg-boraq-teal-steel w-8'
+                                    : 'bg-boraq-gray-silver/30 dark:bg-boraq-teal-deep/30 hover:bg-boraq-teal-steel/50 w-2.5'
+                            }`}
+                            aria-label={`Go to testimonial ${index + 1}`}
+                        />
+                    ))}
+                </div>
+                <p className="text-[10px] font-mono text-boraq-gray-mid/40 dark:text-boraq-gray-silver/30">Swipe or use arrows to navigate</p>
             </div>
         </section>
     );

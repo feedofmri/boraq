@@ -33,20 +33,10 @@ export default function ClientsTicker() {
                 <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-boraq-white dark:from-boraq-black to-transparent z-10" />
                 <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-boraq-white dark:from-boraq-black to-transparent z-10" />
 
-                <motion.div
-                    className="flex whitespace-nowrap cursor-pointer"
-                    animate={{
-                        x: [0, -100 + '%'],
-                    }}
-                    whileHover={{ animationPlayState: "paused" }}
-                    transition={{
-                        x: {
-                            repeat: Infinity,
-                            repeatType: "loop",
-                            duration: 50,
-                            ease: "linear",
-                        },
-                    }}
+                {/* CSS-animated ticker — GPU-accelerated, no JS overhead */}
+                <div
+                    className="flex whitespace-nowrap cursor-pointer animate-ticker hover:[animation-play-state:paused]"
+                    style={{ willChange: 'transform' }}
                 >
                     <div className="flex items-center">
                         {logos.map((logo, index) => (
@@ -70,7 +60,7 @@ export default function ClientsTicker() {
                             </div>
                         ))}
                     </div>
-                </motion.div>
+                </div>
             </div>
 
             {/* Trust indicators strip */}

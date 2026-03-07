@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Download, FileText, LayoutTemplate, Palette } from 'lucide-react';
+import { Download, FileText, LayoutTemplate, Palette, Search } from 'lucide-react';
 import CallToAction from '../../components/sections/CallToAction';
 import Testimonials from '../../components/sections/Testimonials';
 
@@ -12,6 +13,14 @@ const resources = [
 ];
 
 export default function Resources() {
+  const [search, setSearch] = useState('');
+
+  const filteredResources = resources.filter(r =>
+    r.title.toLowerCase().includes(search.toLowerCase()) ||
+    r.desc.toLowerCase().includes(search.toLowerCase()) ||
+    r.type.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="w-full pb-32">
       <section className="max-w-7xl mx-auto px-6 pt-12 pb-24 text-center">
@@ -19,15 +28,27 @@ export default function Resources() {
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
             Open <span className="text-boraq-cyan italic">Knowledge.</span>
           </h1>
-          <p className="text-lg md:text-xl text-black/70 dark:text-white/70 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-lg md:text-xl text-black/70 dark:text-white/70 max-w-3xl mx-auto font-light leading-relaxed mb-10">
             We believe in lifting the entire industry standard. Download our internal tools, templates, and boilerplates for free.
           </p>
+
+          {/* Search Bar */}
+          <div className="max-w-lg mx-auto relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-boraq-gray-mid dark:text-boraq-gray-silver" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search resources..."
+              className="w-full bg-boraq-black/5 dark:bg-boraq-white/5 border border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 rounded-full py-3.5 pl-12 pr-6 focus:outline-none focus:border-boraq-teal-steel/50 focus:ring-1 focus:ring-boraq-teal-steel/50 transition-all text-sm text-boraq-black dark:text-boraq-white placeholder:text-boraq-gray-mid/50"
+            />
+          </div>
         </motion.div>
       </section>
 
       <section className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {resources.map((res, i) => (
+          {filteredResources.map((res, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.95 }}
@@ -57,6 +78,13 @@ export default function Resources() {
             </motion.div>
           ))}
         </div>
+
+        {filteredResources.length === 0 && (
+          <div className="text-center py-16">
+            <p className="text-boraq-gray-mid dark:text-boraq-gray-silver text-lg">No resources match "<span className="font-bold text-boraq-black dark:text-boraq-white">{search}</span>"</p>
+            <button onClick={() => setSearch('')} className="mt-4 text-sm text-boraq-teal-steel font-bold hover:underline">Clear search</button>
+          </div>
+        )}
       </section>
 
       <Testimonials />

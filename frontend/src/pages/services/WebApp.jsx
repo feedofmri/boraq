@@ -146,17 +146,14 @@ function InteractiveCodeEditor() {
 				{/* Code area with line numbers */}
 				<div className="flex-1 p-4 font-mono text-xs md:text-sm leading-relaxed overflow-hidden">
 					{codeLines.map((line, idx) => (
-						<motion.div
+						<div
 							key={`${activeTab}-${idx}`}
-							initial={{ opacity: 0, x: -15 }}
-							animate={idx < typedLines ? { opacity: 1, x: 0 } : { opacity: 0 }}
-							transition={{ duration: 0.25, ease: 'easeOut' }}
-							className="flex gap-3"
+							className={`flex gap-3 transition-all duration-300 ease-out ${idx < typedLines ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
 						>
 							<span className="text-boraq-gray-silver/20 select-none w-4 text-right">{idx + 1}</span>
 							<span className={line.color}>{line.text}</span>
 							{idx === typedLines - 1 && <span className="animate-pulse text-boraq-teal-steel">▌</span>}
-						</motion.div>
+						</div>
 					))}
 				</div>
 
@@ -164,7 +161,7 @@ function InteractiveCodeEditor() {
 				<div className="px-5 pb-5 relative">
 					{showConfetti && (
 						<div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-							{[...Array(20)].map((_, i) => (
+							{[...Array(10)].map((_, i) => (
 								<motion.div
 									key={i}
 									initial={{ y: 0, x: 0, opacity: 1, scale: 1 }}

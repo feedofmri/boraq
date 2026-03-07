@@ -66,11 +66,13 @@ export default function ExpertTeam() {
                 {team.map((member, index) => (
                     <motion.div
                         key={index}
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        transition={{ duration: 0.5, delay: index * 0.12 }}
+                        whileHover={{ y: -8, rotateY: -5, rotateX: 3 }}
                         className="group"
+                        style={{ transformStyle: 'preserve-3d', perspective: 800 }}
                     >
                         <div className="glass-panel p-4 rounded-3xl h-full flex flex-col items-center text-center hover:border-boraq-teal-steel/30 transition-colors duration-300">
                             <div className="w-full aspect-square rounded-2xl overflow-hidden mb-6 relative">
