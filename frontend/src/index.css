@@ -34,6 +34,64 @@
   body {
     overflow-x: hidden;
   }
+
+  /* ── Custom Scrollbar ── */
+
+  /* Webkit (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #82A9B4;          /* boraq-teal-steel */
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #587E88;          /* boraq-teal-muted */
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: #2F555F;          /* boraq-teal-slate */
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  /* Dark mode scrollbar */
+  .dark ::-webkit-scrollbar-track {
+    background: rgba(2, 6, 7, 0.4);
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: #587E88;          /* boraq-teal-muted */
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #82A9B4;          /* boraq-teal-steel */
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+
+  /* Firefox */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #82A9B4 transparent;
+  }
+
+  .dark {
+    scrollbar-color: #587E88 rgba(2, 6, 7, 0.4);
+  }
 }
 
 @layer components {
