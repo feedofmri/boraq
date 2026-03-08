@@ -30,7 +30,7 @@ const team = [
     role: 'Chief Operating Officer',
     image: cooPhoto,
     bio: 'UI/UX & Graphics expert. Drives visual excellence across brand identities and digital interfaces while overseeing operations.',
-    social: { linkedin: 'https://linkedin.com/in/feedofmri', github: 'https://github.com/boraqio' }
+    social: { linkedin: 'https://github.com/meemorphic', github: 'https://www.linkedin.com/in/ma-huan-sheikh-meem-600085361' }
   },
   {
     name: 'Adel Mohammad Zahid',
