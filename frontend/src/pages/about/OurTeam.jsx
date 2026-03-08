@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { Linkedin, Twitter, Github } from 'lucide-react';
-import CallToAction from '../../components/sections/CallToAction';
+import { Linkedin, Github, Twitter } from 'lucide-react';
+
 
 // Team Photos
 import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
@@ -14,7 +14,7 @@ const ceo = {
   role: 'Founder & CEO',
   image: ceoPhoto,
   bio: 'Expert in Web & App development and Computer Vision. Founded Boraq in November 2023 to shape the future through advanced solutions and research.',
-  social: { linkedin: 'https://linkedin.com/company/boraqio' }
+  social: { linkedin: 'https://linkedin.com/in/feedofmri', github: 'https://github.com/feedofmri' }
 };
 
 const team = [
@@ -23,32 +23,32 @@ const team = [
     role: 'Chief Technology Officer',
     image: ctoPhoto,
     bio: 'Blockchain and Web3 specialist. Architects decentralized platforms, smart contracts, and token systems.',
-    social: { linkedin: 'https://linkedin.com/company/boraqio', github: 'https://github.com/boraqio' }
+    social: { linkedin: 'https://linkedin.com/in/feedofmri', github: 'https://github.com/boraqio' }
   },
   {
     name: 'Ma-Huan Sheikh Meem',
     role: 'Chief Operating Officer',
     image: cooPhoto,
     bio: 'UI/UX & Graphics expert. Drives visual excellence across brand identities and digital interfaces while overseeing operations.',
-    social: { linkedin: 'https://linkedin.com/company/boraqio' }
+    social: { linkedin: 'https://linkedin.com/in/feedofmri', github: 'https://github.com/boraqio' }
   },
   {
     name: 'Adel Mohammad Zahid',
     role: 'Chief Product Officer',
     image: cpoPhoto,
     bio: 'ML & Automation specialist. Leads predictive modeling, intelligent workflows, and AI-powered product strategy.',
-    social: { linkedin: 'https://linkedin.com/company/boraqio' }
+    social: { linkedin: 'https://linkedin.com/in/feedofmri', github: 'https://github.com/boraqio' }
   },
   {
     name: 'Tahmid Khan',
     role: 'Project Lead',
     image: plPhoto,
     bio: 'Smart Device expert. Leads IoT integrations, embedded systems, firmware development, and hardware-software projects.',
-    social: { linkedin: 'https://linkedin.com/company/boraqio' }
+    social: { linkedin: 'https://linkedin.com/in/tahmidkhanshuvo', github: 'https://github.com/tahmidkhanshuvo' }
   }
 ];
 
-function TeamMemberCard({ member, social }) {
+function TeamMemberCard({ member }) {
   return (
     <div className="glass-panel p-6 rounded-3xl flex flex-col items-center group hover:border-boraq-teal-steel/30 transition-colors duration-300 text-center">
       <div className="w-32 h-32 rounded-full overflow-hidden mb-6 relative">
@@ -66,17 +66,17 @@ function TeamMemberCard({ member, social }) {
       </p>
       <div className="flex items-center gap-4 mt-auto pt-4 border-t border-black/5 dark:border-white/5 w-full justify-center">
         {member.social.linkedin && (
-          <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-boraq-gray-mid dark:text-boraq-gray-silver hover:text-boraq-teal-steel transition-colors">
+          <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-boraq-gray-mid dark:text-boraq-gray-silver hover:text-boraq-teal-steel transition-colors" aria-label={`${member.name} on LinkedIn`}>
             <Linkedin className="w-5 h-5" />
           </a>
         )}
         {member.social.twitter && (
-          <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" className="text-boraq-gray-mid dark:text-boraq-gray-silver hover:text-boraq-teal-steel transition-colors">
+          <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" className="text-boraq-gray-mid dark:text-boraq-gray-silver hover:text-boraq-teal-steel transition-colors" aria-label={`${member.name} on Twitter`}>
             <Twitter className="w-5 h-5" />
           </a>
         )}
         {member.social.github && (
-          <a href={member.social.github} target="_blank" rel="noopener noreferrer" className="text-boraq-gray-mid dark:text-boraq-gray-silver hover:text-boraq-teal-steel transition-colors">
+          <a href={member.social.github} target="_blank" rel="noopener noreferrer" className="text-boraq-gray-mid dark:text-boraq-gray-silver hover:text-boraq-teal-steel transition-colors" aria-label={`${member.name} on GitHub`}>
             <Github className="w-5 h-5" />
           </a>
         )}
@@ -139,6 +139,11 @@ export default function OurTeam() {
                     <Linkedin className="w-5 h-5" />
                   </a>
                 )}
+                {ceo.social.github && (
+                  <a href={ceo.social.github} target="_blank" rel="noopener noreferrer" className="text-boraq-gray-mid dark:text-boraq-gray-silver hover:text-boraq-teal-steel transition-colors" aria-label={`${ceo.name} on GitHub`}>
+                    <Github className="w-5 h-5" />
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -160,7 +165,6 @@ export default function OurTeam() {
           ))}
         </div>
       </section>
-      <CallToAction />
     </div>
   );
 }
