@@ -6,7 +6,6 @@ import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
 import ctoPhoto from '../../assets/Team/Rakib Hasan - Chief Technology Officer.jpg';
 import cooPhoto from '../../assets/Team/Ma-Huan Sheikh Meem - Chief Operating Officer.jpg';
 import cpoPhoto from '../../assets/Team/Adel Mohammad Zahid - Chief Product Officer.jpg';
-import plPhoto from '../../assets/Team/Tahmid Khan - Project Lead.jpg';
 
 const ceo = {
     name: 'Md. Rubayet Islam',
@@ -174,7 +173,7 @@ export default function ExpertTeam() {
             </motion.div>
 
             {/* Other Team Members */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {team.map((member, index) => (
                     <MemberCard key={index} member={member} index={index} />
                 ))}
