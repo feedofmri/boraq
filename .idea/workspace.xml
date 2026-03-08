@@ -4,7 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="003da927-7d00-4dc8-8987-3806b0dc596b" name="Changes" comment="" />
+    <list default="true" id="003da927-7d00-4dc8-8987-3806b0dc596b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/boraq.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/CallToAction.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/CallToAction.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/CaseStudyHighlight.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/CaseStudyHighlight.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ClientsTicker.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ClientsTicker.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ExpertTeam.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ExpertTeam.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/FloatingContact.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/FloatingContact.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/FoundersNote.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/FoundersNote.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/HeroTrustStrip.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/HeroTrustStrip.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/InteractiveFAQ.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/InteractiveFAQ.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/LiveActivity.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/LiveActivity.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ProcessTimeline.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ProcessTimeline.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ServiceHero.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ServiceHumanSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ServiceHumanSection.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ServicesPreview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ServicesPreview.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/StatsCounter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/StatsCounter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/Testimonials.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/Testimonials.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/TrustBadges.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/TrustBadges.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Research.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Research.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/about/OurStory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/about/OurStory.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/about/OurTeam.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/about/OurTeam.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/community/Blog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/community/Blog.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/community/BlogDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/community/BlogDetail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/community/Career.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/community/Career.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/community/Learning.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/community/Learning.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/AIAutomation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/AIAutomation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/SmartDevice.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/SmartDevice.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/UIBranding.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/UIBranding.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/VisionSpeech.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/VisionSpeech.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/Web3.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/Web3.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/WebApp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/WebApp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/utility/Contact.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/utility/Contact.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/utility/FAQ.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/utility/FAQ.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/work/Portfolio.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/work/Portfolio.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,18 +56,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "feedofmri"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;feedofmri&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/feedofmri/boraq.git",
-    "accountId": "7dcdd4c1-121a-49a5-aa19-73e0686d08f9"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/feedofmri/boraq.git&quot;,
+    &quot;accountId&quot;: &quot;7dcdd4c1-121a-49a5-aa19-73e0686d08f9&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -41,24 +79,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Areas/Development/Projects/React/boraq&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Areas\Development\Projects\React\boraq" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -75,6 +118,8 @@
       <updated>1772898578101</updated>
       <workItem from="1772898579588" duration="2000" />
       <workItem from="1772911471114" duration="7168000" />
+      <workItem from="1772982172833" duration="3341000" />
+      <workItem from="1772991336076" duration="1313000" />
     </task>
     <servers />
   </component>

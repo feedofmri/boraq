@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Cpu, Bot, Zap, Network, Check, Trophy } from 'lucide-react';
+import cpoPhoto from '../../assets/Team/Adel Mohammad Zahid - Chief Product Officer.jpg';
 import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
 import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
@@ -76,11 +77,10 @@ function InteractiveNeuralNet() {
               <button
                 key={i}
                 onClick={() => toggleNode(i)}
-                className={`w-7 h-7 md:w-8 md:h-8 rounded-full cursor-pointer transition-all duration-300 hover:scale-125 active:scale-90 ${
-                  activeNodes.has(i)
-                    ? `${nodeColors[i]} shadow-[0_0_18px] animate-pulse`
-                    : 'bg-boraq-gray-silver/20 dark:bg-boraq-teal-deep/20 hover:bg-boraq-gray-silver/40 dark:hover:bg-boraq-teal-deep/40'
-                }`}
+                className={`w-7 h-7 md:w-8 md:h-8 rounded-full cursor-pointer transition-all duration-300 hover:scale-125 active:scale-90 ${activeNodes.has(i)
+                  ? `${nodeColors[i]} shadow-[0_0_18px] animate-pulse`
+                  : 'bg-boraq-gray-silver/20 dark:bg-boraq-teal-deep/20 hover:bg-boraq-gray-silver/40 dark:hover:bg-boraq-teal-deep/40'
+                  }`}
               />
             ))}
           </div>
@@ -127,15 +127,15 @@ export default function AIAutomation() {
               Intelligence, <br /> <span className="text-boraq-teal-steel italic">Operationalized.</span>
             </h1>
             <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver font-light leading-relaxed">
-              We bridge the gap between AI research and enterprise reality. Deploy production-ready machine learning models that optimize efficiency and create new revenue streams.
+              We bridge the gap between AI research and real-world impact. Deploy production-ready machine learning models that optimize efficiency and unlock intelligent business processes.
             </p>
 
             {/* Human trust strip */}
             <HeroTrustStrip
               lead={{
-                name: 'Elena Rodriguez',
-                role: 'Lead AI Engineer',
-                avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400',
+                name: 'Adel Mohammad Zahid',
+                role: 'CPO — AI & Automation',
+                avatar: cpoPhoto,
               }}
             />
           </div>
@@ -175,25 +175,25 @@ export default function AIAutomation() {
       {/* NEW: Human trust section */}
       <ServiceHumanSection
         teamLead={{
-          name: 'Elena Rodriguez',
-          role: 'Lead AI Engineer',
-          avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400',
-          bio: 'PhD in Machine Learning from MIT. 12+ published papers. Elena personally designs every model architecture and ensures your AI solution is production-ready, not just a proof of concept.',
-          funFact: 'Watercolor painter & AI ethics advocate',
+          name: 'Adel Mohammad Zahid',
+          role: 'Chief Product Officer',
+          avatar: cpoPhoto,
+          bio: 'ML & Automation specialist. Adel personally designs every model architecture and ensures your AI solution is production-ready — from Car Price Prediction to Heart Disease analysis.',
+          funFact: 'Machine Learning engineer & product strategist',
         }}
         testimonial={{
-          quote: 'The level of transparency is unprecedented. We felt like we had an in-house engineering team, not an external agency.',
-          author: 'Amanda Lee',
-          role: 'Founder, HealthSync',
+          quote: 'Boraq\'s AI expertise helped us build predictive ML models that truly add value. Their customized research approach made all the difference.',
+          author: 'Sarah Jenkins',
+          role: 'Head of Product',
           avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200',
-          result: '40% cost reduction',
+          result: 'ML-powered insights tool',
         }}
         stats={[
-          { label: 'ML Models Deployed', value: '30+' },
-          { label: 'Avg. Accuracy', value: '96.4%' },
-          { label: 'Data Points Processed', value: '2B+' },
+          { label: 'ML Models Deployed', value: '3+' },
+          { label: 'User Satisfaction', value: '4.9/5' },
+          { label: 'AI Projects', value: '3+' },
         ]}
-        processNote="Elena walks you through every model decision in plain language — no black boxes, full transparency."
+        processNote="Adel walks you through every model decision in plain language — no black boxes, full transparency."
       />
 
       <Testimonials />

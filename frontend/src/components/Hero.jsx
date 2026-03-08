@@ -44,6 +44,11 @@ function WalkingCat() {
     );
 }
 
+import ceoPhoto from '../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
+import ctoPhoto from '../assets/Team/Rakib Hasan - Chief Technology Officer.jpg';
+import cooPhoto from '../assets/Team/Ma-Huan Sheikh Meem - Chief Operating Officer.jpg';
+import cpoPhoto from '../assets/Team/Adel Mohammad Zahid - Chief Product Officer.jpg';
+
 export default function Hero() {
     const badgeRef = useRef(null);
     const [badgeWidth, setBadgeWidth] = useState(300);
@@ -75,10 +80,10 @@ export default function Hero() {
     };
 
     const teamFaces = [
-        'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=60',
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=60',
-        'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=60',
-        'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=60',
+        ceoPhoto,
+        ctoPhoto,
+        cooPhoto,
+        cpoPhoto,
     ];
 
     return (
@@ -101,16 +106,16 @@ export default function Hero() {
                     <motion.div variants={itemVariants} className="relative inline-block mb-4">
                         <div ref={badgeRef} className="glass-panel px-4 py-1.5 rounded-full inline-flex items-center gap-2">
                             <Sparkles className="w-4 h-4 text-boraq-teal-steel" />
-                            <span className="text-sm font-medium tracking-wide text-boraq-black/80 dark:text-boraq-white/80">Next-Gen Software Agency</span>
+                            <span className="text-sm font-medium tracking-wide text-boraq-black/80 dark:text-boraq-white/80">Think. Try. Thrive.</span>
                         </div>
 
                         {/* Walking Cat — walks on top of badge, falls off right edge */}
                         <motion.div
                             className="absolute pointer-events-none z-20"
-                            style={{ top: '-20px', left: '-28px' }}
-                            initial={{ x: 0, opacity: 0 }}
+                            style={{ top: '-20px', left: '0px' }}
+                            initial={{ x: -20, opacity: 0 }}
                             animate={{
-                                x: [0, badgeWidth, badgeWidth + 8, badgeWidth + 8],
+                                x: [-20, badgeWidth - 8, badgeWidth - 8, badgeWidth - 8],
                                 opacity: [0, 1, 1, 0],
                                 rotate: [0, 0, 0, 90],
                                 y: [0, 0, 0, 50],
@@ -118,7 +123,7 @@ export default function Hero() {
                             transition={{
                                 duration: 4.5,
                                 delay: 2.5,
-                                times: [0, 0.78, 0.9, 1],
+                                times: [0, 0.78, 0.785, 1],
                                 ease: 'linear',
                                 repeat: Infinity,
                                 repeatDelay: 12,
@@ -133,8 +138,8 @@ export default function Hero() {
                         variants={itemVariants}
                         className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] text-boraq-black dark:text-boraq-white"
                     >
-                        Engineering the <br className="hidden md:block" />
-                        future of tech.
+                        Innovating for a <br className="hidden md:block" />
+                        Brighter Tomorrow
                     </motion.h1>
 
                     {/* Subheadline */}
@@ -142,13 +147,13 @@ export default function Hero() {
                         variants={itemVariants}
                         className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-2xl mt-4 font-light leading-relaxed"
                     >
-                        We build premium, scalable, and intelligent software systems for forward-thinking enterprises. From Web3 platforms to AI integration.
+                        We shape the future with advanced solutions: from Web & App development and AI automation to Vision, Speech, Smart Devices, and Web3 platforms.
                     </motion.p>
 
                     {/* CTAs */}
                     <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4 mt-8 w-full sm:w-auto">
                         <Link
-                            to="/contact"
+                            to="/book-a-call"
                             className="group relative w-full sm:w-auto px-8 py-4 bg-boraq-black text-boraq-white dark:bg-boraq-white dark:text-boraq-black rounded-full font-bold overflow-hidden transition-all duration-300 hover:scale-105 shadow-xl shadow-boraq-teal-deep/10"
                         >
                             <span className="relative flex items-center justify-center gap-2">
@@ -169,10 +174,10 @@ export default function Hero() {
                     {/* Metrics/Trust Indicators */}
                     <motion.div variants={itemVariants} className="mt-16 pt-8 border-t border-boraq-gray-silver/20 dark:border-boraq-teal-deep/30 w-full grid grid-cols-2 md:grid-cols-4 gap-8">
                         {[
-                            { label: 'Enterprise Clients', value: '40+' },
-                            { label: 'Systems Shipped', value: '150+' },
-                            { label: 'Awards Won', value: '12' },
-                            { label: 'Global Reach', value: '8 Countries' }
+                            { label: 'Global Clients', value: '28+' },
+                            { label: 'Projects Delivered', value: '32+' },
+                            { label: 'User Satisfaction', value: '4.9' },
+                            { label: 'Service Divisions', value: '6' }
                         ].map((stat, idx) => (
                             <div key={idx} className="flex flex-col items-center">
                                 <span className="text-3xl font-bold tracking-tight text-boraq-black dark:text-boraq-white">{stat.value}</span>
@@ -186,11 +191,11 @@ export default function Hero() {
                         <div className="flex items-center gap-3">
                             <div className="flex -space-x-2">
                                 {teamFaces.map((src, i) => (
-                                    <img key={i} src={src} alt="" className="w-8 h-8 rounded-full border-2 border-boraq-white dark:border-boraq-black object-cover" />
+                                    <img key={i} src={src} alt="" className="w-8 h-8 rounded-full border-2 border-boraq-white dark:border-boraq-black object-cover object-top" />
                                 ))}
                             </div>
                             <span className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
-                                Meet the <span className="font-bold text-boraq-black dark:text-boraq-white">real humans</span> behind your project
+                                Meet the <span className="font-bold text-boraq-black dark:text-boraq-white">team at Boraq</span> behind your project
                             </span>
                         </div>
                         <div className="w-px h-5 bg-boraq-gray-silver/20 dark:bg-boraq-teal-deep/20 hidden sm:block" />
@@ -201,7 +206,7 @@ export default function Hero() {
                                 ))}
                             </div>
                             <span className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
-                                <span className="font-bold text-boraq-black dark:text-boraq-white">4.9/5</span> from 50+ reviews
+                                <span className="font-bold text-boraq-black dark:text-boraq-white">5.0/5</span> Google verified
                             </span>
                         </div>
                     </motion.div>

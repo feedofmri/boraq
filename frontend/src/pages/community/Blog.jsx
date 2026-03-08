@@ -9,7 +9,7 @@ import Testimonials from '../../components/sections/Testimonials';
 const posts = [
   {
     title: 'Why we migrated from Webpack to Vite',
-    excerpt: 'A deep dive into our build tooling decisions and how we achieved 10x faster HMR across 40+ enterprise repositories.',
+    excerpt: 'A deep dive into our build tooling decisions and how we achieved 10x faster HMR across our project repositories.',
     date: 'Oct 12, 2026',
     readTime: '8 min read',
     category: 'Engineering',

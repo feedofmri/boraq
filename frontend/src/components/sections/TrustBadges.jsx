@@ -3,28 +3,28 @@ import { Shield, Award, Star, CheckCircle2 } from 'lucide-react';
 
 const badges = [
     {
-        icon: Award,
-        title: 'Clutch Top Agency',
-        description: 'Recognized as a top software development company for 3 consecutive years.',
-        year: '2024–2026',
+        icon: Star,
+        title: 'Google Verified 5.0',
+        description: 'Perfect 5-star rating on Google Reviews from our satisfied clients.',
+        year: 'Verified',
     },
     {
-        icon: Star,
-        title: 'Google Partner',
-        description: 'Certified Google Cloud and Google Workspace technology partner.',
-        year: 'Certified',
+        icon: Award,
+        title: '32+ Projects Shipped',
+        description: 'Proven track record across Web & App, AI, Vision, IoT, and Web3 domains.',
+        year: 'Delivered',
     },
     {
         icon: Shield,
-        title: 'ISO 27001',
-        description: 'Information security management certified — your data is always protected.',
-        year: 'Compliant',
+        title: '24x7 Support',
+        description: 'Continuous availability with dedicated managers for immediate resolution.',
+        year: 'Always On',
     },
     {
         icon: CheckCircle2,
-        title: 'SOC 2 Type II',
-        description: 'Audited and verified controls for security, availability, and confidentiality.',
-        year: 'Verified',
+        title: '6 Service Divisions',
+        description: 'Specialized expertise spanning development, design, AI, vision, IoT, and blockchain.',
+        year: 'Expert',
     },
 ];
 

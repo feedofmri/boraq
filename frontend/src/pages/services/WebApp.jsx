@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MonitorSmartphone, Code2, Server, Globe, Check, Rocket, Flame } from 'lucide-react';
+import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
 import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
 import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
@@ -131,11 +132,10 @@ function InteractiveCodeEditor() {
 							<button
 								key={idx}
 								onClick={() => { setActiveTab(idx); setDeployed(false); }}
-								className={`px-3 py-1 rounded-lg text-[10px] font-mono transition-all cursor-pointer ${
-									activeTab === idx
-										? `${tab.color} bg-boraq-white/10 dark:bg-boraq-white/5`
-										: 'text-boraq-gray-mid/50 hover:text-boraq-gray-mid'
-								}`}
+								className={`px-3 py-1 rounded-lg text-[10px] font-mono transition-all cursor-pointer ${activeTab === idx
+									? `${tab.color} bg-boraq-white/10 dark:bg-boraq-white/5`
+									: 'text-boraq-gray-mid/50 hover:text-boraq-gray-mid'
+									}`}
 							>
 								{tab.name}
 							</button>
@@ -185,11 +185,10 @@ function InteractiveCodeEditor() {
 						whileHover={{ scale: 1.03 }}
 						whileTap={{ scale: 0.95 }}
 						onClick={handleDeploy}
-						className={`w-full py-3 rounded-xl font-bold text-sm transition-all duration-500 ${
-							deployed
-								? 'bg-green-500/20 text-green-400 border border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)]'
-								: 'bg-boraq-teal-steel/20 text-boraq-teal-steel border border-boraq-teal-steel/30 hover:bg-boraq-teal-steel/30 cursor-pointer'
-						}`}
+						className={`w-full py-3 rounded-xl font-bold text-sm transition-all duration-500 ${deployed
+							? 'bg-green-500/20 text-green-400 border border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)]'
+							: 'bg-boraq-teal-steel/20 text-boraq-teal-steel border border-boraq-teal-steel/30 hover:bg-boraq-teal-steel/30 cursor-pointer'
+							}`}
 					>
 						{deployed ? (
 							<span className="flex items-center justify-center gap-2">
@@ -236,9 +235,9 @@ export default function WebApp() {
 						{/* Human trust strip */}
 						<HeroTrustStrip
 							lead={{
-								name: 'Michael Chang',
-								role: 'Chief Technical Officer',
-								avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400',
+								name: 'Md. Rubayet Islam',
+								role: 'Founder & CEO',
+								avatar: ceoPhoto,
 							}}
 						/>
 					</div>
@@ -298,28 +297,27 @@ export default function WebApp() {
 			{/* NEW: Human trust section */}
 			<ServiceHumanSection
 				teamLead={{
-					name: 'Michael Chang',
-					role: 'Chief Technical Officer',
-					avatar:
-						'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400',
-					bio: 'Ex-Google engineer with deep expertise in distributed systems. Michael personally architects every major platform we build, ensuring enterprise-grade scalability from day one.',
-					funFact: 'Weekend guitarist & open-source contributor',
+					name: 'Md. Rubayet Islam',
+					role: 'Founder & CEO',
+					avatar: ceoPhoto,
+					bio: 'Expert in Web & App development and Computer Vision. Rubayet personally oversees every major platform we build, ensuring scalable architecture from day one.',
+					funFact: 'Computer Vision researcher & full-stack developer',
 				}}
 				testimonial={{
 					quote:
-						'Boraq didn\'t just build our app; they engineered our entire digital strategy. Their architecture scaled flawlessly from 10k to 1M users.',
-					author: 'Jason Martinez',
-					role: 'CTO, NovaBank',
+						'Boraq delivered our eCommerce platform on time with a scalable architecture. Their dedicated manager kept us in the loop everyday.',
+					author: 'Arifur Rahman',
+					role: 'eCommerce Founder',
 					avatar:
-						'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200',
-					result: '10x user growth in 8 months',
+						'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
+					result: 'Scalable marketplace delivered',
 				}}
 				stats={[
-					{ label: 'Apps Shipped', value: '60+' },
-					{ label: 'Avg. Performance Score', value: '98/100' },
-					{ label: 'Client Retention', value: '98%' },
+					{ label: 'Apps Shipped', value: '8+' },
+					{ label: 'User Satisfaction', value: '4.9/5' },
+					{ label: 'Service Divisions', value: '6' },
 				]}
-				processNote="Every project kicks off with a 1-on-1 architecture session with Michael — no salespeople, no middlemen."
+				processNote="Every project kicks off with a 1-on-1 architecture session with Rubayet — no salespeople, no middlemen."
 			/>
 
 			<Testimonials />

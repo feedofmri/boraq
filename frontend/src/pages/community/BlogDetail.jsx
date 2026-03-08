@@ -4,6 +4,7 @@ import { ArrowLeft, Clock, Share2, Twitter, Linkedin, Copy, Bookmark, ChevronRig
 import { Link, useParams } from 'react-router-dom';
 import CallToAction from '../../components/sections/CallToAction';
 import Testimonials from '../../components/sections/Testimonials';
+import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
 
 export default function BlogDetail() {
     const { id } = useParams();
@@ -79,14 +80,12 @@ export default function BlogDetail() {
                         </h1>
                         <div className="flex items-center gap-6 pt-10 border-t border-white/10">
                             <div className="flex -space-x-3">
-                                {[1, 2].map(i => (
-                                    <div key={i} className="w-12 h-12 rounded-full border-2 border-boraq-black overflow-hidden bg-boraq-gray-charcoal">
-                                        <img src={`https://i.pravatar.cc/100?u=${i}`} alt="Author" className="w-full h-full object-cover" />
-                                    </div>
-                                ))}
+                                <div className="w-12 h-12 rounded-full border-2 border-boraq-black overflow-hidden bg-boraq-gray-charcoal">
+                                    <img src={ceoPhoto} alt="Md. Rubayet Islam" className="w-full h-full object-cover object-top" />
+                                </div>
                             </div>
                             <div>
-                                <div className="text-white font-medium text-lg">Alex Mercer & Team</div>
+                                <div className="text-white font-medium text-lg">Md. Rubayet Islam & Team</div>
                                 <div className="text-white/40 text-xs uppercase tracking-widest font-bold">Boraq Core Engineering</div>
                             </div>
                         </div>

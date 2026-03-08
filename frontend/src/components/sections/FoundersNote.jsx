@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Quote, Calendar, Award } from 'lucide-react';
+import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
 
 export default function FoundersNote() {
     const wordVariants = {
@@ -11,7 +12,7 @@ export default function FoundersNote() {
         }),
     };
 
-    const quoteText = "We don't just build software. We partner with visionaries to engineer the future.";
+    const quoteText = "We don’t just ship code. We build the architecture for what’s next.";
     const words = quoteText.split(' ');
 
     return (
@@ -26,20 +27,20 @@ export default function FoundersNote() {
                         <div className="aspect-[4/5] rounded-[2rem] overflow-hidden glass-panel relative group animate-ken-burns" style={{ willChange: 'transform' }}>
                             <div className="absolute inset-0 bg-gradient-to-t from-boraq-black/80 via-boraq-black/20 to-transparent z-10" />
                             <img
-                                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
-                                alt="Arifur Rahman - Founder & CEO"
-                                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                                src={ceoPhoto}
+                                alt="Md. Rubayet Islam - Founder & CEO"
+                                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute bottom-6 left-6 right-6 z-20 text-boraq-white">
-                                <div className="font-bold text-xl">Arifur Rahman</div>
+                                <div className="font-bold text-xl">Md. Rubayet Islam</div>
                                 <div className="text-boraq-white/70 text-sm mb-3">Founder & CEO</div>
                                 {/* Personal credentials */}
                                 <div className="flex flex-wrap gap-2">
                                     <span className="inline-flex items-center gap-1 text-xs bg-boraq-white/10 backdrop-blur-sm px-2 py-1 rounded-full">
-                                        <Calendar className="w-3 h-3" /> Founded 2019
+                                        <Calendar className="w-3 h-3" /> Founded Nov 2023
                                     </span>
                                     <span className="inline-flex items-center gap-1 text-xs bg-boraq-white/10 backdrop-blur-sm px-2 py-1 rounded-full">
-                                        <Award className="w-3 h-3" /> 10+ yrs in tech
+                                        <Award className="w-3 h-3" /> 32+ Projects Shipped
                                     </span>
                                 </div>
                             </div>
@@ -61,7 +62,7 @@ export default function FoundersNote() {
                                         key={i}
                                         custom={i}
                                         variants={wordVariants}
-                                        className={word === 'partner' ? 'text-boraq-teal-steel' : ''}
+                                        className={word === 'innovate' ? 'text-boraq-teal-steel' : ''}
                                     >
                                         {word}{' '}
                                     </motion.span>
@@ -76,10 +77,10 @@ export default function FoundersNote() {
                                 className="space-y-6 text-lg text-boraq-gray-mid dark:text-boraq-gray-silver font-light"
                             >
                                 <p>
-                                    When we established Boraq, our goal was simple: bridge the gap between ambitious ideas and technical execution. We saw too many companies treating software development as a transactional process rather than a collaborative partnership.
+                                    Boraq was born from a desire to do more than just fulfill tickets. We’re here to solve the hard problems: the ones that require deep research and precise engineering across six specialized divisions.
                                 </p>
                                 <p>
-                                    Behind every line of code we write is a team of dedicated humans who care about your business goals. We succeed when you succeed. Our technical excellence is just the foundation; our true value lies in how we work with you to solve complex challenges together.
+                                    From Computer Vision and NLP research to full-stack development and Web3 platforms, every solution we deliver is backed by a team that truly cares. With 32+ projects delivered for 28+ clients, our promise remains the same: to exceed expectations through quality and authentic innovation.
                                 </p>
                             </motion.div>
 
@@ -107,12 +108,12 @@ export default function FoundersNote() {
                                     </motion.svg>
                                 </div>
                                 <div className="font-serif italic text-lg text-boraq-teal-steel select-none" style={{ fontFamily: "'Georgia', serif" }}>
-                                    — Arifur Rahman
+                                    - Md. Rubayet Islam
                                 </div>
                                 <p className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver mt-1">
                                     I personally review every project inquiry. Reach me directly at{' '}
-                                    <a href="mailto:arifur@boraq.dev" className="text-boraq-teal-steel hover:underline font-medium">
-                                        arifur@boraq.dev
+                                    <a href="mailto:hello@boraq.io" className="text-boraq-teal-steel hover:underline font-medium">
+                                        hello@boraq.io
                                     </a>
                                 </p>
                             </motion.div>

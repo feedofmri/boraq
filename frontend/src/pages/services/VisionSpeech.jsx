@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Eye, Mic, Fingerprint, Expand } from 'lucide-react';
+import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
 import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
 import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
@@ -121,11 +122,10 @@ function InteractiveVisionDetector() {
 
       {/* Top bar */}
       <div className="relative z-10 flex justify-between items-start">
-        <div className={`px-3 py-1 rounded-full backdrop-blur-md text-xs font-bold font-mono border flex items-center gap-2 ${
-          detected
-            ? 'bg-green-500/20 text-green-400 border-green-500/30'
-            : 'bg-boraq-black/50 text-boraq-white border-boraq-white/10'
-        }`}>
+        <div className={`px-3 py-1 rounded-full backdrop-blur-md text-xs font-bold font-mono border flex items-center gap-2 ${detected
+          ? 'bg-green-500/20 text-green-400 border-green-500/30'
+          : 'bg-boraq-black/50 text-boraq-white border-boraq-white/10'
+          }`}>
           <span className={`w-2 h-2 rounded-full ${detected ? 'bg-green-400' : 'bg-boraq-gray-mid'} animate-pulse`} />
           {detected ? 'TRACKING' : 'HOVER TO SCAN'}
         </div>
@@ -168,22 +168,22 @@ export default function VisionSpeech() {
           transition={{ duration: 0.6 }}
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-panel border border-[#82A9B4]/20 text-boraq-teal-steel text-sm font-bold mb-6">
-            Sensory Computing
+            Digital Perception
           </div>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-boraq-black dark:text-boraq-white">
-            Machines that <br /> <span className="text-boraq-teal-steel italic">see and hear.</span>
+            Giving your software <br /> <span className="text-boraq-teal-steel italic">eyes and ears.</span>
           </h1>
           <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-3xl mx-auto font-light leading-relaxed">
-            We build sophisticated computer vision and natural language processing pipelines that allow software to understand the physical world in real-time.
+            We build the vision and speech pipelines that help your applications understand, interpret, and react to the physical world in real-time.
           </p>
 
           {/* Human trust strip */}
           <HeroTrustStrip
             centered
             lead={{
-              name: 'Elena Rodriguez',
-              role: 'Lead AI Engineer',
-              avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400',
+              name: 'Md. Rubayet Islam',
+              role: 'CEO: Vision & Speech',
+              avatar: ceoPhoto,
             }}
           />
         </motion.div>
@@ -224,25 +224,25 @@ export default function VisionSpeech() {
       {/* NEW: Human trust section */}
       <ServiceHumanSection
         teamLead={{
-          name: 'Elena Rodriguez',
-          role: 'Lead AI Engineer',
-          avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400',
-          bio: 'PhD in Machine Learning from MIT. Elena specializes in computer vision and NLP systems that process real-world data with near-human accuracy, and she personally oversees every deployment.',
-          funFact: 'Watercolor painter & AI ethics advocate',
+          name: 'Md. Rubayet Islam',
+          role: 'Founder & CEO',
+          avatar: ceoPhoto,
+          bio: 'Computer Vision and NLP researcher. Rubayet specializes in advanced visual data analysis and speech-to-text systems, personally overseeing every deployment in this division.',
+          funFact: 'Computer Vision researcher & full-stack developer',
         }}
         testimonial={{
-          quote: 'Their vision pipeline processes our entire document archive with 99.8% accuracy — what used to take weeks now happens in hours.',
-          author: 'Dr. Priya Sharma',
-          role: 'CTO, MediScan',
-          avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200',
-          result: '99.8% OCR accuracy',
+          quote: 'Boraq\'s vision and speech solutions brought our data processing to a whole new level. Their research-driven approach delivers real accuracy.',
+          author: 'Tanvir Ahmed',
+          role: 'Logistics Partner',
+          avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200',
+          result: 'Advanced OCR integration',
         }}
         stats={[
-          { label: 'Vision Models Shipped', value: '15+' },
-          { label: 'Images Processed Daily', value: '5M+' },
-          { label: 'Languages Supported', value: '40+' },
+          { label: 'Vision Projects', value: '2+' },
+          { label: 'Research Areas', value: 'CV & NLP' },
+          { label: 'User Satisfaction', value: '4.9/5' },
         ]}
-        processNote="Elena demos working prototypes within the first 2 weeks — you'll see real results before committing further."
+        processNote="Rubayet demos working prototypes within the first 2 weeks — you'll see real results before committing further."
       />
 
       <Testimonials />

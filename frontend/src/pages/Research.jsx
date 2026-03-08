@@ -39,7 +39,7 @@ export default function Research() {
             Pushing the <span className="text-boraq-teal-steel italic">boundaries.</span>
           </h1>
           <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-3xl mx-auto font-light leading-relaxed">
-            The Boraq Research Hub is an internal sandbox dedicated to exploring bleeding-edge paradigms. This is where tomorrow's enterprise standards are codified today.
+            The Boraq Research Hub explores Computer Vision, Natural Language Processing, and System Automation — pushing the boundaries of what technology can achieve.
           </p>
         </motion.div>
       </section>

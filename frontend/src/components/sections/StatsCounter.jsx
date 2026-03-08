@@ -3,10 +3,10 @@ import { motion, useInView } from 'framer-motion';
 import { Heart, Zap } from 'lucide-react';
 
 const stats = [
-    { label: 'Revenue Generated', prefix: '$', value: 500, suffix: 'M+', delay: 0, context: 'For our partners\' businesses', color: 'from-blue-400 to-cyan-400' },
-    { label: 'Enterprise Partners', prefix: '', value: 150, suffix: '+', delay: 0.1, context: 'Long-term relationships built on trust', color: 'from-purple-400 to-pink-400' },
-    { label: 'Lines of Code Shipped', prefix: '', value: 10, suffix: 'M+', delay: 0.2, context: 'Handcrafted by our engineering team', color: 'from-green-400 to-emerald-400' },
-    { label: 'Client Retention Rate', prefix: '', value: 98, suffix: '%', delay: 0.3, context: 'They stay because we deliver', color: 'from-orange-400 to-yellow-400' },
+    { label: 'Projects Delivered', prefix: '', value: 32, suffix: '+', delay: 0, context: 'Across all six service divisions', color: 'from-blue-400 to-cyan-400' },
+    { label: 'Global Clients', prefix: '', value: 28, suffix: '+', delay: 0.1, context: 'Long-term relationships built on trust', color: 'from-purple-400 to-pink-400' },
+    { label: 'User Satisfaction', prefix: '', value: 4.9, suffix: '/5', delay: 0.2, context: 'Google verified 5.0 rating', color: 'from-green-400 to-emerald-400' },
+    { label: 'Service Divisions', prefix: '', value: 6, suffix: '', delay: 0.3, context: 'Web & App, UI & Branding, AI, Vision, IoT, Web3', color: 'from-orange-400 to-yellow-400' },
 ];
 
 const particleColors = ['#60a5fa', '#a78bfa', '#f472b6', '#34d399', '#fbbf24', '#f87171'];

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Cpu, Wifi, ShieldCheck, Activity } from 'lucide-react';
+import plPhoto from '../../assets/Team/Tahmid Khan - Project Lead.jpg';
 import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
 import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
@@ -104,11 +105,10 @@ function InteractiveTelemetry() {
                 whileHover={{ scale: 1.06 }}
                 whileTap={{ scale: 0.94 }}
                 onClick={() => toggleDevice(device.id)}
-                className={`p-3 rounded-2xl border cursor-pointer text-left transition-all duration-300 ${
-                  device.online
-                    ? `${colors.on} shadow-lg ${colors.glow}`
-                    : 'border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 bg-boraq-black/5 dark:bg-boraq-white/5 opacity-40'
-                }`}
+                className={`p-3 rounded-2xl border cursor-pointer text-left transition-all duration-300 ${device.online
+                  ? `${colors.on} shadow-lg ${colors.glow}`
+                  : 'border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10 bg-boraq-black/5 dark:bg-boraq-white/5 opacity-40'
+                  }`}
               >
                 <div className="flex items-center justify-between mb-1.5">
                   <DeviceIcon className={`w-4 h-4 ${device.online ? colors.icon : 'text-boraq-gray-mid'}`} />
@@ -166,9 +166,9 @@ export default function SmartDevice() {
           <HeroTrustStrip
             centered
             lead={{
-              name: 'Michael Chang',
-              role: 'Chief Technical Officer',
-              avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400',
+              name: 'Tahmid Khan',
+              role: 'Project Lead — Smart Devices',
+              avatar: plPhoto,
             }}
           />
         </motion.div>
@@ -211,25 +211,25 @@ export default function SmartDevice() {
       {/* NEW: Human trust section */}
       <ServiceHumanSection
         teamLead={{
-          name: 'Michael Chang',
-          role: 'Chief Technical Officer',
-          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400',
-          bio: 'Ex-Google engineer who has architected IoT platforms processing millions of device events daily. Michael leads the hardware-software bridge, ensuring every integration is rock-solid.',
-          funFact: 'Weekend guitarist & open-source contributor',
+          name: 'Tahmid Khan',
+          role: 'Project Lead',
+          avatar: plPhoto,
+          bio: 'Smart Device expert specializing in IoT integrations, embedded systems, and firmware development. Tahmid leads the hardware-software bridge, ensuring every integration is rock-solid.',
+          funFact: 'IoT innovator & embedded systems engineer',
         }}
         testimonial={{
-          quote: 'Their IoT architecture handles 50,000 concurrent device connections with 12ms latency. The infrastructure just works.',
-          author: 'Thomas Park',
-          role: 'VP Engineering, UrbanGrid',
-          avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200',
-          result: '12ms avg. latency',
+          quote: 'Boraq\'s IoT team delivered a seamless hardware-software integration for our pilot city. Their systems expertise is world-class.',
+          author: 'Elena Rossi',
+          role: 'Innovation Lead',
+          avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200',
+          result: 'Smart City pilot deployed',
         }}
         stats={[
-          { label: 'Devices Connected', value: '500K+' },
-          { label: 'Uptime SLA', value: '99.99%' },
-          { label: 'IoT Platforms Built', value: '20+' },
+          { label: 'IoT Projects', value: '2+' },
+          { label: 'User Satisfaction', value: '4.9/5' },
+          { label: 'Firmware Deployments', value: '2+' },
         ]}
-        processNote="Michael personally reviews every device architecture before a single line of firmware ships."
+        processNote="Tahmid personally reviews every device architecture before a single line of firmware ships."
       />
 
       <Testimonials />

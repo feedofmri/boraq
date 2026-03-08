@@ -24,7 +24,7 @@ const steps = [
         title: 'Development & Engineering',
         description: 'We write clean, scalable code. You get full transparency with weekly sprint demos and access to staging environments.',
         timeline: 'Week 6-12+',
-        humanTouch: 'Weekly video demos — see real progress, ask questions, steer direction.',
+        humanTouch: 'Weekly video demos: see real progress, ask questions, steer direction.',
         touchIcon: Video,
     },
     {
@@ -32,7 +32,7 @@ const steps = [
         title: 'Testing & Launch',
         description: 'Rigorous QA testing ensures a bug-free experience. We handle the deployment architecture to ensure a smooth launch.',
         timeline: 'Week 13-14',
-        humanTouch: 'Joint launch call with our team — we celebrate milestones together.',
+        humanTouch: 'Joint launch call with our team: we celebrate milestones together.',
         touchIcon: MessageSquare,
     },
     {
@@ -96,9 +96,8 @@ export default function ProcessTimeline() {
                             whileHover={{ scale: 1.3 }}
                             whileTap={{ scale: 0.8 }}
                             onClick={() => toggleStep(i)}
-                            className={`w-5 h-5 rounded-full border-2 cursor-pointer transition-all duration-300 flex items-center justify-center ${
-                                completedSteps.has(i) ? stepColors[i] : 'border-boraq-gray-silver/30 dark:border-boraq-teal-deep/30'
-                            }`}
+                            className={`w-5 h-5 rounded-full border-2 cursor-pointer transition-all duration-300 flex items-center justify-center ${completedSteps.has(i) ? stepColors[i] : 'border-boraq-gray-silver/30 dark:border-boraq-teal-deep/30'
+                                }`}
                         >
                             {completedSteps.has(i) && <Check className="w-3 h-3" />}
                         </motion.button>
@@ -136,9 +135,8 @@ export default function ProcessTimeline() {
                                         viewport={{ once: true, margin: '-100px' }}
                                         transition={{ duration: 0.6 }}
                                         whileHover={{ y: -4 }}
-                                        className={`glass-panel p-8 rounded-3xl max-w-lg transition-all duration-300 relative group cursor-pointer ${
-                                            isComplete ? 'border-boraq-teal-steel/30 shadow-lg shadow-boraq-teal-steel/5' : 'hover:border-boraq-teal-steel/30'
-                                        }`}
+                                        className={`glass-panel p-8 rounded-3xl max-w-lg transition-all duration-300 relative group cursor-pointer ${isComplete ? 'border-boraq-teal-steel/30 shadow-lg shadow-boraq-teal-steel/5' : 'hover:border-boraq-teal-steel/30'
+                                            }`}
                                         onClick={() => toggleStep(index)}
                                     >
                                         {/* Completion badge */}
@@ -189,9 +187,8 @@ export default function ProcessTimeline() {
                                         transition={{ duration: 0.4, type: "spring" }}
                                         whileHover={{ scale: 1.2, rotate: 10 }}
                                         onClick={() => toggleStep(index)}
-                                        className={`w-12 h-12 rounded-full glass-panel-heavy flex items-center justify-center z-10 cursor-pointer transition-all duration-300 ${
-                                            isComplete ? 'border-green-400/50 bg-green-400/10 shadow-lg shadow-green-400/20' : 'border-boraq-teal-steel/30'
-                                        }`}
+                                        className={`w-12 h-12 rounded-full glass-panel-heavy flex items-center justify-center z-10 cursor-pointer transition-all duration-300 ${isComplete ? 'border-green-400/50 bg-green-400/10 shadow-lg shadow-green-400/20' : 'border-boraq-teal-steel/30'
+                                            }`}
                                     >
                                         {isComplete ? (
                                             <Check className="w-5 h-5 text-green-400" />
@@ -217,7 +214,7 @@ export default function ProcessTimeline() {
                 <div className="inline-flex items-center gap-3 glass-panel px-6 py-4 rounded-2xl">
                     <UserCheck className="w-5 h-5 text-boraq-teal-steel" />
                     <p className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
-                        <span className="font-bold text-boraq-black dark:text-boraq-white">Every step includes direct access to our engineering leads</span> — no project managers as middlemen.
+                        <span className="font-bold text-boraq-black dark:text-boraq-white">Every step includes direct access to our engineering leads</span>: no project managers as middlemen.
                     </p>
                 </div>
             </motion.div>

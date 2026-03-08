@@ -17,7 +17,7 @@ export default function HeroTrustStrip({ lead, centered = false }) {
                     <img
                         src={lead.avatar}
                         alt={lead.name}
-                        className="w-10 h-10 rounded-full object-cover border-2 border-boraq-white dark:border-boraq-black"
+                        className="w-10 h-10 rounded-full object-cover object-top border-2 border-boraq-white dark:border-boraq-black"
                     />
                     <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-boraq-white dark:border-boraq-black" />
                 </div>

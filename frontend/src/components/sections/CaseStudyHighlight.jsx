@@ -40,25 +40,25 @@ export default function CaseStudyHighlight() {
                         className="flex flex-col justify-center"
                     >
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-boraq-teal-deep/10 text-boraq-teal-steel border border-boraq-teal-steel/20 w-max text-sm font-bold mb-6">
-                            FinTech Collaboration
+                            eCommerce Platform
                         </div>
 
-                        <h3 className="text-3xl font-bold mb-4">How we helped NovaBank scale to 1M users in 6 months</h3>
+                        <h3 className="text-3xl font-bold mb-4">How we built Boraq Space — a comprehensive eCommerce platform</h3>
 
                         <p className="text-black/70 dark:text-white/70 mb-8 font-light text-lg">
-                            NovaBank had the vision to democratize personal finance, but their legacy monolithic architecture was slowing them down. We partnered with their core team to architect a robust, microservices-driven platform with a stunning, intuitive UI.
+                            Boraq Space needed a high-performance, scalable eCommerce solution from concept to deployment. Our team engineered a full-stack platform with intuitive UI/UX, seamless checkout, and a robust backend — all delivered with 24x7 support and transparent communication.
                         </p>
 
                         <div className="grid grid-cols-2 gap-6 mb-10">
                             <div className="glass-panel p-4 rounded-2xl">
                                 <BarChart3 className="w-8 h-8 text-boraq-teal-steel mb-2" />
-                                <div className="text-2xl font-bold mb-1 text-boraq-black dark:text-boraq-white">300%</div>
-                                <div className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">Increase in conversion rate</div>
+                                <div className="text-2xl font-bold mb-1 text-boraq-black dark:text-boraq-white">Full-Stack</div>
+                                <div className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">End-to-end development</div>
                             </div>
                             <div className="glass-panel p-4 rounded-2xl">
                                 <Zap className="w-8 h-8 text-boraq-teal-steel mb-2" />
-                                <div className="text-2xl font-bold mb-1 text-boraq-black dark:text-boraq-white">0.2s</div>
-                                <div className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">Average API response time</div>
+                                <div className="text-2xl font-bold mb-1 text-boraq-black dark:text-boraq-white">On-Time</div>
+                                <div className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">Efficient delivery process</div>
                             </div>
                         </div>
 

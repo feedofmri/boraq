@@ -32,7 +32,7 @@ export default function Learning() {
             Master the <span className="text-boraq-teal-steel italic">Craft.</span>
           </h1>
           <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-3xl mx-auto font-light leading-relaxed mb-10">
-            Intensive bootcamps, technical workshops, and engineering deep-dives taught by the senior developers who build Boraq's enterprise products.
+            Intensive bootcamps, technical workshops, and engineering deep-dives taught by the team behind Boraq's innovative solutions.
           </p>
 
           {/* Search Bar */}

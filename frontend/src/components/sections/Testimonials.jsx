@@ -5,42 +5,55 @@ import { ChevronLeft, ChevronRight, Star, BadgeCheck, ExternalLink, Clock, Trend
 const testimonials = [
     {
         id: 1,
-        quote: "Boraq didn't just build our app; they engineered our entire digital strategy. Their architecture scaled flawlessly from 10k to 1M users.",
-        author: "Jason Martinez",
-        role: "CTO, NovaBank",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200",
-        company: "NovaBank",
-        verified: true,
-        platform: "Clutch",
-        platformUrl: "#",
-        projectDuration: "8 months",
-        result: "10x user growth",
-    },
-    {
-        id: 2,
-        quote: "The level of transparency is unprecedented. We felt like we had an in-house engineering team, not an external agency. Truly a game-changing partnership.",
-        author: "Amanda Lee",
-        role: "Founder, HealthSync",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200",
-        company: "HealthSync",
+        quote: "Boraq delivered our eCommerce platform on time with a scalable architecture. Their dedicated manager kept us in the loop everyday.",
+        author: "Arifur Rahman",
+        role: "CEO, AgriTech Startup",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
+        company: "Nibaron",
         verified: true,
         platform: "Google Reviews",
         platformUrl: "#",
-        projectDuration: "12 months",
-        result: "40% cost reduction",
+        projectDuration: "4 months",
+        result: "Scalable marketplace architecture",
+    },
+    {
+        id: 2,
+        quote: "The team at Boraq transformed our brand identity with Moushum: a nature-inspired design that perfectly captured our vision. Excellent design systems.",
+        author: "Nusrat Jahan",
+        role: "Creative Director",
+        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200",
+        company: "Moushum",
+        verified: true,
+        platform: "Google Reviews",
+        platformUrl: "#",
+        projectDuration: "3 months",
+        result: "Complete brand identity",
     },
     {
         id: 3,
-        quote: "Their UI/UX team transformed our complex enterprise software into an intuitive dashboard that our employees actually love using.",
-        author: "Marcus Johnson",
-        role: "VP Operations, OmniCorp",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200",
-        company: "OmniCorp",
+        quote: "Their AI expertise helped us build predictive ML models that truly add value. Boraq's customized research approach made all the difference.",
+        author: "Sarah Jenkins",
+        role: "Head of Product",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200",
+        company: "Retail Intel",
         verified: true,
-        platform: "Clutch",
+        platform: "Google Reviews",
         platformUrl: "#",
-        projectDuration: "6 months",
-        result: "3x productivity boost",
+        projectDuration: "5 months",
+        result: "ML-powered insights tool",
+    },
+    {
+        id: 4,
+        quote: "Boraq's Web3 expertise helped us launch a secure, transparent protocol. Their code audits gave us and our users real peace of mind.",
+        author: "Michael Chen",
+        role: "CTO",
+        image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=200",
+        company: "ChainLabs",
+        verified: true,
+        platform: "Google Reviews",
+        platformUrl: "#",
+        projectDuration: "3 months",
+        result: "Secure Layer-2 protocol",
     }
 ];
 
@@ -72,12 +85,12 @@ export default function Testimonials() {
                                 <Star key={i} className="w-4 h-4 fill-current" />
                             ))}
                         </div>
-                        <span className="font-bold text-boraq-black dark:text-boraq-white">4.9/5</span>
-                        on Clutch
+                        <span className="font-bold text-boraq-black dark:text-boraq-white">5.0/5</span>
+                        on Google
                     </div>
                     <div className="w-px h-4 bg-boraq-gray-silver/30 dark:bg-boraq-teal-deep/30 hidden sm:block" />
                     <div className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
-                        <span className="font-bold text-boraq-black dark:text-boraq-white">50+</span> verified reviews
+                        <span className="font-bold text-boraq-black dark:text-boraq-white">28+</span> global clients
                     </div>
                     <div className="w-px h-4 bg-boraq-gray-silver/30 dark:bg-boraq-teal-deep/30 hidden sm:block" />
                     <div className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
@@ -197,11 +210,10 @@ export default function Testimonials() {
                         <button
                             key={index}
                             onClick={() => { setDirection(index > currentIndex ? 1 : -1); setCurrentIndex(index); }}
-                            className={`h-2.5 rounded-full transition-all duration-300 ${
-                                index === currentIndex
-                                    ? 'bg-boraq-teal-steel w-8'
-                                    : 'bg-boraq-gray-silver/30 dark:bg-boraq-teal-deep/30 hover:bg-boraq-teal-steel/50 w-2.5'
-                            }`}
+                            className={`h-2.5 rounded-full transition-all duration-300 ${index === currentIndex
+                                ? 'bg-boraq-teal-steel w-8'
+                                : 'bg-boraq-gray-silver/30 dark:bg-boraq-teal-deep/30 hover:bg-boraq-teal-steel/50 w-2.5'
+                                }`}
                             aria-label={`Go to testimonial ${index + 1}`}
                         />
                     ))}

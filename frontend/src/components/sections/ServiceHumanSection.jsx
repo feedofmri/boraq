@@ -39,7 +39,7 @@ export default function ServiceHumanSection({ teamLead, testimonial, stats, proc
                         <img
                             src={teamLead.avatar}
                             alt={teamLead.name}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-top"
                         />
                     </div>
                     <div className="flex-1">

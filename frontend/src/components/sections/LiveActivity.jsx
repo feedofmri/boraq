@@ -1,32 +1,36 @@
+import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
+import ctoPhoto from '../../assets/Team/Rakib Hasan - Chief Technology Officer.jpg';
+import cooPhoto from '../../assets/Team/Ma-Huan Sheikh Meem - Chief Operating Officer.jpg';
+import cpoPhoto from '../../assets/Team/Adel Mohammad Zahid - Chief Product Officer.jpg';
+import plPhoto from '../../assets/Team/Tahmid Khan - Project Lead.jpg';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-
 const activities = [
     {
-        text: 'Sarah completed a sprint review with NovaBank',
+        text: 'Rubayet completed a sprint review for Boraq Space eCommerce',
         time: '2 hours ago',
-        avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=60',
+        avatar: ceoPhoto,
     },
     {
-        text: 'New case study published — HealthSync AI Dashboard',
+        text: 'Meem published new case study: Moushum Brand Identity',
         time: '5 hours ago',
-        avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=60',
+        avatar: cooPhoto,
     },
     {
-        text: 'Michael shipped v2.4 for OmniCorp platform',
+        text: 'Rakib shipped Nibaron: ClimateAI Web3 platform for farmers',
         time: 'Yesterday',
-        avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=60',
+        avatar: ctoPhoto,
     },
     {
-        text: 'Elena deployed ML model for real-time fraud detection',
+        text: 'Adel deployed ML model for Car Price Prediction',
         time: 'Yesterday',
-        avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=60',
+        avatar: cpoPhoto,
     },
     {
-        text: 'New client onboarded — Welcome, FinNova!',
+        text: 'Tahmid completed IoT firmware update for Smart Device project',
         time: '2 days ago',
-        avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=60',
+        avatar: plPhoto,
     },
 ];
 
@@ -72,7 +76,7 @@ export default function LiveActivity() {
                             <img
                                 src={current.avatar}
                                 alt=""
-                                className="w-7 h-7 rounded-full object-cover flex-shrink-0"
+                                className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0"
                             />
                             <div className="min-w-0">
                                 <p className="text-sm text-boraq-black dark:text-boraq-white font-medium truncate">
@@ -91,9 +95,8 @@ export default function LiveActivity() {
                     {activities.map((_, idx) => (
                         <span
                             key={idx}
-                            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                                idx === currentIndex ? 'bg-boraq-teal-steel w-4' : 'bg-boraq-gray-silver/30 dark:bg-boraq-teal-deep/30'
-                            }`}
+                            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex ? 'bg-boraq-teal-steel w-4' : 'bg-boraq-gray-silver/30 dark:bg-boraq-teal-deep/30'
+                                }`}
                         />
                     ))}
                 </div>

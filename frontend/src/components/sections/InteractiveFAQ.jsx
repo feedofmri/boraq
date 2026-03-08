@@ -5,23 +5,23 @@ import { Plus, Minus, MessageSquare, BookOpen, Check } from 'lucide-react';
 const faqs = [
     {
         question: "Do you only work with large enterprises?",
-        answer: "Not at all. While we have scaled systems for millions of users, we love partnering with visionary startups and mid-market companies to help them grow. We scale our teams to fit your specific needs and budget."
+        answer: "Not at all. We work with startups, small businesses, and growing brands. We scale our teams to fit your specific needs and budget — from solo founders to established companies."
     },
     {
         question: "How do you ensure transparency during development?",
-        answer: "You are treated as an extension of our team. You get access to our Slack channel, Jira boards, and weekly sprint reviews. We demonstrate working software every 1-2 weeks, so you never have to guess about progress."
+        answer: "Transparent communication is core to how we operate. You get a dedicated project manager, high-frequency updates, and clear reporting throughout the project lifecycle. No black boxes."
     },
     {
         question: "What happens after the project launches?",
-        answer: "We don't just launch and leave. We offer comprehensive Service Level Agreements (SLAs) for maintenance, security patches, and iterative feature development based on live user feedback."
+        answer: "We provide 24x7 support and don't just launch and leave. We offer ongoing maintenance, iterative improvements, and continuous support to keep your product running smoothly."
     },
     {
         question: "How do you handle intellectual property (IP)?",
-        answer: "You own 100% of the code and intellectual property we write for you upon payment completion. We sign strict NDAs before you share a single detail with us to protect your vision."
+        answer: "You own 100% of the code and intellectual property we create for you upon payment completion. We sign strict NDAs before you share a single detail with us to protect your vision."
     },
     {
         question: "What is your tech stack?",
-        answer: "We are technology agnostic but highly specialized. We primarily use React/Next.js for web, Flutter/React Native for mobile, and Node.js/Python/Go for scalable backends."
+        answer: "We specialize in React, React Native, WordPress, Python, and the MERN stack. Our six service divisions cover Web & App, UI & Branding, AI & Automation, Vision & Speech, Smart Devices, and Web3 platforms."
     }
 ];
 

@@ -7,23 +7,23 @@ import CallToAction from '../../components/sections/CallToAction';
 const faqs = [
   {
     question: "What is your typical project engagement model?",
-    answer: "We prefer dedicated, deeply integrated team augmented sprints or full product lifecycle management. We do not do hourly tracking or piecemeal feature work. We act as an extension of your core team with a focus on long-term infrastructure health."
+    answer: "We offer flexible engagement models — from dedicated team augmentation to full product lifecycle management. Each client gets a dedicated manager for personalized handling, with transparent communication throughout."
   },
   {
     question: "Do you maintain the applications after launch?",
-    answer: "Yes. Every enterprise project ships with an optional 12-to-36 month SLA (Service Level Agreement) covering security patches, dependency upgrades, and uptime monitoring via our internal DevOps pipelines."
+    answer: "Absolutely. We provide 24x7 support and ongoing maintenance covering security patches, updates, and iterative improvements. We don't just launch and leave — we're here for the long term."
   },
   {
     question: "What technology stacks do you specialize in?",
-    answer: "For frontend, we strictly use React, Next.js, and React Native/Flutter. For backend infrastructure, we leverage Go, Node.js (TypeScript), and Python for AI/ML tasks, all deployed on AWS or GCP using Kubernetes or Serverless architectures."
+    answer: "We specialize in React, React Native, WordPress, Python, and the MERN stack (MongoDB, Express, React, Node.js). Our six divisions also cover AI/ML (Scikit-learn, TensorFlow), Computer Vision (OpenCV), and Web3 (Solidity, Smart Contracts)."
   },
   {
     question: "How do you handle intellectual property (IP)?",
-    answer: "You own 100% of the IP, source code, and assets the moment the final milestone is delivered and cleared. We operate under strict NDAs and ensure all code is pushed directly to your organization's repositories."
+    answer: "You own 100% of the IP, source code, and assets upon project completion and payment. We operate under strict NDAs and ensure full transparency throughout the development process."
   },
   {
-    question: "What is the minimum budget for a Boraq engagement?",
-    answer: "To maintain our standard of engineering excellence, our minimum engagement for new product builds starts at $50,000 USD. For strategic consulting or audit sprints, engagements start at $15,000 USD."
+    question: "How do I get started with Boraq?",
+    answer: "We offer free expert consultations to help you navigate your digital transformation. Simply book a call or reach out at hello@boraq.io and we'll discuss your project needs, timeline, and approach."
   }
 ];
 

@@ -2,11 +2,18 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
+import ctoPhoto from '../../assets/Team/Rakib Hasan - Chief Technology Officer.jpg';
+import cooPhoto from '../../assets/Team/Ma-Huan Sheikh Meem - Chief Operating Officer.jpg';
+import cpoPhoto from '../../assets/Team/Adel Mohammad Zahid - Chief Product Officer.jpg';
+import plPhoto from '../../assets/Team/Tahmid Khan - Project Lead.jpg';
+
 const teamAvatars = [
-    { name: 'Sarah', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100' },
-    { name: 'Michael', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100' },
-    { name: 'Elena', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=100' },
-    { name: 'Arifur', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100' },
+    { name: 'Rubayet', image: ceoPhoto },
+    { name: 'Rakib', image: ctoPhoto },
+    { name: 'Meem', image: cooPhoto },
+    { name: 'Adel', image: cpoPhoto },
+    { name: 'Tahmid', image: plPhoto },
 ];
 
 const orbs = [
@@ -43,11 +50,11 @@ export default function CallToAction() {
                 >
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel-heavy text-boraq-black dark:text-boraq-white text-sm font-bold mb-8">
                         <Sparkles className="w-4 h-4 text-boraq-teal-steel" />
-                        Let's build something extraordinary
+                        Ready to start your next chapter?
                     </div>
 
                     <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-boraq-black dark:text-boraq-white">
-                        Ready to transform your <span className="text-boraq-teal-steel">vision</span> into reality?
+                        Have a vision? Let’s build the <span className="text-boraq-teal-steel">engine</span> behind it.
                     </h2>
 
                     {/* Personal founder micro-quote */}
@@ -57,12 +64,12 @@ export default function CallToAction() {
                         </p>
                         <div className="flex items-center gap-3 mt-3">
                             <img
-                                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100"
-                                alt="Arifur Rahman"
-                                className="w-8 h-8 rounded-full object-cover"
+                                src={ceoPhoto}
+                                alt="Md. Rubayet Islam"
+                                className="w-8 h-8 rounded-full object-cover object-top"
                             />
                             <span className="text-sm font-bold text-boraq-black dark:text-boraq-white">
-                                Arifur Rahman, <span className="font-normal text-boraq-teal-steel">Founder</span>
+                                Md. Rubayet Islam, <span className="font-normal text-boraq-teal-steel">Founder & CEO</span>
                             </span>
                         </div>
                     </div>
@@ -86,13 +93,13 @@ export default function CallToAction() {
                                         key={idx}
                                         src={member.image}
                                         alt={member.name}
-                                        className="w-10 h-10 rounded-full border-2 border-boraq-white dark:border-boraq-black object-cover"
+                                        className="w-10 h-10 rounded-full border-2 border-boraq-white dark:border-boraq-black object-cover object-top"
                                     />
                                 ))}
                             </div>
                             <p className="ml-4 text-sm text-boraq-gray-mid dark:text-boraq-gray-silver text-left">
-                                <span className="font-bold text-boraq-black dark:text-boraq-white">You'll work with senior architects</span><br />
-                                Not outsourced or junior devs
+                                <span className="font-bold text-boraq-black dark:text-boraq-white">Dedicated managers for your project</span><br />
+                                24x7 support & transparent communication
                             </p>
                         </div>
 

@@ -56,16 +56,16 @@ export default function Footer() {
                             />
                         </Link>
                         <p className="text-white/60 mb-8 max-w-sm leading-relaxed">
-                            We engineer enterprise-grade digital products for the world's most ambitious brands. Scaling performance, aesthetics, and reliability.
+                            Innovation-driven software development and research company based in Mirpur 14, Dhaka. Shaping the future with advanced solutions across six specialized service divisions.
                         </p>
                         <div className="flex gap-4">
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-boraq-teal-steel hover:text-black transition-colors">
+                            <a href="https://github.com/boraqio" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-boraq-teal-steel hover:text-black transition-colors">
                                 <Github className="w-5 h-5" />
                             </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-boraq-teal-steel hover:text-black transition-colors">
+                            <a href="https://facebook.com/boraqio" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-boraq-teal-steel hover:text-black transition-colors">
                                 <Twitter className="w-5 h-5" />
                             </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-boraq-cyan hover:text-black transition-colors">
+                            <a href="https://linkedin.com/company/boraqio" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-boraq-cyan hover:text-black transition-colors">
                                 <Linkedin className="w-5 h-5" />
                             </a>
                         </div>
@@ -132,14 +132,14 @@ export default function Footer() {
                         <input
                             type="email"
                             placeholder="Subscribe to our newsletter"
-                            className="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-boraq-cyan w-full md:w-64"
+                            className="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-boraq-teal-steel w-full md:w-64"
                         />
-                        <button className="rounded-full bg-boraq-cyan text-black px-4 py-2 text-sm font-bold hover:bg-white transition-colors shrink-0">
+                        <button className="rounded-full bg-boraq-teal-steel text-black px-4 py-2 text-sm font-bold hover:bg-boraq-white transition-colors shrink-0">
                             Subscribe
                         </button>
                     </div>
                     <div className="text-white/40 text-sm font-medium">
-                        © {currentYear} Boraq Engineering. All rights reserved.
+                        © {currentYear} Boraq. All rights reserved.
                     </div>
                 </div>
             </div>

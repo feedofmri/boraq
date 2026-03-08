@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Blocks, Key, Globe, Lock, Pickaxe, Trophy } from 'lucide-react';
+import ctoPhoto from '../../assets/Team/Rakib Hasan - Chief Technology Officer.jpg';
 import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
 import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
@@ -96,11 +97,10 @@ function InteractiveBlockchain() {
                   <span className="text-[7px] font-mono text-boraq-gray-silver/40">{block.hash}</span>
                 </motion.div>
                 {idx < blocks.length - 1 && (
-                  <div className={`w-4 md:w-6 h-[2px] shrink-0 ${
-                    idx < blocks.length - 2
-                      ? 'bg-gradient-to-r from-boraq-teal-steel/60 to-boraq-teal-steel/30'
-                      : 'bg-gradient-to-r from-boraq-teal-steel/30 to-boraq-teal-steel/10'
-                  }`} />
+                  <div className={`w-4 md:w-6 h-[2px] shrink-0 ${idx < blocks.length - 2
+                    ? 'bg-gradient-to-r from-boraq-teal-steel/60 to-boraq-teal-steel/30'
+                    : 'bg-gradient-to-r from-boraq-teal-steel/30 to-boraq-teal-steel/10'
+                    }`} />
                 )}
               </div>
             );
@@ -114,11 +114,10 @@ function InteractiveBlockchain() {
               whileTap={{ scale: 0.85 }}
               onClick={mineBlock}
               disabled={mining}
-              className={`w-16 h-16 md:w-20 md:h-20 rounded-xl md:rounded-2xl border-2 border-dashed flex items-center justify-center cursor-pointer transition-all duration-300 ${
-                mining
-                  ? 'border-yellow-400/50 bg-yellow-400/5 animate-pulse'
-                  : 'border-boraq-teal-steel/30 hover:border-purple-400 hover:bg-purple-400/10'
-              }`}
+              className={`w-16 h-16 md:w-20 md:h-20 rounded-xl md:rounded-2xl border-2 border-dashed flex items-center justify-center cursor-pointer transition-all duration-300 ${mining
+                ? 'border-yellow-400/50 bg-yellow-400/5 animate-pulse'
+                : 'border-boraq-teal-steel/30 hover:border-purple-400 hover:bg-purple-400/10'
+                }`}
             >
               <span className="text-2xl">
                 {mining ? <Pickaxe className="w-5 h-5 text-yellow-400" /> : '+'}
@@ -168,9 +167,9 @@ export default function Web3() {
           <HeroTrustStrip
             centered
             lead={{
-              name: 'David Kim',
-              role: 'Director of Growth',
-              avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400',
+              name: 'Rakib Hasan',
+              role: 'CTO — Web3 & Blockchain',
+              avatar: ctoPhoto,
             }}
           />
         </motion.div>
@@ -202,25 +201,25 @@ export default function Web3() {
       {/* NEW: Human trust section */}
       <ServiceHumanSection
         teamLead={{
-          name: 'David Kim',
-          role: 'Director of Growth',
-          avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400',
-          bio: 'Scaled 3 Web3 startups from zero to $10M+ ARR. David combines deep blockchain knowledge with growth strategy, ensuring your protocol doesn\'t just launch — it thrives.',
-          funFact: 'Mountain climber & podcast host',
+          name: 'Rakib Hasan',
+          role: 'Chief Technology Officer',
+          avatar: ctoPhoto,
+          bio: 'Blockchain and Web3 specialist. Rakib architects decentralized platforms, smart contracts, and token systems — ensuring your protocol doesn\'t just launch, it thrives.',
+          funFact: 'Blockchain pioneer & open-source contributor',
         }}
         testimonial={{
-          quote: 'Their smart contracts passed every audit on the first try. The tokenomics model they designed drove $50M in TVL within 6 months.',
-          author: 'Alex Rivera',
-          role: 'Founder, ChainVault',
-          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200',
-          result: '$50M+ TVL in 6 months',
+          quote: "Boraq's Web3 expertise helped us launch a secure, transparent protocol. Their code audits gave us and our users real peace of mind.",
+          author: 'Michael Chen',
+          role: 'CTO, ChainLabs',
+          avatar: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=200',
+          result: 'Secure L2 protocol deployed',
         }}
         stats={[
-          { label: 'Smart Contracts Audited', value: '40+' },
-          { label: 'Total Value Locked', value: '$50M+' },
-          { label: 'Zero Security Breaches', value: '0' },
+          { label: 'Web3 Projects', value: '1+' },
+          { label: 'User Satisfaction', value: '4.9/5' },
+          { label: 'Blockchain Platforms', value: '1+' },
         ]}
-        processNote="David personally walks through every tokenomics model and security audit report with your team."
+        processNote="Rakib personally walks through every smart contract architecture and tokenomics model with your team."
       />
 
       <Testimonials />

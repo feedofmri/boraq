@@ -2,16 +2,19 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Phone, Mail, Users } from 'lucide-react';
 
+import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
+import cooPhoto from '../../assets/Team/Ma-Huan Sheikh Meem - Chief Operating Officer.jpg';
+
 const teamMembers = [
     {
-        name: 'Sarah',
-        role: 'Product Lead',
-        image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100',
+        name: 'Rubayet',
+        role: 'CEO',
+        image: ceoPhoto,
     },
     {
-        name: 'Michael',
-        role: 'Tech Lead',
-        image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100',
+        name: 'Meem',
+        role: 'COO',
+        image: cooPhoto,
     },
 ];
 
@@ -74,13 +77,12 @@ export default function FloatingContact() {
                                             <button
                                                 key={idx}
                                                 onClick={() => setActiveMember(idx)}
-                                                className={`w-8 h-8 rounded-full overflow-hidden border-2 transition-all ${
-                                                    activeMember === idx
-                                                        ? 'border-boraq-teal-steel scale-110'
-                                                        : 'border-transparent opacity-60 hover:opacity-100'
-                                                }`}
+                                                className={`w-8 h-8 rounded-full overflow-hidden border-2 transition-all ${activeMember === idx
+                                                    ? 'border-boraq-teal-steel scale-110'
+                                                    : 'border-transparent opacity-60 hover:opacity-100'
+                                                    }`}
                                             >
-                                                <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                                                <img src={member.image} alt={member.name} className="w-full h-full object-cover object-top" />
                                             </button>
                                         ))}
                                     </div>
@@ -92,7 +94,7 @@ export default function FloatingContact() {
                                         <img
                                             src={currentMember.image}
                                             alt={currentMember.name}
-                                            className="w-full h-full rounded-full object-cover"
+                                            className="w-full h-full rounded-full object-cover object-top"
                                         />
                                     </div>
                                     <div>
@@ -108,7 +110,7 @@ export default function FloatingContact() {
                                 <div className="flex items-center gap-2 mb-4 px-3 py-2 rounded-lg bg-boraq-teal-steel/5">
                                     <Users className="w-4 h-4 text-boraq-teal-steel" />
                                     <span className="text-xs text-boraq-gray-mid dark:text-boraq-gray-silver">
-                                        We've helped <span className="font-bold text-boraq-black dark:text-boraq-white">150+</span> companies grow
+                                        We've helped <span className="font-bold text-boraq-black dark:text-boraq-white">28+</span> clients grow
                                     </span>
                                 </div>
 

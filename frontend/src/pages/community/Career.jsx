@@ -7,9 +7,9 @@ import InteractiveFAQ from '../../components/sections/InteractiveFAQ';
 
 
 const positions = [
-  { title: 'Senior Golang Engineer', dept: 'Engineering', location: 'Remote (Global)', type: 'Full-time' },
-  { title: 'Principle Product Designer', dept: 'Design', location: 'London, UK / Remote', type: 'Full-time' },
-  { title: 'AI Research Scientist', dept: 'Labs', location: 'Remote (US/EU)', type: 'Full-time' },
+  { title: 'Full-Stack Developer (MERN)', dept: 'Engineering', location: 'Mirpur 14, Dhaka / Remote', type: 'Full-time' },
+  { title: 'UI/UX Designer', dept: 'Design', location: 'Mirpur 14, Dhaka / Remote', type: 'Full-time' },
+  { title: 'ML & AI Engineer', dept: 'Research', location: 'Remote (Global)', type: 'Full-time' },
   { title: 'React Native Developer', dept: 'Engineering', location: 'Remote (Global)', type: 'Contract' },
 ];
 
@@ -33,7 +33,7 @@ export default function Career() {
             Build your life's <span className="text-boraq-teal-steel italic">work.</span>
           </h1>
           <p className="text-lg md:text-xl text-boraq-gray-mid dark:text-boraq-gray-silver max-w-3xl mx-auto font-light leading-relaxed">
-            We don't hire code monkeys. We hire polymaths, relentless problem solvers, and artisans. Join our remote-first team and build the future of software.
+            We don't just hire coders. We hire innovators, problem solvers, and creative thinkers. Join our team and help shape the future of technology.
           </p>
         </motion.div>
       </section>

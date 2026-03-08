@@ -1,6 +1,12 @@
+import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
+import ctoPhoto from '../../assets/Team/Rakib Hasan - Chief Technology Officer.jpg';
+import cooPhoto from '../../assets/Team/Ma-Huan Sheikh Meem - Chief Operating Officer.jpg';
+import cpoPhoto from '../../assets/Team/Adel Mohammad Zahid - Chief Product Officer.jpg';
+import plPhoto from '../../assets/Team/Tahmid Khan - Project Lead.jpg';
+import { MonitorSmartphone, Brush, BrainCircuit, Mic, Watch, Link as LinkIcon, ArrowRight, Users, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, MonitorSmartphone, Brush, BrainCircuit, Mic, Watch, Link as LinkIcon, Users, Check } from 'lucide-react';
+
 
 const services = [
     {
@@ -9,9 +15,9 @@ const services = [
         desc: 'High-performance, scalable applications engineered for iOS, Android, and Web.',
         link: '/services/web-app',
         colSpan: 'col-span-1 md:col-span-2 lg:col-span-2',
-        lead: { name: 'Michael Chang', role: 'CTO', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100' },
-        projectCount: '60+',
-        clientResult: 'Built NovaBank\'s platform — scaled to 1M users',
+        lead: { name: 'Md. Rubayet Islam', role: 'CEO', avatar: ceoPhoto },
+        projectCount: '8+',
+        clientResult: 'Built Boraq Space — comprehensive eCommerce platform',
     },
     {
         icon: Brush,
@@ -19,9 +25,9 @@ const services = [
         desc: 'Strategic design that converts visitors into loyal customers through intuitive interfaces.',
         link: '/services/ui-branding',
         colSpan: 'col-span-1',
-        lead: { name: 'Sarah Jenkins', role: 'Product Lead', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=100' },
-        projectCount: '45+',
-        clientResult: '3x conversion lift for OmniCorp',
+        lead: { name: 'Ma-Huan Sheikh Meem', role: 'COO', avatar: cooPhoto },
+        projectCount: '11+',
+        clientResult: 'Crafted Moushum — nature-inspired brand identity',
     },
     {
         icon: BrainCircuit,
@@ -29,19 +35,19 @@ const services = [
         desc: 'Custom machine learning models to automate workflows and unlock data insights.',
         link: '/services/ai-automation',
         colSpan: 'col-span-1',
-        lead: { name: 'Elena Rodriguez', role: 'AI Lead', avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=100' },
-        projectCount: '30+',
-        clientResult: '40% cost reduction for HealthSync',
+        lead: { name: 'Adel Mohammad Zahid', role: 'CPO', avatar: cpoPhoto },
+        projectCount: '3+',
+        clientResult: 'Car Price Prediction & Heart Disease ML models',
     },
     {
         icon: Mic,
         title: 'Vision & Speech',
-        desc: 'Advanced computer vision and NLP solutions for complex enterprise challenges.',
+        desc: 'Advanced computer vision and NLP solutions for real-world challenges.',
         link: '/services/vision-speech',
         colSpan: 'col-span-1 md:col-span-2 lg:col-span-1',
-        lead: { name: 'Elena Rodriguez', role: 'AI Lead', avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=100' },
-        projectCount: '15+',
-        clientResult: '99.8% accuracy for MediScan',
+        lead: { name: 'Md. Rubayet Islam', role: 'CEO', avatar: ceoPhoto },
+        projectCount: '2+',
+        clientResult: 'Advanced speech-to-text integration systems',
     },
     {
         icon: Watch,
@@ -49,9 +55,9 @@ const services = [
         desc: 'IoT integrations bridging software with hardware for connected ecosystems.',
         link: '/services/smart-device',
         colSpan: 'col-span-1',
-        lead: { name: 'Michael Chang', role: 'CTO', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100' },
-        projectCount: '20+',
-        clientResult: '12ms latency for UrbanGrid IoT',
+        lead: { name: 'Tahmid Khan', role: 'Project Lead', avatar: plPhoto },
+        projectCount: '2+',
+        clientResult: 'IoT and hardware-software integration',
     },
     {
         icon: LinkIcon,
@@ -59,9 +65,9 @@ const services = [
         desc: 'Secure distributed ledger technologies and smart contract development.',
         link: '/services/web3',
         colSpan: 'col-span-1 md:col-span-3 lg:col-span-1',
-        lead: { name: 'David Kim', role: 'Growth Director', avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=100' },
-        projectCount: '12+',
-        clientResult: '$50M+ TVL secured across protocols',
+        lead: { name: 'Rakib Hasan', role: 'CTO', avatar: ctoPhoto },
+        projectCount: '1+',
+        clientResult: 'Nibaron — ClimateAI for Farmers platform',
     },
 ];
 
@@ -75,10 +81,10 @@ export default function ServicesPreview() {
                         Core Capabilities
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-boraq-black dark:text-boraq-white">
-                        Engineering <span className="text-boraq-teal-steel">Excellence</span>
+                        Built with <span className="text-boraq-teal-steel">Precision</span>
                     </h2>
                     <p className="text-xl text-boraq-gray-mid dark:text-boraq-gray-silver font-light max-w-xl">
-                        We deliver end-to-end digital solutions that transform complex business problems into elegant competitive advantages.
+                        We solve complex business hurdles with software that is as elegant as it is powerful.
                     </p>
                 </div>
                 <Link to="/services/web-app" className="hidden md:flex items-center gap-2 text-boraq-black dark:text-boraq-white font-bold hover:gap-4 transition-all w-max whitespace-nowrap group">
@@ -123,7 +129,7 @@ export default function ServicesPreview() {
                                 <img
                                     src={service.lead.avatar}
                                     alt={service.lead.name}
-                                    className="w-7 h-7 rounded-full object-cover"
+                                    className="w-7 h-7 rounded-full object-cover object-top"
                                 />
                                 <div>
                                     <p className="text-xs font-bold text-boraq-black dark:text-boraq-white leading-tight">{service.lead.name}</p>

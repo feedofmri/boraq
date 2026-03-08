@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { PenTool, Layers, Palette, MonitorPlay } from 'lucide-react';
+import cooPhoto from '../../assets/Team/Ma-Huan Sheikh Meem - Chief Operating Officer.jpg';
 import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
 import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
@@ -112,14 +113,14 @@ export default function UIBranding() {
           </p>
 
           {/* Human trust strip */}
-            <HeroTrustStrip
-              centered
-              lead={{
-                name: 'Sarah Jenkins',
-                role: 'Head of Product',
-                avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400',
-              }}
-            />
+          <HeroTrustStrip
+            centered
+            lead={{
+              name: 'Ma-Huan Sheikh Meem',
+              role: 'COO — UI/UX & Branding',
+              avatar: cooPhoto,
+            }}
+          />
         </motion.div>
       </section>
 
@@ -162,25 +163,25 @@ export default function UIBranding() {
       {/* NEW: Human trust section */}
       <ServiceHumanSection
         teamLead={{
-          name: 'Sarah Jenkins',
-          role: 'Head of Product',
-          avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400',
-          bio: 'Former product lead at Spotify. 8+ years creating interfaces that millions love. Sarah leads every design engagement personally, from first wireframe to final handoff.',
-          funFact: 'Coffee enthusiast & marathon runner',
+          name: 'Ma-Huan Sheikh Meem',
+          role: 'Chief Operating Officer',
+          avatar: cooPhoto,
+          bio: 'UI/UX & Graphics expert. Meem drives visual excellence across brand identities and digital interfaces, personally leading every design engagement from wireframe to final handoff.',
+          funFact: 'UI/UX enthusiast & creative operations lead',
         }}
         testimonial={{
-          quote: 'Their UI/UX team transformed our complex enterprise software into an intuitive dashboard that our employees actually love using.',
-          author: 'Marcus Johnson',
-          role: 'VP Operations, OmniCorp',
-          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200',
-          result: '3x productivity boost',
+          quote: 'Boraq\'s design team transformed our brand with Moushum — a nature-inspired identity that perfectly captured our vision.',
+          author: 'Nusrat Jahan',
+          role: 'Creative Director',
+          avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200',
+          result: 'Complete brand identity delivered',
         }}
         stats={[
-          { label: 'Interfaces Designed', value: '200+' },
-          { label: 'Avg. Conversion Lift', value: '47%' },
-          { label: 'Design Awards', value: '8' },
+          { label: 'Interfaces Designed', value: '11+' },
+          { label: 'User Satisfaction', value: '4.9/5' },
+          { label: 'Brand Projects', value: '11+' },
         ]}
-        processNote="Sarah personally leads every design sprint — you'll review live prototypes together in weekly sessions."
+        processNote="Meem personally leads every design sprint — you'll review live prototypes together in weekly sessions."
       />
 
       <Testimonials />

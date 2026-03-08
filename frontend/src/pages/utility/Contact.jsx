@@ -83,8 +83,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-bold text-[10px] uppercase tracking-widest text-boraq-gray-mid dark:text-boraq-gray-silver mb-1">HQ</h3>
-                    <p className="text-boraq-gray-mid dark:text-boraq-gray-silver font-light text-sm mb-1">Fully remote, but headquartered in:</p>
-                    <p className="font-bold text-boraq-black dark:text-boraq-white tracking-tight">London, UK</p>
+                    <p className="text-boraq-gray-mid dark:text-boraq-gray-silver font-light text-sm mb-1">Our office is located in:</p>
+                    <p className="font-bold text-boraq-black dark:text-boraq-white tracking-tight">Mirpur 14, Dhaka, Bangladesh</p>
                   </div>
                 </div>
               </div>

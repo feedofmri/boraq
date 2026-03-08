@@ -2,26 +2,26 @@ import { motion } from 'framer-motion';
 import { Shield, Award, Star, BadgeCheck } from 'lucide-react';
 
 const logos = [
-    { name: 'Acme Corp', symbol: '⌘' },
-    { name: 'Globex', symbol: '❖' },
-    { name: 'Soylent', symbol: '⎈' },
-    { name: 'Initech', symbol: '⎊' },
-    { name: 'Umbrella', symbol: '☂' },
-    { name: 'Massive Dynamic', symbol: '✧' },
-    { name: 'Cyberdyne', symbol: '⎔' },
-    { name: 'Wayne Ent', symbol: '🦇' },
+    { name: 'Boraq Space', symbol: '🛒' },
+    { name: 'Proshno', symbol: '❓' },
+    { name: 'Sohojogi', symbol: '🏠' },
+    { name: 'Moushum', symbol: '🌿' },
+    { name: 'Nibaron', symbol: '🌾' },
+    { name: 'LiteDocs', symbol: '📄' },
+    { name: 'Nondan', symbol: '🎉' },
+    { name: 'AuraAccess', symbol: '📡' },
 ];
 
 const trustIndicators = [
-    { icon: Award, label: 'Clutch Top Agency 2026' },
-    { icon: Shield, label: 'ISO 27001 Compliant' },
-    { icon: BadgeCheck, label: 'SOC 2 Verified' },
-    { icon: Star, label: 'Google Partner' },
+    { icon: Star, label: 'Google Verified 5.0' },
+    { icon: Award, label: '32+ Projects Delivered' },
+    { icon: BadgeCheck, label: '28+ Global Clients' },
+    { icon: Shield, label: '24x7 Support' },
 ];
 
 export default function ClientsTicker() {
     return (
-        <section className="w-full py-16 overflow-hidden bg-boraq-black/5 dark:bg-boraq-white/5 border-y border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10">
+        <section className="w-full mt-8 md:mt-12 py-16 overflow-hidden bg-boraq-black/5 dark:bg-boraq-white/5 border-y border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10">
             <div className="max-w-7xl mx-auto px-6 mb-8 text-center pt-8 md:pt-0">
                 <p className="text-xs font-bold tracking-widest text-boraq-gray-mid dark:text-boraq-gray-silver uppercase">
                     Trusted by innovative teams worldwide
