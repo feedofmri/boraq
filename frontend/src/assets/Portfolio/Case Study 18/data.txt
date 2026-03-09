@@ -1,0 +1,11 @@
+Case Study #18: Sohojogi – One Stop Home Service Solutions App
+Leave a Comment / Case Study, Web & App / By Boraq
+See Complete Work
+Overview
+SOHOJOGI is a one-stop household service platform designed to make daily life easier by connecting users with trusted and verified professionals such as plumbers, electricians, cleaners, mechanics, and appliance repair experts. With a secure and user-friendly system, SOHOJOGI eliminates the hassle of finding reliable help by offering location-based service matching, a seamless booking process, real-time updates, and a clean, responsive interface. It addresses common challenges such as trust issues, inconsistent service quality, and unverified credentials, ensuring both users and service providers benefit from a reliable and transparent ecosystem. By focusing on trust, security, and convenience, SOHOJOGI stands out as the go-to solution for homeowners and skilled professionals alike, bridging the gap between household needs and quality service delivery.
+
+Youtube Link : https://youtu.be/Lwbt7yas1KI
+
+
+Challenges and Objectives
+As the developer of SOHOJOGI, my primary challenges lie in ensuring cross-platform performance and scalability, integrating secure and reliable APIs for booking and payments, implementing strong authentication and data protection, and delivering real-time features such as live booking updates and notifications. I also face the responsibility of maintaining a consistent user experience across Android, iOS, and web, while managing a robust backend that can handle growing volumes of users and service providers. My objectives are to build a clean and scalable architecture, optimize app performance for speed and reliability, and create a seamless, user-friendly interface that enhances trust and convenience. Additionally, I aim to uphold best practices in code quality, security, and testing, while continuously improving the app through monitoring, updates, and the expansion of features to meet evolving user needs.

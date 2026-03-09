@@ -1,0 +1,38 @@
+Case Study #34: AUST CSE Carnival 6.0 Website Development
+Leave a Comment / Case Study, Web & App / By feedofmri
+Overview
+The official website for the AUST CSE Carnival 6.0 (accessible at austcsecarnival.vercel.app) was created to serve as the central digital hub for the event — showcasing all segments, registration info, sponsors, gallery, and event details. According to the project’s GitHub repository, the site is built as a modern frontend application using React with Vite, CSS Modules and React Router.
+
+The Challenge
+Provide a responsive and smooth experience across desktop, tablet and mobile so participants and visitors can easily access event info. GitHub
+Consolidate multiple event segments (programming contests, hackathon, UI/UX competition, quiz, math olympiad etc) into one site with intuitive navigation and clarity. GitHub
+Reflect the visual branding of the Carnival (tech-forward, dynamic, high energy) while maintaining performance and accessibility.
+Enable easy updates (e.g., adding new segments, sponsor information, galleries) without major rebuilds.
+
+
+
+
+
+
+The Solution
+Utilised React with Vite for fast build times and modern development experience. GitHub
+Employed a modular file structure (src/assets, src/components, src/pages, src/data) to keep things maintainable and scalable. GitHub
+Used CSS Modules for style encapsulation and consistency across components. GitHub
+Designed the UI with clean layout and visual flow that matches the Carnival’s branding — strong typography, tech-oriented color palette, sections for each segment, registration button prominence.
+Ensured mobile responsiveness and cross-browser support (Chrome, Firefox, Safari, Edge) as noted in the README. GitHub
+Impact & Outcome
+Delivered a professional and cohesive digital presence for the Carnival that aligns with its high-energy branding.
+Provided event participants and visitors with a unified platform to explore event segments, register, view galleries and connect with sponsors.
+Enhanced maintainability and future scalability of the site thanks to the modular architecture.
+Elevated the perception of the event as modern, well-organised and tech-savvy.
+Tech Stack
+Frontend: React + Vite
+Routing: React Router DOM
+Styling: CSS Modules
+Hosting/Deployment: Vercel (as indicated by the live URL)
+Structure: Modular components, static data for content updates
+Future Scope
+Add dynamic content features (e.g., live countdown, event feed updates, real-time winner announcements).
+Integrate backend services (e.g., for registration management, analytics, user profiles).
+Implement CMS or headless CMS to ease content updates for non-technical organisers.
+Expand accessibility features (keyboard navigation, improved screen-reader support) to make the site more inclusive.

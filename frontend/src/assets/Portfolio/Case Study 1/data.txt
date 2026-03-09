@@ -1,0 +1,63 @@
+Case Study #1: Proshno – Community Knowledge Sharing Platform
+Leave a Comment / Case Study, Web & App / By feedofmri
+Introduction
+Proshno is a knowledge-sharing platform designed to foster community interactions by allowing users to ask questions, give answers, and engage in topic-based groups. Built on WordPress, it caters to students, professionals, and the general public, aiming to create a valuable resource for information exchange. Visit the official Proshno website to explore.
+
+Project Background
+Proshno was conceived to offer an online space where users can both seek advice and share knowledge. With a simple, user-friendly interface, it empowers users to engage in meaningful discussions and build communities around shared interests.
+
+Key Features of the Knowledge Sharing Platform
+Home Page: Displays recent and popular questions.
+Add Group: Users can create groups around specific interests or subjects.
+Groups: Organized discussions allow for focused interactions among users.
+Badges: Incentives for active participation, increasing engagement.
+Questions & Polls: Core functionality where users can post questions and gather opinions.
+Tags: Categorizes topics for easy search and content discovery.
+Users & FAQs: Allows user profile management and provides essential onboarding information.
+Sign In - Proshno – Community Knowledge Sharing Platform
+Sign In
+Profile - Proshno – Community Knowledge Sharing Platform
+Profile
+Add Group - Proshno – Community Knowledge Sharing Platform
+Add Group
+Badges - Proshno – Community Knowledge Sharing Platform
+Badges
+Tags - Proshno – Community Knowledge Sharing Platform
+Tags
+Ask Questions - Proshno – Community Knowledge Sharing Platform
+Ask Questions
+FAQ - Proshno – Community Knowledge Sharing Platform
+FAQ
+Feed - Mobile - Proshno – Community Knowledge Sharing Platform
+Feed – Mobile
+Sign In - Mobile - Proshno – Community Knowledge Sharing Platform
+Sign In – Mobile
+Ask Questions - Mobile - Proshno – Community Knowledge Sharing Platform
+Ask Questions – Mobile
+Profile - Mobile - Proshno – Community Knowledge Sharing Platform
+Profile – Mobile
+Technical Stack
+WordPress powers Proshno, offering flexibility for custom functionalities and a strong foundation for future scalability. WordPress also enables the integration of features such as badges and group interactions, crucial for a knowledge-sharing platform like Proshno.
+
+Design and Development
+The knowledge-sharing platform was developed with an emphasis on usability. Starting with wireframes, we aimed for a minimalistic design, ensuring that navigation remains simple and intuitive. The development phase focused on creating essential features like groups, badges, and question-based interactions.
+
+Key Development Process
+Planning: Defined the target audience and specific platform features.
+Prototyping & Design: Created designs that focus on usability and community engagement.
+Development: Customized WordPress to support Proshno’s unique features.
+Testing: Conducted usability testing to refine user experience.
+Launch: Introduced the platform with initial community-focused content.
+Feedback & Iteration: Improved features based on user feedback for better engagement.
+Outcome
+Proshno successfully launched, gathering positive feedback from users for its ease of use and community focus. With its foundational features, Proshno has the potential to scale, attracting a larger community of knowledge seekers and contributors.
+
+Key Takeaways
+Community Engagement is essential for Proshno’s growth.
+Scalability: WordPress provides flexibility for feature expansion.
+Continuous Improvement: User feedback plays a crucial role in refining Proshno.
+Meet the Developer
+Proshno was developed by Md. Rubayet Islam, a software engineer with expertise in community-oriented platforms. Connect with him on LinkedIn for insights into his approach to digital community building.
+
+External Resources
+For more on building knowledge-sharing communities, visit HubSpot’s Guide to Community Building.

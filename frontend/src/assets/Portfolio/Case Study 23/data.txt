@@ -1,0 +1,20 @@
+Case Study #23: Nibaron – ClimateAI for Farmers
+Leave a Comment / Case Study, Web & App, Web3 Platform / By feedofmri
+Overview
+Nibaron is an innovative ClimateAI platform that empowers farmers with AI-driven climate insights and actionable recommendations. Designed for Bangladesh and global agricultural ecosystems, it connects weather intelligence with crop physiology to improve decision-making in irrigation, fertilization, and protection.
+
+Youtube Link : https://youtu.be/5-okao60db4
+
+
+Challenge
+Farmers suffer yield losses due to unpredictable weather, floods, and pollution. Existing forecasts lack actionable, crop-specific insights.
+
+Solution
+Nibaron links climate hazards to crop growth stages, provides Bangla voice alerts, and includes a digital marketplace (Nibaron Bazaar) for agribusinesses.
+Frontend: React + Tailwind + Vite
+Backend: Laravel + Sanctum + REST API
+
+Impact
+Predictive alerts minimize climate-related losses.
+Improved resource usage through AI-driven recommendations.
+Enhanced accessibility via localized voice assistance.

@@ -1,0 +1,28 @@
+Case Study #20: Car Price Prediction Using One-Hot Encoding and Linear Regression Using ML
+Leave a Comment / AI & Automation, Case Study / By Boraq
+See Complete Work
+Overview
+This project demonstrates how to build a Multiple Linear Regression model in Python to predict car selling prices. The dataset (carprices.csv) contains features such as mileage, age, and car model (BMW X5, Audi A5, Mercedes Benz C-class). Since “Car Model” is a categorical feature, it is converted into numerical dummy variables using pandas get_dummies() and scikit-learn’s OneHotEncoder, while avoiding the dummy variable trap by dropping one category.
+
+The notebook also explores the data visually with matplotlib, helping to understand correlations and patterns before modeling. The linear regression model is trained on a small dataset of 13 samples, achieving an impressive R² score of ~0.94, which indicates strong predictive power despite the limited data.
+
+Finally, the model is tested on real scenarios, generating sample predictions—for example, estimating a price of ~$36,991 for a 45,000-mile, 4-year-old Mercedes Benz C-class. This exercise highlights how feature encoding + regression can be effectively applied to categorical and numerical data to make accurate price predictions.
+
+Challenges
+As a developer, the main challenges included working with a very small dataset of just 13 samples, which made it difficult to avoid overfitting and validate performance. Handling categorical data encoding for car models required careful use of One-Hot Encoding while avoiding the dummy variable trap. Balancing numerical features (mileage, age) with categorical features, and ensuring the regression model could generalize properly, was also a challenge. Finally, evaluating the model’s performance on limited data and interpreting an R² score of ~0.94 required caution to ensure realistic insights.
+
+Design Process
+Data Collection → Loaded carprices.csv with mileage, age, and car model data.
+Data Visualization → Used matplotlib to explore relationships between features and car prices.
+Categorical Encoding → Converted the car model column into dummy variables using pandas get_dummies() and sklearn’s OneHotEncoder, dropping one category to prevent the dummy variable trap.
+Model Building → Implemented a multiple linear regression model using scikit-learn’s LinearRegression.
+Training & Testing → Trained the model on the small dataset and tested predictions against unseen samples.
+Evaluation → Achieved an R² score of ~0.94, with additional evaluation through predicted vs. actual price comparisons.
+Prediction → Generated sample predictions, such as estimating ~$36,991 for a 45,000-mile, 4-year-old Mercedes Benz C-class.
+Features
+One-Hot Encoding for categorical car models.
+Multiple Linear Regression to predict car prices.
+Data visualization with matplotlib for better insights.
+High accuracy (R² ≈ 0.94) despite small dataset size.
+Sample predictions showcasing real-world scenarios.
+Demonstrates a complete ML workflow: Data → Encoding → Model → Evaluation → Prediction.

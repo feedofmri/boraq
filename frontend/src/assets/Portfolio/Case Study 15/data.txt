@@ -1,0 +1,38 @@
+Case Study #15: Sahajyo Rescue & Relief UI/UX
+Leave a Comment / Case Study, UI & Branding / By feedofmri
+See Complete Work
+Overview
+Sahajyo Rescue & Relief is a critical platform designed to streamline emergency response and relief distribution. This project focused on creating an intuitive user journey for both first responders and affected individuals. The goal was to ensure that during crisis situations, the right information was delivered instantly to the appropriate stakeholders.
+
+Youtube Link : https://youtu.be/Dj2evwUJPG4
+
+
+
+Challenges and Objectives
+User Urgency: The application needed to handle high-pressure environments where every second counted.
+Complex Data Presentation: Emergency data had to be structured logically so that users could quickly grasp the situation.
+Accessibility: Ensuring ease-of-use across diverse user groups – including non-technical users under stress.
+The Design Process
+Research & Analysis:
+Conducted stakeholder interviews and emergency service analysis to understand critical needs.
+Analyzed similar crisis management systems to note both strengths and weaknesses.
+User Journey Mapping & Ideation:
+Developed clear user personas highlighting emergency responders, volunteers, and affected community members.
+Created user journey maps that identified key interactions and decision points.
+Wireframing and Prototyping:
+Developed low-fidelity wireframes that focused on layout clarity, navigational flow, and critical data points.
+Iterated to high-fidelity mockups with emphasis on clean typography and accessible color contrasts.
+Visual Design & Interaction:
+A minimalistic interface was chosen to reduce cognitive overload.
+Integrated interactive prototypes that allowed for real-time feedback from emergency service professionals.
+Testing & Refinement:
+Carried out usability tests with both technical and non-technical participants.
+Refined micro-interactions and streamlined data visualization based on user feedback.
+Final Outcome
+The final design provided a balance between emergency functionality and ease-of-use. With its clear layout, intuitive navigation, and proactive alert system, the Sahajyo Rescue & Relief platform is now poised to deliver immediate relief when needed. The refined UI/UX directly contributes to faster response times and improved crisis communication.
+
+Key Takeaways
+The critical role of user-centric design in emergency applications.
+A streamlined design can significantly enhance information delivery during emergencies.
+Continuous user testing is essential to refine both functionality and usability under stress.
+View the full project details on Behance

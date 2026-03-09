@@ -1,0 +1,29 @@
+Case Study #21: PCA and Logistic Regression for Heart Disease Prediction
+Leave a Comment / AI & Automation, Case Study / By Boraq
+See Complete Work
+Overview
+This notebook demonstrates the use of Principal Component Analysis (PCA) for dimensionality reduction on a heart disease dataset (heart.csv) containing features such as Age, Sex, Chest Pain Type, RestingBP, Cholesterol, and more. The categorical variables are one-hot encoded, numerical features are standardized, and PCA is applied with n_components = 8, cumulatively explaining ~99.9% of the variance in the dataset.
+
+After dimensionality reduction, a Logistic Regression model is trained on the transformed dataset to predict the target variable HeartDisease. Despite the relatively small dataset, the model achieves an accuracy of ~68% on the test set, providing valuable insights into how dimensionality reduction techniques like PCA can simplify complex medical datasets while still retaining predictive power. This project highlights the practical application of data preprocessing, feature transformation, and supervised learning in the context of healthcare predictions.
+
+
+Challenges
+High-Dimensional Data → The dataset had many correlated features (age, cholesterol, chest pain type, etc.), which made dimensionality reduction essential.
+Categorical Variables → Handling categorical features like ChestPainType and Sex required proper one-hot encoding while avoiding multicollinearity.
+Model Performance → After PCA transformation, logistic regression achieved ~68% accuracy, highlighting the challenge of improving predictive power on medical datasets.
+Variance Retention → Choosing the right number of principal components (n_components=8) to balance reduced dimensionality and maximum variance (~99.9%).
+Data Standardization → Ensuring numerical features were scaled correctly before applying PCA.
+Design Process
+Data Collection → Loaded heart.csv dataset with medical features.
+Preprocessing → Standardized numerical variables and one-hot encoded categorical features.
+Dimensionality Reduction → Applied PCA (n_components=8) to capture ~99.9% variance.
+Model Building → Trained a logistic regression classifier on PCA-transformed data.
+Evaluation → Achieved ~68% accuracy on the test set, with insights into model limitations and scope for improvement.
+Visualization → Plotted explained variance ratios and component contributions to understand PCA effectiveness.
+Features
+PCA-based Dimensionality Reduction for simplifying high-dimensional medical data.
+One-Hot Encoding for categorical features like Chest Pain Type and Sex.
+Logistic Regression Classifier for binary prediction of heart disease.
+Explained Variance Analysis to select optimal principal components.
+Performance Evaluation with accuracy metrics on test data.
+Complete ML Workflow: Preprocessing → PCA → Modeling → Evaluation → Insights.

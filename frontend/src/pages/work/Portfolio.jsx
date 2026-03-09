@@ -1,126 +1,46 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Code, Layout, Smartphone, Eye, Zap, Cpu, Globe, Search, Brush, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowUpRight, Layout, Smartphone, Cpu, Globe, Search, Brush, ChevronLeft, ChevronRight } from 'lucide-react';
 import Testimonials from '../../components/sections/Testimonials';
 import StatsCounter from '../../components/sections/StatsCounter';
 import CallToAction from '../../components/sections/CallToAction';
+import caseStudies from '../../data/caseStudies';
 
-const projects = [
-  {
-    id: 'boraq-space',
-    title: 'Boraq Space',
-    category: 'Web & App',
-    description: 'Comprehensive eCommerce platform — full-stack development from concept to deployment.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
-    tags: ['React', 'Node.js', 'MERN Stack'],
-    icon: Layout,
-  },
-  {
-    id: 'proshno',
-    title: 'Proshno',
-    category: 'Web & App',
-    description: 'Community knowledge sharing platform connecting people with expert answers.',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop',
-    tags: ['React', 'Node.js', 'MongoDB'],
-    icon: Smartphone,
-  },
-  {
-    id: 'moushum',
-    title: 'Moushum (মৌসুম)',
-    category: 'UI & Branding',
-    description: 'Nature-inspired brand identity — complete visual identity and design system.',
-    image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=2070&auto=format&fit=crop',
-    tags: ['Brand Design', 'UI/UX', 'Visual Identity'],
-    icon: Layout,
-  },
-  {
-    id: 'nibaron',
-    title: 'Nibaron',
-    category: 'Web3 Platform',
-    description: 'ClimateAI for Farmers — decentralized agricultural platform powered by blockchain.',
-    image: 'https://images.unsplash.com/photo-1639762681485-074b7f4ec651?q=80&w=2128&auto=format&fit=crop',
-    tags: ['Blockchain', 'Smart Contracts', 'Web3'],
-    icon: Globe,
-  },
-  {
-    id: 'car-price-prediction',
-    title: 'Car Price Prediction',
-    category: 'AI & Automation',
-    description: 'ML-powered predictive model for accurate vehicle pricing analysis.',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop',
-    tags: ['Python', 'Scikit-learn', 'ML'],
-    icon: Cpu,
-  },
-  {
-    id: 'sohojogi',
-    title: 'Sohojogi',
-    category: 'Web & App',
-    description: 'One-stop home service solutions app connecting users with local service providers.',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop',
-    tags: ['React Native', 'Node.js', 'MongoDB'],
-    icon: Smartphone,
-  },
-  {
-    id: 'litedocs',
-    title: 'LiteDocs',
-    category: 'Web & App',
-    description: 'Lightweight word processing software built for speed and simplicity.',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop',
-    tags: ['React', 'Node.js', 'MERN Stack'],
-    icon: Code,
-  },
-  {
-    id: 'nondan',
-    title: 'Nondan',
-    category: 'Web & App',
-    description: 'Event management and booking revolution — streamlining the event planning process.',
-    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop',
-    tags: ['React', 'Node.js', 'MongoDB'],
-    icon: Layout,
-  },
-  {
-    id: 'auraaccess',
-    title: 'AuraAccess',
-    category: 'UI & Branding',
-    description: 'Ultimate ISP experience — complete brand and UX design for internet services.',
-    image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=2070&auto=format&fit=crop',
-    tags: ['Brand Design', 'UI/UX', 'Visual Identity'],
-    icon: Brush,
-  },
-  {
-    id: 'heart-disease-prediction',
-    title: 'Heart Disease Prediction',
-    category: 'AI & Automation',
-    description: 'PCA-based ML model for predicting heart disease risk using clinical data.',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop',
-    tags: ['Python', 'Scikit-learn', 'PCA'],
-    icon: Cpu,
-  },
-  {
-    id: 'vastra',
-    title: 'Vastra',
-    category: 'UI & Branding',
-    description: 'Elegant brand identity — sophisticated visual design for a fashion brand.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=2070&auto=format&fit=crop',
-    tags: ['Brand Design', 'Visual Identity', 'Fashion'],
-    icon: Brush,
-  }
+// Icon mapping by category
+const categoryIcons = {
+  'Web & App': Layout,
+  'UI & Branding': Brush,
+  'AI & Automation': Cpu,
+  'Vision & Speech': Smartphone,
+  'Smart Device': Globe,
+  'Web3 Platform': Globe,
+};
+
+// Placeholder gradient for case studies without a cover image
+const placeholderGradients = [
+  'from-boraq-teal-deep/40 to-boraq-teal-steel/20',
+  'from-indigo-900/40 to-purple-800/20',
+  'from-emerald-900/40 to-teal-700/20',
+  'from-rose-900/40 to-orange-800/20',
 ];
 
-const categories = ['All', 'Web & App', 'UI & Branding', 'AI & Automation', 'Vision & Speech', 'Smart Device', 'Web3 Platform'];
-const ITEMS_PER_PAGE = 6;
+const categories = ['All', 'Web & App', 'UI & Branding', 'AI & Automation'];
+const ITEMS_PER_PAGE = 8;
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
-  const filteredProjects = projects.filter((project) => {
+  // Reverse to show latest case studies first
+  const sortedProjects = useMemo(() => [...caseStudies].reverse(), []);
+
+  const filteredProjects = sortedProjects.filter((project) => {
     const matchesCategory = activeFilter === 'All' || project.category === activeFilter;
     const matchesSearch = !search ||
       project.title.toLowerCase().includes(search.toLowerCase()) ||
-      project.description.toLowerCase().includes(search.toLowerCase()) ||
+      project.subtitle.toLowerCase().includes(search.toLowerCase()) ||
       project.tags.some(t => t.toLowerCase().includes(search.toLowerCase()));
     return matchesCategory && matchesSearch;
   });
@@ -131,7 +51,6 @@ export default function Portfolio() {
     currentPage * ITEMS_PER_PAGE
   );
 
-  // Reset to page 1 when filter/search changes
   const handleFilterChange = (category) => {
     setActiveFilter(category);
     setCurrentPage(1);
@@ -153,10 +72,10 @@ export default function Portfolio() {
         >
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-boraq-black dark:text-boraq-white">
-              Engineering <span className="text-boraq-teal-steel italic">Excellence.</span>
+              Our <span className="text-boraq-teal-steel italic">Work.</span>
             </h1>
             <p className="text-lg md:text-2xl text-boraq-gray-mid dark:text-boraq-gray-silver font-light leading-relaxed">
-              A premium showcase of our most ambitious technical endeavors across six key specializations.
+              {sortedProjects.length} real case studies — from concept to launch. Explore our portfolio across web, mobile, branding, and AI.
             </p>
           </div>
           <div className="w-full md:w-80 relative shrink-0">
@@ -211,61 +130,72 @@ export default function Portfolio() {
       <section className="max-w-7xl mx-auto px-6 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <AnimatePresence mode="popLayout">
-            {paginatedProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-                whileHover={{ y: -6 }}
-                className="group relative rounded-3xl overflow-hidden glass-panel flex flex-col h-[500px] transition-transform duration-300"
-              >
-                <Link to={`/case-studies/${project.id}`} className="block h-full w-full relative overflow-hidden">
-                  {/* Image Container */}
-                  <div className="absolute inset-0 z-0">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 dark:opacity-60"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-boraq-black/95 via-boraq-black/40 to-transparent dark:from-boraq-black dark:via-boraq-black/60" />
-                  </div>
+            {paginatedProjects.map((project, idx) => {
+              const IconComponent = categoryIcons[project.category] || Layout;
+              const gradient = placeholderGradients[idx % placeholderGradients.length];
 
-                  {/* Content */}
-                  <div className="relative z-10 p-8 h-full flex flex-col justify-end text-boraq-white">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2">
-                        <project.icon className="w-5 h-5 text-boraq-teal-steel" />
-                        <span className="text-xs font-bold text-boraq-teal-steel/90 tracking-widest uppercase">
-                          {project.category}
-                        </span>
-                      </div>
-                      <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        className="w-12 h-12 rounded-full glass-panel-heavy flex items-center justify-center cursor-pointer border border-boraq-teal-steel/30"
-                      >
-                        <ArrowUpRight className="w-6 h-6 text-boraq-white" />
-                      </motion.div>
+              return (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                  whileHover={{ y: -6 }}
+                  className="group relative rounded-3xl overflow-hidden glass-panel flex flex-col h-[500px] transition-transform duration-300"
+                >
+                  <Link to={`/case-studies/${project.id}`} className="block h-full w-full relative overflow-hidden">
+                    {/* Image / Gradient Container */}
+                    <div className="absolute inset-0 z-0">
+                      {project.cover ? (
+                        <img
+                          src={project.cover}
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 dark:opacity-60"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className={`w-full h-full bg-gradient-to-br ${gradient}`} />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-boraq-black/95 via-boraq-black/40 to-transparent dark:from-boraq-black dark:via-boraq-black/60" />
                     </div>
-                    <h2 className="text-3xl font-bold mb-3">{project.title}</h2>
-                    <p className="text-boraq-white/80 line-clamp-2 mb-6 max-w-lg font-light">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-full bg-boraq-white/10 backdrop-blur-md border border-boraq-white/20"
+
+                    {/* Content */}
+                    <div className="relative z-10 p-8 h-full flex flex-col justify-end text-boraq-white">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-2">
+                          <IconComponent className="w-5 h-5 text-boraq-teal-steel" />
+                          <span className="text-xs font-bold text-boraq-teal-steel/90 tracking-widest uppercase">
+                            {project.category}
+                          </span>
+                        </div>
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          className="w-12 h-12 rounded-full glass-panel-heavy flex items-center justify-center cursor-pointer border border-boraq-teal-steel/30"
                         >
-                          {tag}
-                        </span>
-                      ))}
+                          <ArrowUpRight className="w-6 h-6 text-boraq-white" />
+                        </motion.div>
+                      </div>
+                      <h2 className="text-3xl font-bold mb-2">{project.title}</h2>
+                      <p className="text-boraq-white/60 text-sm mb-3 font-medium">{project.subtitle}</p>
+                      <p className="text-boraq-white/80 line-clamp-2 mb-6 max-w-lg font-light">
+                        {project.overview}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.slice(0, 4).map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-full bg-boraq-white/10 backdrop-blur-md border border-boraq-white/20"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
+                  </Link>
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </div>
 
