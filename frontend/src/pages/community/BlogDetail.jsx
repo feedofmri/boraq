@@ -1,10 +1,35 @@
-import { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { ArrowLeft, Clock, Share2, Twitter, Linkedin, Copy, Bookmark, ChevronRight } from 'lucide-react';
-import { Link, useParams } from 'react-router-dom';
+import { ArrowLeft, Share2, Twitter, Linkedin, Copy, Bookmark, ChevronRight } from 'lucide-react';
+import { Link, useParams, Navigate } from 'react-router-dom';
 import CallToAction from '../../components/sections/CallToAction';
 import Testimonials from '../../components/sections/Testimonials';
-import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
+import blogPosts from '../../data/blogPosts';
+
+function ContentRenderer({ content }) {
+  return content.map((block, i) => {
+    switch (block.type) {
+      case 'heading':
+        return <h2 key={i} className="text-4xl md:text-5xl mt-24">{block.content}</h2>;
+      case 'text':
+        return <p key={i}>{block.content}</p>;
+      case 'quote':
+        return <blockquote key={i}>{block.content}</blockquote>;
+      case 'list':
+        return (
+          <ul key={i} className="space-y-3 my-8">
+            {block.content.map((item, j) => (
+              <li key={j} className="flex items-start gap-3 text-boraq-black/70 dark:text-boraq-white/70 font-light text-lg leading-relaxed">
+                <span className="text-boraq-teal-steel mt-1.5 shrink-0">✦</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        );
+      default:
+        return null;
+    }
+  });
+}
 
 export default function BlogDetail() {
     const { id } = useParams();
@@ -15,7 +40,11 @@ export default function BlogDetail() {
         restDelta: 0.001
     });
 
-    const title = id ? id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') : 'The Future of Digital Engineering';
+    const post = blogPosts.find((p) => p.id === id);
+    if (!post) return <Navigate to="/blog" replace />;
+
+    const postIndex = blogPosts.indexOf(post);
+    const nextPost = blogPosts[postIndex + 1] || blogPosts[0];
 
     return (
         <div className="w-full bg-boraq-white dark:bg-boraq-black transition-colors duration-500">
@@ -32,9 +61,9 @@ export default function BlogDetail() {
                         <ArrowLeft className="w-3 h-3" /> Back to Signals
                     </Link>
                     <div className="flex items-center gap-6">
-                        <span className="text-boraq-black dark:text-boraq-white line-clamp-1 max-w-[300px]">{title}</span>
+                        <span className="text-boraq-black dark:text-boraq-white line-clamp-1 max-w-[300px]">{post.title}</span>
                         <div className="w-px h-4 bg-boraq-black/10 dark:bg-white/10" />
-                        <span className="text-boraq-black/30 dark:text-boraq-white/30 italic uppercase">Engineering</span>
+                        <span className="text-boraq-black/30 dark:text-boraq-white/30 italic uppercase">{post.category}</span>
                     </div>
                     <div className="flex items-center gap-4">
                         <button className="text-boraq-black/50 dark:text-boraq-white/50 hover:text-boraq-teal-steel transition-colors">
@@ -53,8 +82,8 @@ export default function BlogDetail() {
                     className="absolute inset-0"
                 >
                     <img
-                        src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
-                        alt={title}
+                        src={post.image}
+                        alt={post.title}
                         className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-boraq-black via-boraq-black/60 to-transparent" />
@@ -67,26 +96,22 @@ export default function BlogDetail() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <div className="flex items-center gap-4 mb-8">
-                            <span className="px-4 py-1.5 rounded-full bg-boraq-teal-steel/20 border border-boraq-teal-steel/30 text-boraq-teal-steel text-[10px] font-bold uppercase tracking-[0.2em] backdrop-blur-xl">Engineering</span>
+                            <span className="px-4 py-1.5 rounded-full bg-boraq-teal-steel/20 border border-boraq-teal-steel/30 text-boraq-teal-steel text-[10px] font-bold uppercase tracking-[0.2em] backdrop-blur-xl">{post.category}</span>
                             <span className="w-1 h-1 rounded-full bg-white/30" />
-                            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50">8 min read</span>
+                            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50">{post.readTime}</span>
                         </div>
-                        <h1 className="text-5xl md:text-8xl font-bold tracking-tight mb-10 leading-[0.9] text-white">
-                            {title.split(' ').map((word, i) => (
-                                <span key={i} className={i === title.split(' ').length - 1 ? "text-boraq-teal-steel italic font-light" : "block"}>
-                                    {word}{' '}
-                                </span>
-                            ))}
+                        <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-10 leading-[0.95] text-white max-w-4xl">
+                            {post.title}
                         </h1>
                         <div className="flex items-center gap-6 pt-10 border-t border-white/10">
                             <div className="flex -space-x-3">
                                 <div className="w-12 h-12 rounded-full border-2 border-boraq-black overflow-hidden bg-boraq-gray-charcoal">
-                                    <img src={ceoPhoto} alt="Md. Rubayet Islam" className="w-full h-full object-cover object-top" />
+                                    <img src={post.authorPhoto} alt={post.author} className="w-full h-full object-cover object-top" />
                                 </div>
                             </div>
                             <div>
-                                <div className="text-white font-medium text-lg">Md. Rubayet Islam & Team</div>
-                                <div className="text-white/40 text-xs uppercase tracking-widest font-bold">Boraq Core Engineering</div>
+                                <div className="text-white font-medium text-lg">{post.author} & Team</div>
+                                <div className="text-white/40 text-xs uppercase tracking-widest font-bold">Boraq Engineering</div>
                             </div>
                         </div>
                     </motion.div>
@@ -101,7 +126,12 @@ export default function BlogDetail() {
                     <div className="space-y-12">
                         <div>
                             <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-boraq-black/30 dark:text-white/30 mb-6">Published</h4>
-                            <p className="text-boraq-black dark:text-white font-medium">October 12, 2026</p>
+                            <p className="text-boraq-black dark:text-white font-medium">{post.date}</p>
+                        </div>
+
+                        <div>
+                            <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-boraq-black/30 dark:text-white/30 mb-6">Category</h4>
+                            <Link to="/blog" className="text-boraq-teal-steel font-medium hover:underline">{post.category}</Link>
                         </div>
 
                         <div>
@@ -142,58 +172,19 @@ export default function BlogDetail() {
                         prose-img:rounded-[3rem] prose-img:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)]
                         "
                     >
-                        <p className="lead text-4xl leading-[1.3] text-boraq-black dark:text-white mb-20">
-                            The modern web is built on a foundation of rapid iteration. But when your codebase scales past a million lines, the tools that once accelerated your workflow begin to drag you down.
-                            <span className="text-boraq-teal-steel italic ml-2">Here is how we fundamentally changed our approach to build tooling at Boraq.</span>
+                        {/* Lead paragraph */}
+                        <p className="lead text-3xl md:text-4xl leading-[1.3] text-boraq-black dark:text-white mb-20">
+                            {post.excerpt}
                         </p>
 
-                        <h2 className="text-5xl">The Legacy Bottleneck</h2>
-                        <p>
-                            For years, Webpack was the undisputed king of module bundlers. It gave us the flexibility to engineer complex architectures. However, as our monolithic repositories grew to encompass dozens of micro-frontends, the developer experience began to degrade rapidly. Cold starts were taking upwards of 3 minutes, and Hot Module Replacement (HMR) felt anything but "hot" with 5-10 second delays.
-                        </p>
-
-                        <blockquote>
-                            "Developer velocity isn't just a metric; it's the lifeblood of innovation. When an engineer has to wait 10 seconds to see a CSS tweak, their flow state is shattered."
-                        </blockquote>
-
-                        <h2 className="text-5xl mt-24">Enter Vite: Native ESM</h2>
-                        <p>
-                            The paradigm shift came when we evaluated Vite. Instead of crawling and building the entire application before the server could even start, Vite serves source code over native ESM. This meant our dev server spin-up time was completely decoupled from the size of our application.
-                        </p>
-
-                        <div className="my-20 p-12 glass-panel-heavy rounded-[3rem] border border-boraq-teal-steel/20 relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 p-8 text-[120px] font-bold text-boraq-teal-steel/5 leading-none select-none">CODE</div>
-                            <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
-                                <span className="w-1.5 h-1.5 rounded-full bg-boraq-teal-steel animate-ping" />
-                                Key Architectural Changes
-                            </h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ring-1 ring-white/10 p-8 rounded-3xl bg-black/5 dark:bg-white/5">
-                                <div>
-                                    <div className="text-boraq-teal-steel font-bold mb-2 uppercase text-xs tracking-widest">Pre-bundling</div>
-                                    <p className="text-sm font-light m-0">Esbuild is blisteringly fast, pre-bundling dependencies 10-100x faster than JS bundlers.</p>
-                                </div>
-                                <div>
-                                    <div className="text-boraq-teal-steel font-bold mb-2 uppercase text-xs tracking-widest">Code Splitting</div>
-                                    <p className="text-sm font-light m-0">Native ESM allows us to lazy load chunks on-demand without overhead.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop" alt="Codebase metrics" />
-
-                        <h2 className="text-5xl mt-24">The Results</h2>
-                        <p>
-                            The telemetry speaks for itself. Cold start times across our heaviest enterprise products plummeted from ~180 seconds to under 2 seconds. HMR is now practically instantaneous, registering consistently under 50ms.
-                        </p>
-                        <p>
-                            More importantly, the qualitative feedback from our engineering org was overwhelmingly positive. We restored the rapid feedback loop that makes UI development a joy.
-                        </p>
+                        {/* Dynamic content */}
+                        <ContentRenderer content={post.content} />
                     </motion.article>
 
                     {/* Footer Share & Tagging */}
                     <div className="mt-32 pt-12 border-t border-boraq-black/5 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 pb-20">
-                        <div className="flex gap-4">
-                            {['Engineering', 'Tooling', 'Vite', 'React'].map(tag => (
+                        <div className="flex flex-wrap gap-4">
+                            {post.tags.map(tag => (
                                 <span key={tag} className="px-4 py-2 rounded-xl bg-boraq-black/5 dark:bg-white/5 text-[10px] font-bold uppercase tracking-widest text-boraq-black/50 dark:text-white/50 border border-transparent hover:border-boraq-teal-steel/20 transition-all cursor-default">
                                     {tag}
                                 </span>
@@ -201,8 +192,8 @@ export default function BlogDetail() {
                         </div>
                         <div className="flex items-center gap-6">
                             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-boraq-black/30 dark:text-white/30">Next Signal:</span>
-                            <Link to="/blog" className="group flex items-center gap-2 font-bold text-boraq-black dark:text-white">
-                                The Psychology of Micro-Interactions <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            <Link to={`/blog/${nextPost.id}`} className="group flex items-center gap-2 font-bold text-boraq-black dark:text-white">
+                                {nextPost.title.length > 40 ? nextPost.title.slice(0, 40) + '…' : nextPost.title} <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>
                     </div>
