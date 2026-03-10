@@ -6,24 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="003da927-7d00-4dc8-8987-3806b0dc596b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Admin/AdminCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Admin/AdminCrudController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/components/layout/AdminLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/components/layout/AdminLayout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/components/layout/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/components/layout/Sidebar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/components/layout/TopBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/components/layout/TopBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/components/shared/DataTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/components/shared/DataTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/components/shared/PageHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/components/shared/PageHeader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/contexts/NotificationContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/contexts/NotificationContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/blog-posts/BlogPostForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/blog-posts/BlogPostForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/call-bookings/CallBookingDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/call-bookings/CallBookingDetail.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/case-studies/CaseStudyForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/case-studies/CaseStudyForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/contact-submissions/ContactSubmissionDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/contact-submissions/ContactSubmissionDetail.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/founders-note/FoundersNotePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/founders-note/FoundersNotePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/process-steps/ProcessStepForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/process-steps/ProcessStepForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/services/ServiceForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/services/ServiceForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/stats/StatForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/stats/StatForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/team-members/TeamMemberForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/team-members/TeamMemberForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/testimonials/TestimonialForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/testimonials/TestimonialForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/trust-badges/TrustBadgeForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/trust-badges/TrustBadgeForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/api/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/api/client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/client.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +100,7 @@
       <workItem from="1773084973765" duration="120000" />
       <workItem from="1773085120076" duration="5087000" />
       <workItem from="1773090910694" duration="3076000" />
-      <workItem from="1773152750334" duration="2925000" />
+      <workItem from="1773152750334" duration="10188000" />
     </task>
     <servers />
   </component>
