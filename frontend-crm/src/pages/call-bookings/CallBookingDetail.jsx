@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import useResource from '../../hooks/useResource';
+import { useNotifications } from '../../contexts/NotificationContext';
 import PageHeader from '../../components/shared/PageHeader';
 import { Mail, Phone, Building2, Clock, User, Calendar, Globe } from 'lucide-react';
 
@@ -15,6 +16,7 @@ export default function CallBookingDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { fetchOne, update } = useResource('/call-bookings');
+  const { refreshUnread } = useNotifications();
   const [data, setData] = useState(null);
   const [saving, setSaving] = useState(false);
 
@@ -27,6 +29,10 @@ export default function CallBookingDetail() {
     try {
       await update(id, { status });
       setData((prev) => ({ ...prev, status }));
+      if (status !== 'new') {
+        // If we changed status away from 'new', refresh unread counts
+        refreshUnread().catch(() => {});
+      }
     } finally {
       setSaving(false);
     }
@@ -40,7 +46,7 @@ export default function CallBookingDetail() {
       <div className="max-w-3xl space-y-6">
         {/* Info Card */}
         <div className="bg-surface-card rounded-xl border border-surface-border p-6">
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="flex items-start gap-3">
               <User className="w-4 h-4 text-accent mt-0.5 shrink-0" />
               <div>

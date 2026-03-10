@@ -35,6 +35,9 @@ class AdminCrudController extends Controller
             'activities' => Activity::count(),
             'contactSubmissions' => $safeCount(ContactSubmission::class),
             'callBookings' => $safeCount(CallBooking::class),
+            // Unread / new counts for notifications (frontend uses these to show unread badges)
+            'contactSubmissionsNew' => ContactSubmission::where('status', 'new')->count(),
+            'callBookingsNew' => CallBooking::where('status', 'new')->count(),
         ]);
     }
 

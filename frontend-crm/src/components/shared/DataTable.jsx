@@ -14,16 +14,16 @@ export default function DataTable({ columns, data, basePath, onDelete, loading, 
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
         {searchField && (
-          <div className="relative">
+          <div className="relative w-full sm:w-auto">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
             <input
               type="text"
               placeholder="Search..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="pl-9 pr-4 py-2 text-sm bg-surface-elevated border border-surface-border text-text-primary rounded-lg placeholder-text-muted w-64"
+              className="pl-9 pr-4 py-2 text-sm bg-surface-elevated border border-surface-border text-text-primary rounded-lg placeholder-text-muted w-full sm:w-64"
             />
           </div>
         )}
@@ -31,7 +31,7 @@ export default function DataTable({ columns, data, basePath, onDelete, loading, 
         {basePath && !hideCreate && (
           <Link
             to={`${basePath}/create`}
-            className="flex items-center gap-2 px-4 py-2 bg-accent text-white rounded-lg text-sm font-semibold hover:bg-accent-hover transition-colors"
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-accent text-white rounded-lg text-sm font-semibold hover:bg-accent-hover transition-colors shrink-0"
           >
             <Plus className="w-4 h-4" /> Add New
           </Link>
@@ -43,16 +43,16 @@ export default function DataTable({ columns, data, basePath, onDelete, loading, 
       ) : filtered.length === 0 ? (
         <div className="text-center py-12 text-text-muted">No items found</div>
       ) : (
-        <div className="bg-surface-card rounded-xl border border-surface-border overflow-hidden">
-          <table className="w-full">
+        <div className="bg-surface-card rounded-xl border border-surface-border overflow-x-auto">
+          <table className="w-full min-w-[500px]">
             <thead>
               <tr className="bg-surface-elevated border-b border-surface-border">
                 {columns.map((col) => (
-                  <th key={col.key} className="text-left px-4 py-3 text-xs font-semibold text-text-secondary uppercase tracking-wider">
+                  <th key={col.key} className="text-left px-4 py-3 text-xs font-semibold text-text-secondary uppercase tracking-wider whitespace-nowrap">
                     {col.label}
                   </th>
                 ))}
-                <th className="text-right px-4 py-3 text-xs font-semibold text-text-secondary uppercase tracking-wider w-28">
+                <th className="text-right px-4 py-3 text-xs font-semibold text-text-secondary uppercase tracking-wider w-24">
                   Actions
                 </th>
               </tr>
@@ -98,4 +98,3 @@ export default function DataTable({ columns, data, basePath, onDelete, loading, 
     </div>
   );
 }
-

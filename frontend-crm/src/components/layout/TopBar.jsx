@@ -1,18 +1,27 @@
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useNotifications } from '../../contexts/NotificationContext';
-import { LogOut, User, Sun, Moon, Bell } from 'lucide-react';
+import { LogOut, User, Sun, Moon, Bell, Menu } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-export default function TopBar() {
+export default function TopBar({ onMenuClick }) {
   const { user, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const { unreadCount } = useNotifications();
 
   return (
-    <header className="h-16 bg-surface-card border-b border-surface-border flex items-center justify-between px-6 sticky top-0 z-40 transition-colors">
-      <div />
-      <div className="flex items-center gap-3">
+    <header className="h-16 bg-surface-card border-b border-surface-border flex items-center justify-between px-4 sm:px-6 sticky top-0 z-40 transition-colors">
+      {/* Hamburger — mobile only */}
+      <button
+        onClick={onMenuClick}
+        className="lg:hidden p-2 rounded-lg hover:bg-surface-hover text-text-secondary hover:text-text-primary transition-colors"
+        aria-label="Open sidebar"
+      >
+        <Menu className="w-5 h-5" />
+      </button>
+      <div className="hidden lg:block" />
+
+      <div className="flex items-center gap-2 sm:gap-3">
         {/* Theme toggle */}
         <button
           onClick={toggleTheme}
@@ -38,20 +47,20 @@ export default function TopBar() {
 
         <div className="w-px h-6 bg-surface-border mx-1" />
 
-        {/* User */}
-        <span className="text-sm text-text-secondary flex items-center gap-2">
+        {/* User — hide name on very small screens */}
+        <span className="text-sm text-text-secondary hidden sm:flex items-center gap-2">
           <User className="w-4 h-4" />
           {user?.name || 'Admin'}
         </span>
         <button
           onClick={logout}
           className="flex items-center gap-1.5 text-sm text-text-muted hover:text-danger transition-colors"
+          title="Logout"
         >
           <LogOut className="w-4 h-4" />
-          Logout
+          <span className="hidden sm:inline">Logout</span>
         </button>
       </div>
     </header>
   );
 }
-

@@ -5,162 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003da927-7d00-4dc8-8987-3806b0dc596b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Console/Commands/MigrateAssets.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Admin/AdminCrudController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Admin/AuthController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/ApiController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Activity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/BlogPost.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/BlogPostContentBlock.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/BlogPostTag.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/CaseStudy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/CaseStudyFeature.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/CaseStudyImage.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/CaseStudyTag.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/CaseStudyTechStack.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Client.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/CompanyInfo.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Faq.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/FoundersNote.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/ProcessStep.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Service.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Stat.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/TeamMember.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/Testimonial.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/TrustBadge.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/TrustIndicator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/artisan" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/bootstrap/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/bootstrap/cache/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/bootstrap/providers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/config/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/config/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/config/cors.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/config/database.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/config/filesystems.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/config/sanctum.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2024_01_01_000000_create_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2024_01_01_000001_create_team_members_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2024_01_01_000002_create_services_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2024_01_01_000003_create_case_studies_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2024_01_01_000004_create_blog_posts_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2024_01_01_000005_create_testimonials_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2024_01_01_000006_create_faqs_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2024_01_01_000007_create_stats_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2024_01_01_000008_create_clients_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2024_01_01_000009_create_trust_badges_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2024_01_01_000010_create_process_steps_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2024_01_01_000011_create_founders_notes_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2024_01_01_000012_create_company_info_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/migrations/2024_01_01_000013_create_activities_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/AdminSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/BlogPostSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/CaseStudySeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/ClientAndTrustSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/FaqSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/MiscSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/ProcessStepSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/ServiceSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/StatSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/TeamMemberSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/database/seeders/TestimonialSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/console.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/setup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/storage/app/public/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/storage/framework/cache/data/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/storage/framework/sessions/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/storage/framework/views/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/storage/logs/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/App.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/api/client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/components/layout/AdminLayout.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/components/layout/Sidebar.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/components/layout/TopBar.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/components/shared/ContentBlockEditor.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/components/shared/DataTable.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/components/shared/FormField.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/components/shared/ImageUpload.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/components/shared/PageHeader.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/components/shared/TagInput.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/contexts/AuthContext.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/hooks/useResource.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/main.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/Dashboard.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/Login.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/activities/ActivityForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/activities/ActivityList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/blog-posts/BlogPostForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/blog-posts/BlogPostList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/case-studies/CaseStudyForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/case-studies/CaseStudyList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/clients/ClientForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/clients/ClientList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/company-info/CompanyInfoPage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/faqs/FaqForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/faqs/FaqList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/founders-note/FoundersNotePage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/process-steps/ProcessStepForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/process-steps/ProcessStepList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/services/ServiceForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/services/ServiceList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/stats/StatForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/stats/StatList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/team-members/TeamMemberForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/team-members/TeamMemberList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/testimonials/TestimonialForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/testimonials/TestimonialList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/trust-badges/TrustBadgeForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/src/pages/trust-badges/TrustBadgeList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-crm/vite.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/client.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useApi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/utils/iconMap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boraq.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/CallToAction.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/CallToAction.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/CaseStudyHighlight.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/CaseStudyHighlight.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ClientsTicker.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ClientsTicker.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ExpertTeam.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ExpertTeam.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/FloatingContact.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/FloatingContact.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/FoundersNote.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/FoundersNote.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/InteractiveFAQ.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/InteractiveFAQ.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/LiveActivity.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/LiveActivity.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ProcessTimeline.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ProcessTimeline.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ServicesPreview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ServicesPreview.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/StatsCounter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/StatsCounter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/Testimonials.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/Testimonials.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/TrustBadges.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/TrustBadges.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/about/OurStory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/about/OurStory.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/about/OurTeam.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/about/OurTeam.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/community/Blog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/community/Blog.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/community/BlogDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/community/BlogDetail.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/AIAutomation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/AIAutomation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/SmartDevice.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/SmartDevice.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/UIBranding.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/UIBranding.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/VisionSpeech.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/VisionSpeech.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/Web3.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/Web3.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/services/WebApp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/services/WebApp.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/work/CaseStudyDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/work/CaseStudyDetail.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/work/Portfolio.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/work/Portfolio.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/injectAll.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/injectServices.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Admin/AdminCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Admin/AdminCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/components/layout/AdminLayout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/components/layout/AdminLayout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/components/layout/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/components/layout/Sidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/components/layout/TopBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/components/layout/TopBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/components/shared/DataTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/components/shared/DataTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/components/shared/PageHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/components/shared/PageHeader.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/contexts/NotificationContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/contexts/NotificationContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/call-bookings/CallBookingDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/call-bookings/CallBookingDetail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/contact-submissions/ContactSubmissionDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/contact-submissions/ContactSubmissionDetail.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,8 +29,8 @@
   <component name="CopilotUserSelectedModel">
     <selectedModels>
       <entry key="edit-panel" value="GPT-5 mini" />
-      <entry key="chat-panel" value="Claude Opus 4.6" />
-      <entry key="agent-panel" value="Claude Opus 4.6" />
+      <entry key="chat-panel" value="Claude Sonnet 4.6" />
+      <entry key="agent-panel" value="Claude Sonnet 4.6" />
     </selectedModels>
   </component>
   <component name="Git.Settings">
@@ -252,6 +106,7 @@
       <workItem from="1773084973765" duration="120000" />
       <workItem from="1773085120076" duration="5087000" />
       <workItem from="1773090910694" duration="3076000" />
+      <workItem from="1773152750334" duration="2125000" />
     </task>
     <servers />
   </component>

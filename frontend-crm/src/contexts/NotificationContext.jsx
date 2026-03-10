@@ -38,27 +38,31 @@ export function NotificationProvider({ children }) {
     const token = localStorage.getItem('boraq_token');
     if (!token) return;
 
+    const processData = (data) => {
+      // backend now exposes explicit "New" counts for unread notifications
+      const newContacts = data.contactSubmissionsNew ?? data.contactSubmissions ?? 0;
+      const newBookings = data.callBookingsNew ?? data.callBookings ?? 0;
+      const total = newContacts + newBookings;
+
+      if (prevCounts.current !== null) {
+        if (newContacts > prevCounts.current.contacts) {
+          const diff = newContacts - prevCounts.current.contacts;
+          addToast(`${diff} new contact submission${diff > 1 ? 's' : ''}!`, 'contact');
+        }
+        if (newBookings > prevCounts.current.bookings) {
+          const diff = newBookings - prevCounts.current.bookings;
+          addToast(`${diff} new call booking${diff > 1 ? 's' : ''}!`, 'booking');
+        }
+      }
+
+      prevCounts.current = { contacts: newContacts, bookings: newBookings };
+      setUnreadCount(total);
+    };
+
     const checkNew = async () => {
       try {
         const res = await api.get('/dashboard');
-        const data = res.data;
-        const newContacts = data.contactSubmissions || 0;
-        const newBookings = data.callBookings || 0;
-        const total = newContacts + newBookings;
-
-        if (prevCounts.current !== null) {
-          if (newContacts > prevCounts.current.contacts) {
-            const diff = newContacts - prevCounts.current.contacts;
-            addToast(`${diff} new contact submission${diff > 1 ? 's' : ''}!`, 'contact');
-          }
-          if (newBookings > prevCounts.current.bookings) {
-            const diff = newBookings - prevCounts.current.bookings;
-            addToast(`${diff} new call booking${diff > 1 ? 's' : ''}!`, 'booking');
-          }
-        }
-
-        prevCounts.current = { contacts: newContacts, bookings: newBookings };
-        setUnreadCount(total);
+        processData(res.data);
       } catch {
         // Silently fail
       }
@@ -69,8 +73,22 @@ export function NotificationProvider({ children }) {
     return () => clearInterval(interval);
   }, [addToast]);
 
+  // Expose a manual refresh function so other components can trigger immediate unread count refresh
+  const refreshUnread = async () => {
+    try {
+      const res = await api.get('/dashboard');
+      const data = res.data;
+      const newContacts = data.contactSubmissionsNew ?? data.contactSubmissions ?? 0;
+      const newBookings = data.callBookingsNew ?? data.callBookings ?? 0;
+      setUnreadCount(newContacts + newBookings);
+      prevCounts.current = { contacts: newContacts, bookings: newBookings };
+    } catch {
+      // ignore
+    }
+  };
+
   return (
-    <NotificationContext.Provider value={{ toasts, addToast, dismissToast, unreadCount }}>
+    <NotificationContext.Provider value={{ toasts, addToast, dismissToast, unreadCount, refreshUnread }}>
       {children}
     </NotificationContext.Provider>
   );

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import Sidebar from './Sidebar';
@@ -6,6 +7,7 @@ import ToastContainer from '../shared/ToastContainer';
 
 export default function AdminLayout() {
   const { user, loading } = useAuth();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   if (loading) {
     return (
@@ -19,10 +21,17 @@ export default function AdminLayout() {
 
   return (
     <div className="min-h-screen bg-surface-base transition-colors">
-      <Sidebar />
-      <div className="ml-64">
-        <TopBar />
-        <main className="p-6">
+      <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      {/* Overlay for mobile */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+      <div className="lg:ml-64">
+        <TopBar onMenuClick={() => setSidebarOpen(true)} />
+        <main className="p-4 sm:p-6">
           <Outlet />
         </main>
       </div>
@@ -30,4 +39,3 @@ export default function AdminLayout() {
     </div>
   );
 }
-
