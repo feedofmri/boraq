@@ -47,7 +47,7 @@ export default function TeamMemberForm() {
     <div>
       <PageHeader title={id ? 'Edit Team Member' : 'Add Team Member'} backTo="/team-members" onSave={handleSave} saving={saving} />
       <div className="bg-surface-card rounded-xl border border-surface-border p-6 max-w-3xl">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input label="Name" value={form.name} onChange={(e) => set('name', e.target.value)} />
           <Input label="Role" value={form.role} onChange={(e) => set('role', e.target.value)} />
           <Input label="Short Name" value={form.short_name} onChange={(e) => set('short_name', e.target.value)} />
@@ -57,7 +57,7 @@ export default function TeamMemberForm() {
         <Textarea label="Quote" value={form.quote} onChange={(e) => set('quote', e.target.value)} />
         <Textarea label="Bio" rows={4} value={form.bio} onChange={(e) => set('bio', e.target.value)} />
         <Input label="Fun Fact" value={form.fun_fact} onChange={(e) => set('fun_fact', e.target.value)} />
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input label="Email" type="email" value={form.email} onChange={(e) => set('email', e.target.value)} />
           <Input label="WhatsApp" value={form.whatsapp} onChange={(e) => set('whatsapp', e.target.value)} />
           <Input label="LinkedIn URL" value={form.linkedin} onChange={(e) => set('linkedin', e.target.value)} />

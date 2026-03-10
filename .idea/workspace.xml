@@ -13,8 +13,17 @@
       <change beforePath="$PROJECT_DIR$/frontend-crm/src/components/shared/DataTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/components/shared/DataTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-crm/src/components/shared/PageHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/components/shared/PageHeader.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-crm/src/contexts/NotificationContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/contexts/NotificationContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/blog-posts/BlogPostForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/blog-posts/BlogPostForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/call-bookings/CallBookingDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/call-bookings/CallBookingDetail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/case-studies/CaseStudyForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/case-studies/CaseStudyForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/contact-submissions/ContactSubmissionDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/contact-submissions/ContactSubmissionDetail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/founders-note/FoundersNotePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/founders-note/FoundersNotePage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/process-steps/ProcessStepForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/process-steps/ProcessStepForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/services/ServiceForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/services/ServiceForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/stats/StatForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/stats/StatForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/team-members/TeamMemberForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/team-members/TeamMemberForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/testimonials/TestimonialForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/testimonials/TestimonialForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/trust-badges/TrustBadgeForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/trust-badges/TrustBadgeForm.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +38,8 @@
   <component name="CopilotUserSelectedModel">
     <selectedModels>
       <entry key="edit-panel" value="GPT-5 mini" />
-      <entry key="chat-panel" value="Claude Sonnet 4.6" />
-      <entry key="agent-panel" value="Claude Sonnet 4.6" />
+      <entry key="chat-panel" value="GPT-5 mini" />
+      <entry key="agent-panel" value="GPT-5 mini" />
     </selectedModels>
   </component>
   <component name="Git.Settings">
@@ -106,7 +115,7 @@
       <workItem from="1773084973765" duration="120000" />
       <workItem from="1773085120076" duration="5087000" />
       <workItem from="1773090910694" duration="3076000" />
-      <workItem from="1773152750334" duration="2125000" />
+      <workItem from="1773152750334" duration="2925000" />
     </task>
     <servers />
   </component>

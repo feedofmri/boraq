@@ -52,7 +52,7 @@ export default function BlogPostForm() {
       <PageHeader title={id ? 'Edit Blog Post' : 'Add Blog Post'} backTo="/blog-posts" onSave={handleSave} saving={saving} />
       <div className="bg-surface-card rounded-xl border border-surface-border p-6 max-w-4xl">
         <Input label="Title" value={form.title} onChange={(e) => set('title', e.target.value)} />
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input label="Slug" value={form.slug} onChange={(e) => set('slug', e.target.value)} />
           <Select label="Category" value={form.category} onChange={(e) => set('category', e.target.value)} options={[
             { value: 'Web & App', label: 'Web & App' },

@@ -54,7 +54,7 @@ export default function FoundersNotePage() {
         <Input label="Heading" value={form.heading} onChange={(e) => set('heading', e.target.value)} />
         <Input label="Subheading" value={form.subheading} onChange={(e) => set('subheading', e.target.value)} />
         <Textarea label="Body (separate paragraphs with blank lines)" rows={10} value={form.body_paragraphs} onChange={(e) => set('body_paragraphs', e.target.value)} />
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input label="Signature Name" value={form.signature_name} onChange={(e) => set('signature_name', e.target.value)} />
           <Input label="Signature Title" value={form.signature_title} onChange={(e) => set('signature_title', e.target.value)} />
           <Input label="Email" type="email" value={form.email} onChange={(e) => set('email', e.target.value)} />
@@ -64,4 +64,3 @@ export default function FoundersNotePage() {
     </div>
   );
 }
-

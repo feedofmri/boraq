@@ -54,7 +54,7 @@ export default function CaseStudyForm() {
     <div>
       <PageHeader title={id ? 'Edit Case Study' : 'Add Case Study'} backTo="/case-studies" onSave={handleSave} saving={saving} />
       <div className="bg-surface-card rounded-xl border border-surface-border p-6 max-w-4xl">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input label="Title" value={form.title} onChange={(e) => set('title', e.target.value)} />
           <Input label="Subtitle" value={form.subtitle} onChange={(e) => set('subtitle', e.target.value)} />
           <Input label="Slug" value={form.slug} onChange={(e) => set('slug', e.target.value)} />

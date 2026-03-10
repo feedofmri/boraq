@@ -32,7 +32,7 @@ export default function TestimonialForm() {
     <div>
       <PageHeader title={id ? 'Edit Testimonial' : 'Add Testimonial'} backTo="/testimonials" onSave={handleSave} saving={saving} />
       <div className="bg-surface-card rounded-xl border border-surface-border p-6 max-w-3xl">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input label="Name" value={form.name} onChange={(e) => set('name', e.target.value)} />
           <Input label="Role" value={form.role} onChange={(e) => set('role', e.target.value)} />
           <Input label="Company" value={form.company} onChange={(e) => set('company', e.target.value)} />
@@ -47,4 +47,3 @@ export default function TestimonialForm() {
     </div>
   );
 }
-

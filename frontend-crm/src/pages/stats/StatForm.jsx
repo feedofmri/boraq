@@ -24,7 +24,7 @@ export default function StatForm() {
     <div>
       <PageHeader title={id ? 'Edit Stat' : 'Add Stat'} backTo="/stats" onSave={handleSave} saving={saving} />
       <div className="bg-surface-card rounded-xl border border-surface-border p-6 max-w-3xl">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input label="Icon Name" value={form.icon_name} onChange={(e) => set('icon_name', e.target.value)} placeholder="e.g. Users, FolderKanban" />
           <Input label="Label" value={form.label} onChange={(e) => set('label', e.target.value)} />
           <Input label="Value" type="number" value={form.value} onChange={(e) => set('value', +e.target.value)} />
@@ -35,4 +35,3 @@ export default function StatForm() {
     </div>
   );
 }
-

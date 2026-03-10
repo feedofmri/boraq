@@ -24,7 +24,7 @@ export default function TrustBadgeForm() {
     <div>
       <PageHeader title={id ? 'Edit Trust Badge' : 'Add Trust Badge'} backTo="/trust-badges" onSave={handleSave} saving={saving} />
       <div className="bg-surface-card rounded-xl border border-surface-border p-6 max-w-3xl">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input label="Icon Name" value={form.icon_name} onChange={(e) => set('icon_name', e.target.value)} />
           <Input label="Title" value={form.title} onChange={(e) => set('title', e.target.value)} />
           <Input label="Year Label" value={form.year_label} onChange={(e) => set('year_label', e.target.value)} />
@@ -35,4 +35,3 @@ export default function TrustBadgeForm() {
     </div>
   );
 }
-
