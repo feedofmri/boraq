@@ -4,7 +4,7 @@ import { Target, TrendingUp, Users, ChevronRight } from 'lucide-react';
 import ExpertTeam from '../../components/sections/ExpertTeam';
 import StatsCounter from '../../components/sections/StatsCounter';
 import CallToAction from '../../components/sections/CallToAction';
-import plPhoto from '../../assets/Team/Tahmid Khan - Project Lead.jpg';
+import { useTeamMembers } from '../../hooks/useApi';
 
 const milestones = [
   { year: 'Nov 2023', event: 'Founded with a vision to innovate technical boundaries.', color: 'bg-boraq-teal-steel/60' },
@@ -91,6 +91,9 @@ function MilestoneTimeline() {
 }
 
 export default function OurStory() {
+  const { data: members } = useTeamMembers();
+  const teamLead = (members || []).find(m => m.slug === 'tahmid-khan') || (members || [])[0];
+
   return (
     <div className="w-full pb-32">
       {/* Split Hero Section */}
@@ -124,7 +127,7 @@ export default function OurStory() {
             <div className="relative w-full aspect-square md:aspect-video lg:aspect-square max-w-lg mx-auto rounded-[3rem] p-2 glass-panel-heavy overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-boraq-teal-steel/20 to-transparent mix-blend-overlay z-0" />
               <img
-                src={plPhoto}
+                src={teamLead?.image}
                 alt="Boraq team lead"
                 className="w-full h-full object-cover rounded-[2.5rem] filter grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 dark:opacity-40 object-top"
               />

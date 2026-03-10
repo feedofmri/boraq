@@ -5,6 +5,7 @@ import GlobalBackground from './components/layout/GlobalBackground';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import FloatingContact from './components/sections/FloatingContact';
+import usePageTracking from './hooks/usePageTracking';
 
 // Services
 import WebApp from './pages/services/WebApp';
@@ -48,6 +49,8 @@ import LegalCookies from './pages/legal/LegalCookies';
 import NotFound from './pages/NotFound';
 
 function App() {
+  usePageTracking();
+
   return (
     <div className="flex flex-col min-h-screen relative text-boraq-black dark:text-boraq-white transition-colors duration-400">
       <GlobalBackground />

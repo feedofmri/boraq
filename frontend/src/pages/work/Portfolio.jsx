@@ -5,7 +5,7 @@ import { ArrowUpRight, Layout, Smartphone, Cpu, Globe, Search, Brush, ChevronLef
 import Testimonials from '../../components/sections/Testimonials';
 import StatsCounter from '../../components/sections/StatsCounter';
 import CallToAction from '../../components/sections/CallToAction';
-import caseStudies from '../../data/caseStudies';
+import { useCaseStudies } from '../../hooks/useApi';
 
 // Icon mapping by category
 const categoryIcons = {
@@ -29,12 +29,13 @@ const categories = ['All', 'Web & App', 'UI & Branding', 'AI & Automation'];
 const ITEMS_PER_PAGE = 8;
 
 export default function Portfolio() {
+  const { data: caseStudies, loading } = useCaseStudies();
   const [activeFilter, setActiveFilter] = useState('All');
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
   // Reverse to show latest case studies first
-  const sortedProjects = useMemo(() => [...caseStudies].reverse(), []);
+  const sortedProjects = useMemo(() => [...(caseStudies || [])].reverse(), [caseStudies]);
 
   const filteredProjects = sortedProjects.filter((project) => {
     const matchesCategory = activeFilter === 'All' || project.category === activeFilter;

@@ -3,7 +3,7 @@ import { ArrowLeft, Share2, Twitter, Linkedin, Copy, Bookmark, ChevronRight } fr
 import { Link, useParams, Navigate } from 'react-router-dom';
 import CallToAction from '../../components/sections/CallToAction';
 import Testimonials from '../../components/sections/Testimonials';
-import blogPosts from '../../data/blogPosts';
+import { useBlogPost, useBlogPosts } from '../../hooks/useApi';
 
 function ContentRenderer({ content }) {
   return content.map((block, i) => {
@@ -40,11 +40,15 @@ export default function BlogDetail() {
         restDelta: 0.001
     });
 
-    const post = blogPosts.find((p) => p.id === id);
-    if (!post) return <Navigate to="/blog" replace />;
+    const { data: post, loading, error } = useBlogPost(id);
+    const { data: allPosts } = useBlogPosts();
 
-    const postIndex = blogPosts.indexOf(post);
-    const nextPost = blogPosts[postIndex + 1] || blogPosts[0];
+    if (loading) return <div className="w-full min-h-screen flex items-center justify-center"><p className="text-boraq-gray-mid">Loading post...</p></div>;
+    if (error || !post) return <Navigate to="/blog" replace />;
+
+    const blogPosts = allPosts || [];
+    const postIndex = blogPosts.findIndex((p) => p.id === id);
+    const nextPost = blogPosts[postIndex + 1] || blogPosts[0] || post;
 
     return (
         <div className="w-full bg-boraq-white dark:bg-boraq-black transition-colors duration-500">

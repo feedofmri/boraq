@@ -1,8 +1,13 @@
 import { motion } from 'framer-motion';
 import { Quote, Calendar, Award } from 'lucide-react';
-import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
+import { useFoundersNote, useTeamMembers } from '../../hooks/useApi';
 
 export default function FoundersNote() {
+    const { data: note, loading: loadingNote } = useFoundersNote();
+    const { data: members, loading: loadingMembers } = useTeamMembers();
+
+    const founder = members?.find(m => m.memberType === 'founder' || m.isFounder);
+
     const wordVariants = {
         hidden: { opacity: 0, y: 10 },
         visible: (i) => ({
@@ -12,8 +17,12 @@ export default function FoundersNote() {
         }),
     };
 
-    const quoteText = "We don’t just ship code. We build the architecture for what’s next.";
-    const words = quoteText.split(' ');
+    if (loadingNote || loadingMembers || !note || !founder) {
+        return <section className="max-w-7xl mx-auto px-6 py-24"><p className="text-center text-boraq-gray-mid">Loading...</p></section>;
+    }
+
+    const words = note.quote_text.split(' ');
+    const paragraphs = note.body_paragraphs || [];
 
     return (
         <section className="max-w-7xl mx-auto px-6 py-24">
@@ -27,21 +36,25 @@ export default function FoundersNote() {
                         <div className="aspect-[4/5] rounded-[2rem] overflow-hidden glass-panel relative group animate-ken-burns" style={{ willChange: 'transform' }}>
                             <div className="absolute inset-0 bg-gradient-to-t from-boraq-black/80 via-boraq-black/20 to-transparent z-10" />
                             <img
-                                src={ceoPhoto}
-                                alt="Md. Rubayet Islam - Founder & CEO"
+                                src={founder.image}
+                                alt={`${founder.name} - ${founder.role}`}
                                 className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute bottom-6 left-6 right-6 z-20 text-boraq-white">
-                                <div className="font-bold text-xl">Md. Rubayet Islam</div>
-                                <div className="text-boraq-white/70 text-sm mb-3">Founder & CEO</div>
+                                <div className="font-bold text-xl">{founder.name}</div>
+                                <div className="text-boraq-white/70 text-sm mb-3">{founder.role}</div>
                                 {/* Personal credentials */}
                                 <div className="flex flex-wrap gap-2">
-                                    <span className="inline-flex items-center gap-1 text-xs bg-boraq-white/10 backdrop-blur-sm px-2 py-1 rounded-full">
-                                        <Calendar className="w-3 h-3" /> Founded Nov 2023
-                                    </span>
-                                    <span className="inline-flex items-center gap-1 text-xs bg-boraq-white/10 backdrop-blur-sm px-2 py-1 rounded-full">
-                                        <Award className="w-3 h-3" /> 32+ Projects Shipped
-                                    </span>
+                                    {note.founded_date && (
+                                        <span className="inline-flex items-center gap-1 text-xs bg-boraq-white/10 backdrop-blur-sm px-2 py-1 rounded-full">
+                                            <Calendar className="w-3 h-3" /> Founded {note.founded_date}
+                                        </span>
+                                    )}
+                                    {note.projects_shipped && (
+                                        <span className="inline-flex items-center gap-1 text-xs bg-boraq-white/10 backdrop-blur-sm px-2 py-1 rounded-full">
+                                            <Award className="w-3 h-3" /> {note.projects_shipped} Projects Shipped
+                                        </span>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -76,12 +89,7 @@ export default function FoundersNote() {
                                 transition={{ duration: 0.6, delay: 0.8 }}
                                 className="space-y-6 text-lg text-boraq-gray-mid dark:text-boraq-gray-silver font-light"
                             >
-                                <p>
-                                    Boraq was born from a desire to do more than just fulfill tickets. We’re here to solve the hard problems: the ones that require deep research and precise engineering across six specialized divisions.
-                                </p>
-                                <p>
-                                    From Computer Vision and NLP research to full-stack development and Web3 platforms, every solution we deliver is backed by a team that truly cares. With 32+ projects delivered for 28+ clients, our promise remains the same: to exceed expectations through quality and authentic innovation.
-                                </p>
+                                {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
                             </motion.div>
 
                             {/* Animated signature */}
@@ -108,12 +116,12 @@ export default function FoundersNote() {
                                     </motion.svg>
                                 </div>
                                 <div className="font-serif italic text-lg text-boraq-teal-steel select-none" style={{ fontFamily: "'Georgia', serif" }}>
-                                    - Md. Rubayet Islam
+                                    - {note.signature_name}
                                 </div>
                                 <p className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver mt-1">
                                     I personally review every project inquiry. Reach me directly at{' '}
-                                    <a href="mailto:hello@boraq.io" className="text-boraq-teal-steel hover:underline font-medium">
-                                        hello@boraq.io
+                                    <a href={`mailto:${note.email}`} className="text-boraq-teal-steel hover:underline font-medium">
+                                        {note.email}
                                     </a>
                                 </p>
                             </motion.div>

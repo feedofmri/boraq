@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Mail, Users } from 'lucide-react';
-
-import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
-import cooPhoto from '../../assets/Team/Ma-Huan Sheikh Meem - Chief Operating Officer.jpg';
+import { useTeamMembers, useCompanyInfo } from '../../hooks/useApi';
 
 // WhatsApp icon component
 function WhatsAppIcon({ className }) {
@@ -14,42 +12,37 @@ function WhatsAppIcon({ className }) {
     );
 }
 
-const teamMembers = [
-    {
-        name: 'Rubayet',
-        role: 'CEO',
-        image: ceoPhoto,
-        whatsapp: '8801620929190', // CEO personal WhatsApp number
-    },
-    {
-        name: 'Meem',
-        role: 'COO',
-        image: cooPhoto,
-        whatsapp: '8801533514667', // COO personal WhatsApp number
-    },
-];
-
-const BORAQ_WHATSAPP = '8801902993907'; // Boraq official WhatsApp
-const BORAQ_EMAIL = 'hello@boraq.io';
-
 function getOnlineStatus() {
     const now = new Date();
     const hour = now.getHours();
-    // Online during business hours (9 AM - 6 PM)
     if (hour >= 9 && hour < 18) {
         return { status: 'Online now', color: 'bg-green-500', isOnline: true };
     }
-    // Calculate hours until 9 AM
     const hoursUntilOpen = hour >= 18 ? (24 - hour + 9) : (9 - hour);
     const status = hoursUntilOpen <= 1 ? 'Back in under an hour' : `Back in ${hoursUntilOpen}h`;
     return { status, color: 'bg-amber-500', isOnline: false };
 }
 
 export default function FloatingContact() {
+    const { data: members } = useTeamMembers();
+    const { data: companyInfo } = useCompanyInfo();
     const [isOpen, setIsOpen] = useState(false);
     const [showButton, setShowButton] = useState(false);
     const [activeMember, setActiveMember] = useState(0);
     const onlineStatus = getOnlineStatus();
+
+    const BORAQ_WHATSAPP = companyInfo?.whatsapp || '8801902993907';
+    const BORAQ_EMAIL = companyInfo?.email || 'hello@boraq.io';
+
+    // Build team members list for contact from API data (only those with whatsapp)
+    const teamMembers = (members || [])
+        .filter(m => m.whatsapp)
+        .map(m => ({
+            name: m.shortName || m.name,
+            role: m.role,
+            image: m.image,
+            whatsapp: m.whatsapp,
+        }));
 
     // Show button after scrolling a bit
     useEffect(() => {
@@ -66,7 +59,7 @@ export default function FloatingContact() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const currentMember = teamMembers[activeMember];
+    const currentMember = teamMembers[activeMember] || teamMembers[0];
 
     return (
         <AnimatePresence>

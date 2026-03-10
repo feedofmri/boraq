@@ -4,7 +4,7 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import CallToAction from '../../components/sections/CallToAction';
 import Testimonials from '../../components/sections/Testimonials';
-import caseStudies from '../../data/caseStudies';
+import { useCaseStudy } from '../../hooks/useApi';
 
 function YouTubeEmbed({ url }) {
   if (!url) return null;
@@ -48,8 +48,9 @@ function ImageGallery({ images }) {
 
 export default function CaseStudyDetail() {
     const { id } = useParams();
-    const study = caseStudies.find((cs) => cs.id === id);
-    if (!study) return <Navigate to="/portfolio" replace />;
+    const { data: study, loading, error } = useCaseStudy(id);
+    if (loading) return <div className="w-full min-h-screen flex items-center justify-center"><p className="text-boraq-gray-mid">Loading case study...</p></div>;
+    if (error || !study) return <Navigate to="/portfolio" replace />;
 
     return (
         <div className="w-full bg-boraq-white dark:bg-boraq-black transition-colors duration-500 pb-32">

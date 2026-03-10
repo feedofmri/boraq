@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Blocks, Key, Globe, Lock, Pickaxe, Trophy } from 'lucide-react';
-import ctoPhoto from '../../assets/Team/Rakib Hasan - Chief Technology Officer.jpg';
+import { useTeamMembers } from '../../hooks/useApi';
 import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
 import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
@@ -149,6 +149,9 @@ function InteractiveBlockchain() {
 }
 
 export default function Web3() {
+  const { data: members } = useTeamMembers();
+  const cto = (members || []).find(m => m.slug === 'rakib-hasan');
+
   return (
     <div className="w-full pb-32">
       <section className="max-w-7xl mx-auto px-6 pt-12 pb-24 text-center">
@@ -164,14 +167,16 @@ export default function Web3() {
           </p>
 
           {/* Human trust strip */}
+          {cto && (
           <HeroTrustStrip
             centered
             lead={{
-              name: 'Rakib Hasan',
-              role: 'CTO — Web3 & Blockchain',
-              avatar: ctoPhoto,
+              name: cto.name,
+              role: 'CTO: Web3 & Blockchain',
+              avatar: cto.image,
             }}
           />
+          )}
         </motion.div>
       </section>
 
@@ -198,14 +203,15 @@ export default function Web3() {
         </div>
       </section>
 
-      {/* NEW: Human trust section */}
+      {/* Human trust section */}
+      {cto && (
       <ServiceHumanSection
         teamLead={{
-          name: 'Rakib Hasan',
-          role: 'Chief Technology Officer',
-          avatar: ctoPhoto,
-          bio: 'Blockchain and Web3 specialist. Rakib architects decentralized platforms, smart contracts, and token systems — ensuring your protocol doesn\'t just launch, it thrives.',
-          funFact: 'Blockchain pioneer & open-source contributor',
+          name: cto.name,
+          role: cto.role,
+          avatar: cto.image,
+          bio: cto.bio,
+          funFact: cto.funFact,
         }}
         testimonial={{
           quote: "Boraq's Web3 expertise helped us launch a secure, transparent protocol. Their code audits gave us and our users real peace of mind.",
@@ -221,6 +227,7 @@ export default function Web3() {
         ]}
         processNote="Rakib personally walks through every smart contract architecture and tokenomics model with your team."
       />
+      )}
 
       <Testimonials />
       <CallToAction />

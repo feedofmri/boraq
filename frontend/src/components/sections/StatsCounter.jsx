@@ -1,13 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Heart, Zap } from 'lucide-react';
-
-const stats = [
-    { label: 'Projects Delivered', prefix: '', value: 32, suffix: '+', delay: 0, context: 'Across all six service divisions', color: 'from-blue-400 to-cyan-400' },
-    { label: 'Global Clients', prefix: '', value: 28, suffix: '+', delay: 0.1, context: 'Long-term relationships built on trust', color: 'from-purple-400 to-pink-400' },
-    { label: 'User Satisfaction', prefix: '', value: 4.9, suffix: '/5', delay: 0.2, context: 'Google verified 5.0 rating', color: 'from-green-400 to-emerald-400' },
-    { label: 'Service Divisions', prefix: '', value: 6, suffix: '', delay: 0.3, context: 'Web & App, UI & Branding, AI, Vision, IoT, Web3', color: 'from-orange-400 to-yellow-400' },
-];
+import { useStats } from '../../hooks/useApi';
 
 const particleColors = ['#60a5fa', '#a78bfa', '#f472b6', '#34d399', '#fbbf24', '#f87171'];
 
@@ -123,8 +117,24 @@ function StatCard({ stat, index, onReveal }) {
 }
 
 export default function StatsCounter() {
+    const { data: apiStats, loading } = useStats();
     const [revealedCount, setRevealedCount] = useState(0);
+
+    const stats = (apiStats || []).map((s, i) => ({
+        label: s.label,
+        prefix: s.prefix || '',
+        value: s.value,
+        suffix: s.suffix || '',
+        delay: i * 0.1,
+        context: s.context,
+        color: s.color_classes || 'from-blue-400 to-cyan-400',
+    }));
+
     const allRevealed = revealedCount >= stats.length;
+
+    if (loading || !stats.length) {
+        return <section className="max-w-7xl mx-auto px-6 py-24"><p className="text-center text-boraq-gray-mid">Loading stats...</p></section>;
+    }
 
     return (
         <section className="max-w-7xl mx-auto px-6 py-24">
@@ -141,6 +151,7 @@ export default function StatsCounter() {
                             className={`h-1.5 rounded-full transition-all duration-500 ${i < revealedCount ? 'bg-boraq-teal-steel w-8' : 'bg-boraq-gray-silver/20 dark:bg-boraq-teal-deep/20 w-4'}`}
                         />
                     ))}
+                    {allRevealed && (
                         <motion.span
                             initial={{ opacity: 0, scale: 0 }}
                             animate={{ opacity: 1, scale: 1 }}

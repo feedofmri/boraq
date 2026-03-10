@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* ── Boraq Brand Colors (always available) ── */
+  --color-boraq-black: #020607;
+  --color-boraq-white: #FFFFFF;
+
+  /* Teal accent scale */
+  --color-boraq-teal-deep: #032F38;
+  --color-boraq-teal-slate: #2F555F;
+  --color-boraq-teal-muted: #587E88;
+  --color-boraq-teal-steel: #82A9B4;
+  --color-boraq-teal-light: #AFD7E2;
+
+  /* Neutral grays */
+  --color-boraq-gray-charcoal: #313334;
+  --color-boraq-gray-mid: #5E6161;
+  --color-boraq-gray-lightmid: #909393;
+  --color-boraq-gray-silver: #C5C8C8;
+
+  /* ── Dark Mode (default) ── */
+  --color-surface-base: #060B0D;
+  --color-surface-card: #0C1315;
+  --color-surface-elevated: #111A1D;
+  --color-surface-border: #1A2528;
+  --color-surface-hover: #152023;
+
+  --color-accent: #82A9B4;
+  --color-accent-hover: #AFD7E2;
+  --color-accent-muted: #587E88;
+  --color-accent-bg: rgba(130, 169, 180, 0.10);
+  --color-accent-bg-hover: rgba(130, 169, 180, 0.18);
+
+  --color-text-primary: #E8ECEE;
+  --color-text-secondary: #909393;
+  --color-text-muted: #5E6161;
+
+  --color-danger: #EF4444;
+  --color-danger-hover: #DC2626;
+  --color-success: #10B981;
+
+  --color-font-sans: 'Outfit', system-ui, sans-serif;
+}
+
+/* ── Light mode overrides ── */
+[data-theme="light"] {
+  --color-surface-base: #F4F6F7;
+  --color-surface-card: #FFFFFF;
+  --color-surface-elevated: #F0F2F3;
+  --color-surface-border: #DDE2E4;
+  --color-surface-hover: #E8ECEE;
+
+  --color-accent: #2F555F;
+  --color-accent-hover: #032F38;
+  --color-accent-muted: #587E88;
+  --color-accent-bg: rgba(47, 85, 95, 0.08);
+  --color-accent-bg-hover: rgba(47, 85, 95, 0.14);
+
+  --color-text-primary: #0C1315;
+  --color-text-secondary: #5E6161;
+  --color-text-muted: #909393;
+}
+
+/* ── Base ── */
+*, *::before, *::after {
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-surface-base);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-boraq-teal-slate);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-boraq-teal-muted);
+}
+
+/* ── Focus ring ── */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+/* ── Select option fix for dark mode ── */
+select option {
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+}
+
+/* ── Notification toast animation ── */
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideOutRight {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
+}
+.toast-enter { animation: slideInRight 0.3s ease-out; }
+.toast-exit { animation: slideOutRight 0.3s ease-in forwards; }
+
+

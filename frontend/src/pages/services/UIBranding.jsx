@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { PenTool, Layers, Palette, MonitorPlay } from 'lucide-react';
-import cooPhoto from '../../assets/Team/Ma-Huan Sheikh Meem - Chief Operating Officer.jpg';
+import { useTeamMembers } from '../../hooks/useApi';
 import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
 import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
@@ -98,6 +98,9 @@ function DesignPlayground() {
 }
 
 export default function UIBranding() {
+  const { data: members } = useTeamMembers();
+  const coo = (members || []).find(m => m.slug === 'ma-huan-sheikh-meem');
+
   return (
     <div className="w-full pb-32">
       <section className="max-w-7xl mx-auto px-6 pt-12 pb-24 text-center">
@@ -113,14 +116,16 @@ export default function UIBranding() {
           </p>
 
           {/* Human trust strip */}
+          {coo && (
           <HeroTrustStrip
             centered
             lead={{
-              name: 'Ma-Huan Sheikh Meem',
+              name: coo.name,
               role: 'COO — UI/UX & Branding',
-              avatar: cooPhoto,
+              avatar: coo.image,
             }}
           />
+          )}
         </motion.div>
       </section>
 
@@ -161,13 +166,14 @@ export default function UIBranding() {
       </section>
 
       {/* NEW: Human trust section */}
+      {coo && (
       <ServiceHumanSection
         teamLead={{
-          name: 'Ma-Huan Sheikh Meem',
-          role: 'Chief Operating Officer',
-          avatar: cooPhoto,
-          bio: 'UI/UX & Graphics expert. Meem drives visual excellence across brand identities and digital interfaces, personally leading every design engagement from wireframe to final handoff.',
-          funFact: 'UI/UX enthusiast & creative operations lead',
+          name: coo.name,
+          role: coo.role,
+          avatar: coo.image,
+          bio: coo.bio,
+          funFact: coo.funFact,
         }}
         testimonial={{
           quote: 'Boraq\'s design team transformed our brand with Moushum — a nature-inspired identity that perfectly captured our vision.',
@@ -183,6 +189,7 @@ export default function UIBranding() {
         ]}
         processNote="Meem personally leads every design sprint — you'll review live prototypes together in weekly sessions."
       />
+      )}
 
       <Testimonials />
       <CallToAction />

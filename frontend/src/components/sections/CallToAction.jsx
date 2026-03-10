@@ -1,20 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
-import ctoPhoto from '../../assets/Team/Rakib Hasan - Chief Technology Officer.jpg';
-import cooPhoto from '../../assets/Team/Ma-Huan Sheikh Meem - Chief Operating Officer.jpg';
-import cpoPhoto from '../../assets/Team/Adel Mohammad Zahid - Chief Product Officer.jpg';
-import plPhoto from '../../assets/Team/Tahmid Khan - Project Lead.jpg';
-
-const teamAvatars = [
-    { name: 'Rubayet', image: ceoPhoto },
-    { name: 'Rakib', image: ctoPhoto },
-    { name: 'Meem', image: cooPhoto },
-    { name: 'Adel', image: cpoPhoto },
-    { name: 'Tahmid', image: plPhoto },
-];
+import { useTeamMembers } from '../../hooks/useApi';
 
 const orbs = [
     { size: 'w-3 h-3', color: 'bg-blue-400/60', x: '10%', y: '20%', duration: '6s' },
@@ -26,6 +13,10 @@ const orbs = [
 ];
 
 export default function CallToAction() {
+    const { data: members } = useTeamMembers();
+    const teamAvatars = (members || []).map(m => ({ name: m.shortName || m.name, image: m.image }));
+    const founder = (members || []).find(m => m.memberType === 'founder' || m.isFounder);
+
     return (
         <section className="w-full relative py-32 overflow-hidden bg-transparent">
             {/* Ambient Section Glows */}
@@ -58,21 +49,23 @@ export default function CallToAction() {
                     </h2>
 
                     {/* Personal founder micro-quote */}
-                    <div className="glass-panel rounded-2xl px-6 py-4 max-w-xl mx-auto mb-8 text-left">
-                        <p className="text-base italic text-boraq-gray-mid dark:text-boraq-gray-silver">
-                            "I personally review every project inquiry to ensure we're the right fit for your vision."
-                        </p>
-                        <div className="flex items-center gap-3 mt-3">
-                            <img
-                                src={ceoPhoto}
-                                alt="Md. Rubayet Islam"
-                                className="w-8 h-8 rounded-full object-cover object-top"
-                            />
-                            <span className="text-sm font-bold text-boraq-black dark:text-boraq-white">
-                                Md. Rubayet Islam, <span className="font-normal text-boraq-teal-steel">Founder & CEO</span>
-                            </span>
+                    {founder && (
+                        <div className="glass-panel rounded-2xl px-6 py-4 max-w-xl mx-auto mb-8 text-left">
+                            <p className="text-base italic text-boraq-gray-mid dark:text-boraq-gray-silver">
+                                "I personally review every project inquiry to ensure we're the right fit for your vision."
+                            </p>
+                            <div className="flex items-center gap-3 mt-3">
+                                <img
+                                    src={founder.image}
+                                    alt={founder.name}
+                                    className="w-8 h-8 rounded-full object-cover object-top"
+                                />
+                                <span className="text-sm font-bold text-boraq-black dark:text-boraq-white">
+                                    {founder.name}, <span className="font-normal text-boraq-teal-steel">{founder.role}</span>
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    )}
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <Link to="/book-a-call" className="h-14 px-8 rounded-full bg-boraq-black text-boraq-white dark:bg-boraq-white dark:text-boraq-black font-bold text-lg flex items-center gap-2 group shadow-xl shadow-boraq-teal-deep/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-boraq-teal-steel/20">
@@ -85,36 +78,38 @@ export default function CallToAction() {
                     </div>
 
                     {/* Team avatars + response time — human trust signals */}
-                    <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <div className="flex items-center">
-                            <div className="flex -space-x-3">
-                                {teamAvatars.map((member, idx) => (
-                                    <img
-                                        key={idx}
-                                        src={member.image}
-                                        alt={member.name}
-                                        className="w-10 h-10 rounded-full border-2 border-boraq-white dark:border-boraq-black object-cover object-top"
-                                    />
-                                ))}
+                    {teamAvatars.length > 0 && (
+                        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+                            <div className="flex items-center">
+                                <div className="flex -space-x-3">
+                                    {teamAvatars.map((member, idx) => (
+                                        <img
+                                            key={idx}
+                                            src={member.image}
+                                            alt={member.name}
+                                            className="w-10 h-10 rounded-full border-2 border-boraq-white dark:border-boraq-black object-cover object-top"
+                                        />
+                                    ))}
+                                </div>
+                                <p className="ml-4 text-sm text-boraq-gray-mid dark:text-boraq-gray-silver text-left">
+                                    <span className="font-bold text-boraq-black dark:text-boraq-white">Dedicated managers for your project</span><br />
+                                    24x7 support & transparent communication
+                                </p>
                             </div>
-                            <p className="ml-4 text-sm text-boraq-gray-mid dark:text-boraq-gray-silver text-left">
-                                <span className="font-bold text-boraq-black dark:text-boraq-white">Dedicated managers for your project</span><br />
-                                24x7 support & transparent communication
-                            </p>
-                        </div>
 
-                        <div className="w-px h-10 bg-boraq-gray-silver/20 dark:bg-boraq-teal-deep/20 hidden sm:block" />
+                            <div className="w-px h-10 bg-boraq-gray-silver/20 dark:bg-boraq-teal-deep/20 hidden sm:block" />
 
-                        <div className="flex items-center gap-2">
-                            <div className="relative">
-                                <Clock className="w-5 h-5 text-boraq-teal-steel" />
-                                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-green-500 rounded-full" />
+                            <div className="flex items-center gap-2">
+                                <div className="relative">
+                                    <Clock className="w-5 h-5 text-boraq-teal-steel" />
+                                    <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-green-500 rounded-full" />
+                                </div>
+                                <p className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
+                                    <span className="font-bold text-boraq-black dark:text-boraq-white">Avg. response: 2 hours</span>
+                                </p>
                             </div>
-                            <p className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">
-                                <span className="font-bold text-boraq-black dark:text-boraq-white">Avg. response: 2 hours</span>
-                            </p>
                         </div>
-                    </div>
+                    )}
 
                     <p className="mt-8 text-sm text-boraq-gray-mid/60 dark:text-boraq-gray-silver/40 font-medium">
                         No commitment required. 100% strictly confidential.

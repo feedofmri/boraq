@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MonitorSmartphone, Code2, Server, Globe, Check, Rocket, Flame } from 'lucide-react';
-import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
+import { useTeamMembers } from '../../hooks/useApi';
 import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
 import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
@@ -207,6 +207,9 @@ function InteractiveCodeEditor() {
 }
 
 export default function WebApp() {
+	const { data: members } = useTeamMembers();
+	const founder = (members || []).find(m => m.memberType === 'founder' || m.isFounder);
+
 	return (
 		<div className="w-full pb-32">
 			{/* Header Section */}
@@ -233,13 +236,15 @@ export default function WebApp() {
 						</p>
 
 						{/* Human trust strip */}
+						{founder && (
 						<HeroTrustStrip
 							lead={{
-								name: 'Md. Rubayet Islam',
-								role: 'Founder & CEO',
-								avatar: ceoPhoto,
+								name: founder.name,
+								role: founder.role,
+								avatar: founder.image,
 							}}
 						/>
+						)}
 					</div>
 					<div className="flex-1 w-full">
 						{/* Interactive Code Editor Playground */}
@@ -295,13 +300,14 @@ export default function WebApp() {
 			</section>
 
 			{/* NEW: Human trust section */}
+			{founder && (
 			<ServiceHumanSection
 				teamLead={{
-					name: 'Md. Rubayet Islam',
-					role: 'Founder & CEO',
-					avatar: ceoPhoto,
-					bio: 'Expert in Web & App development and Computer Vision. Rubayet personally oversees every major platform we build, ensuring scalable architecture from day one.',
-					funFact: 'Computer Vision researcher & full-stack developer',
+					name: founder.name,
+					role: founder.role,
+					avatar: founder.image,
+					bio: founder.bio,
+					funFact: founder.funFact,
 				}}
 				testimonial={{
 					quote:
@@ -319,6 +325,7 @@ export default function WebApp() {
 				]}
 				processNote="Every project kicks off with a 1-on-1 architecture session with Rubayet — no salespeople, no middlemen."
 			/>
+			)}
 
 			<Testimonials />
 			<CallToAction />

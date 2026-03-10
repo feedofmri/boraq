@@ -4,18 +4,19 @@ import { ArrowRight, Clock, Search, ChevronLeft, ChevronRight } from 'lucide-rea
 import { Link } from 'react-router-dom';
 import CallToAction from '../../components/sections/CallToAction';
 import Testimonials from '../../components/sections/Testimonials';
-import blogPosts from '../../data/blogPosts';
+import { useBlogPosts } from '../../hooks/useApi';
 
 const categories = ['All', 'Web & App', 'UI & Branding', 'AI & Automation', 'Vision & Speech', 'Smart Device', 'Web3'];
 const POSTS_PER_PAGE = 9;
 
 export default function Blog() {
+  const { data: blogPosts, loading } = useBlogPosts();
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
 
   // Latest first
-  const posts = useMemo(() => [...blogPosts].reverse(), []);
+  const posts = useMemo(() => [...(blogPosts || [])].reverse(), [blogPosts]);
 
   const filteredPosts = posts.filter(p => {
     const matchesCategory = activeCategory === 'All' || p.category === activeCategory;

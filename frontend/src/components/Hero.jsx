@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Sparkles, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTeamMembers } from '../hooks/useApi';
 
 /* ── Cute side-profile walking cat SVG ── */
 function WalkingCat() {
@@ -44,12 +45,8 @@ function WalkingCat() {
     );
 }
 
-import ceoPhoto from '../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
-import ctoPhoto from '../assets/Team/Rakib Hasan - Chief Technology Officer.jpg';
-import cooPhoto from '../assets/Team/Ma-Huan Sheikh Meem - Chief Operating Officer.jpg';
-import cpoPhoto from '../assets/Team/Adel Mohammad Zahid - Chief Product Officer.jpg';
-
 export default function Hero() {
+    const { data: members } = useTeamMembers();
     const badgeRef = useRef(null);
     const [badgeWidth, setBadgeWidth] = useState(300);
 
@@ -79,12 +76,7 @@ export default function Hero() {
         visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
     };
 
-    const teamFaces = [
-        ceoPhoto,
-        ctoPhoto,
-        cooPhoto,
-        cpoPhoto,
-    ];
+    const teamFaces = (members || []).slice(0, 4).map(m => m.image).filter(Boolean);
 
     return (
         <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center pt-32 pb-12 md:pt-24 md:pb-0 overflow-hidden">

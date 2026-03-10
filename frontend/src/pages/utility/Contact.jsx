@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, MapPin, Send, Check, Wifi } from 'lucide-react';
+import { Mail, MapPin, Send, Check, Wifi, AlertCircle } from 'lucide-react';
 import CallToAction from '../../components/sections/CallToAction';
 import InteractiveFAQ from '../../components/sections/InteractiveFAQ';
+import { postApi } from '../../api/client';
 
 
 function FormField({ label, type = 'text', placeholder, value, onChange, rows }) {
@@ -41,15 +42,31 @@ function FormField({ label, type = 'text', placeholder, value, onChange, rows })
 export default function Contact() {
   const [form, setForm] = useState({ firstName: '', lastName: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
   const filledCount = Object.values(form).filter((v) => v.length > 0).length;
   const totalFields = 4;
 
-  const handleSend = (e) => {
+  const handleSend = async (e) => {
     e.preventDefault();
     if (filledCount < totalFields) return;
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+    setSending(true);
+    setError('');
+    try {
+      await postApi('/contact', {
+        first_name: form.firstName,
+        last_name: form.lastName,
+        email: form.email,
+        message: form.message,
+      });
+      setSent(true);
+      setForm({ firstName: '', lastName: '', email: '', message: '' });
+    } catch (err) {
+      setError(err?.data?.message || 'Something went wrong. Please try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -132,20 +149,32 @@ export default function Contact() {
                 <FormField label="Email Address" type="email" placeholder="john@company.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
                 <FormField label="Message" placeholder="How can we help?" rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
 
+                {error && (
+                  <div className="flex items-center gap-2 text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    {error}
+                  </div>
+                )}
+
                 <motion.button
                   type="submit"
+                  disabled={sending}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.97 }}
                   className={`w-full py-4 rounded-xl font-bold text-sm tracking-widest uppercase flex items-center justify-center gap-2 transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-boraq-teal-steel group ${
                     sent
                       ? 'bg-green-500/20 text-green-400 border border-green-500/30'
-                      : 'bg-boraq-black dark:bg-boraq-white text-boraq-white dark:text-boraq-black hover:bg-boraq-teal-steel hover:text-boraq-black'
+                      : 'bg-boraq-black dark:bg-boraq-white text-boraq-white dark:text-boraq-black hover:bg-boraq-teal-steel hover:text-boraq-black disabled:opacity-50'
                   }`}
                 >
                   <AnimatePresence mode="wait">
                     {sent ? (
                       <motion.span key="sent" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-2">
                         <Check className="w-4 h-4" /> Message Transmitted
+                      </motion.span>
+                    ) : sending ? (
+                      <motion.span key="sending" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-2">
+                        Transmitting...
                       </motion.span>
                     ) : (
                       <motion.span key="send" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-2">

@@ -1,48 +1,20 @@
-import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
-import ctoPhoto from '../../assets/Team/Rakib Hasan - Chief Technology Officer.jpg';
-import cooPhoto from '../../assets/Team/Ma-Huan Sheikh Meem - Chief Operating Officer.jpg';
-import cpoPhoto from '../../assets/Team/Adel Mohammad Zahid - Chief Product Officer.jpg';
-import plPhoto from '../../assets/Team/Tahmid Khan - Project Lead.jpg';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const activities = [
-    {
-        text: 'Rubayet completed a sprint review for Boraq Space eCommerce',
-        time: '2 hours ago',
-        avatar: ceoPhoto,
-    },
-    {
-        text: 'Meem published new case study: Moushum Brand Identity',
-        time: '5 hours ago',
-        avatar: cooPhoto,
-    },
-    {
-        text: 'Rakib shipped Nibaron: ClimateAI Web3 platform for farmers',
-        time: 'Yesterday',
-        avatar: ctoPhoto,
-    },
-    {
-        text: 'Adel deployed ML model for Car Price Prediction',
-        time: 'Yesterday',
-        avatar: cpoPhoto,
-    },
-    {
-        text: 'Tahmid completed IoT firmware update for Smart Device project',
-        time: '2 days ago',
-        avatar: plPhoto,
-    },
-];
+import { useActivities } from '../../hooks/useApi';
 
 export default function LiveActivity() {
+    const { data: activities, loading } = useActivities();
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
+        if (!activities?.length) return;
         const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % activities.length);
         }, 4000);
         return () => clearInterval(interval);
-    }, []);
+    }, [activities]);
+
+    if (loading || !activities?.length) return null;
 
     const current = activities[currentIndex];
 
@@ -73,11 +45,13 @@ export default function LiveActivity() {
                             transition={{ duration: 0.3 }}
                             className="flex items-center gap-3"
                         >
-                            <img
-                                src={current.avatar}
-                                alt=""
-                                className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0"
-                            />
+                            {current.avatar && (
+                                <img
+                                    src={current.avatar}
+                                    alt=""
+                                    className="w-7 h-7 rounded-full object-cover object-top flex-shrink-0"
+                                />
+                            )}
                             <div className="min-w-0">
                                 <p className="text-sm text-boraq-black dark:text-boraq-white font-medium truncate">
                                     {current.text}
@@ -95,8 +69,11 @@ export default function LiveActivity() {
                     {activities.map((_, idx) => (
                         <span
                             key={idx}
-                            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex ? 'bg-boraq-teal-steel w-4' : 'bg-boraq-gray-silver/30 dark:bg-boraq-teal-deep/30'
-                                }`}
+                            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                                idx === currentIndex
+                                    ? 'bg-boraq-teal-steel w-4'
+                                    : 'bg-boraq-gray-silver/30 dark:bg-boraq-teal-deep/30'
+                            }`}
                         />
                     ))}
                 </div>

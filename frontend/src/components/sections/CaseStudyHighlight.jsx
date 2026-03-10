@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, BarChart3, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import caseStudies from '../../data/caseStudies';
+import { useCaseStudies } from '../../hooks/useApi';
 
 export default function CaseStudyHighlight() {
-    // Pick the latest case study that has a cover image
+    const { data: caseStudies, loading } = useCaseStudies();
+
+    if (loading || !caseStudies?.length) {
+        return <section className="max-w-7xl mx-auto px-6 py-24"><p className="text-center text-boraq-gray-mid">Loading...</p></section>;
+    }
+
     const featured = [...caseStudies].reverse().find(cs => cs.cover) || caseStudies[caseStudies.length - 1];
 
     return (
@@ -57,12 +62,12 @@ export default function CaseStudyHighlight() {
                         <div className="grid grid-cols-2 gap-6 mb-10">
                             <div className="glass-panel p-4 rounded-2xl">
                                 <BarChart3 className="w-8 h-8 text-boraq-teal-steel mb-2" />
-                                <div className="text-2xl font-bold mb-1 text-boraq-black dark:text-boraq-white">{featured.techStack.length}+</div>
+                                <div className="text-2xl font-bold mb-1 text-boraq-black dark:text-boraq-white">{featured.techStack?.length || 0}+</div>
                                 <div className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">Technologies used</div>
                             </div>
                             <div className="glass-panel p-4 rounded-2xl">
                                 <Zap className="w-8 h-8 text-boraq-teal-steel mb-2" />
-                                <div className="text-2xl font-bold mb-1 text-boraq-black dark:text-boraq-white">{featured.features.length}</div>
+                                <div className="text-2xl font-bold mb-1 text-boraq-black dark:text-boraq-white">{featured.features?.length || 0}</div>
                                 <div className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">Key features delivered</div>
                             </div>
                         </div>

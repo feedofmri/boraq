@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Cpu, Bot, Zap, Network, Check, Trophy } from 'lucide-react';
-import cpoPhoto from '../../assets/Team/Adel Mohammad Zahid - Chief Product Officer.jpg';
+import { useTeamMembers } from '../../hooks/useApi';
 import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
 import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
@@ -108,6 +108,9 @@ function InteractiveNeuralNet() {
 }
 
 export default function AIAutomation() {
+  const { data: members } = useTeamMembers();
+  const cpo = (members || []).find(m => m.slug === 'adel-mohammad-zahid');
+
   return (
     <div className="w-full pb-32">
       {/* Header Section */}
@@ -131,13 +134,15 @@ export default function AIAutomation() {
             </p>
 
             {/* Human trust strip */}
+            {cpo && (
             <HeroTrustStrip
               lead={{
-                name: 'Adel Mohammad Zahid',
+                name: cpo.name,
                 role: 'CPO — AI & Automation',
-                avatar: cpoPhoto,
+                avatar: cpo.image,
               }}
             />
+            )}
           </div>
 
           <div className="flex-1 w-full flex justify-center lg:justify-end">
@@ -173,13 +178,14 @@ export default function AIAutomation() {
       </section>
 
       {/* NEW: Human trust section */}
+      {cpo && (
       <ServiceHumanSection
         teamLead={{
-          name: 'Adel Mohammad Zahid',
-          role: 'Chief Product Officer',
-          avatar: cpoPhoto,
-          bio: 'ML & Automation specialist. Adel personally designs every model architecture and ensures your AI solution is production-ready — from Car Price Prediction to Heart Disease analysis.',
-          funFact: 'Machine Learning engineer & product strategist',
+          name: cpo.name,
+          role: cpo.role,
+          avatar: cpo.image,
+          bio: cpo.bio,
+          funFact: cpo.funFact,
         }}
         testimonial={{
           quote: 'Boraq\'s AI expertise helped us build predictive ML models that truly add value. Their customized research approach made all the difference.',
@@ -195,6 +201,7 @@ export default function AIAutomation() {
         ]}
         processNote="Adel walks you through every model decision in plain language — no black boxes, full transparency."
       />
+      )}
 
       <Testimonials />
       <CallToAction />

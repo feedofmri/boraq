@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Cpu, Wifi, ShieldCheck, Activity } from 'lucide-react';
-import plPhoto from '../../assets/Team/Tahmid Khan - Project Lead.jpg';
+import { useTeamMembers } from '../../hooks/useApi';
 import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
 import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
@@ -148,6 +148,9 @@ function InteractiveTelemetry() {
 }
 
 export default function SmartDevice() {
+  const { data: members } = useTeamMembers();
+  const pl = (members || []).find(m => m.slug === 'tahmid-khan');
+
   return (
     <div className="w-full pb-32">
       <section className="max-w-7xl mx-auto px-6 pt-12 pb-24 text-center">
@@ -163,14 +166,16 @@ export default function SmartDevice() {
           </p>
 
           {/* Human trust strip */}
+          {pl && (
           <HeroTrustStrip
             centered
             lead={{
-              name: 'Tahmid Khan',
+              name: pl.name,
               role: 'Project Lead — Smart Devices',
-              avatar: plPhoto,
+              avatar: pl.image,
             }}
           />
+          )}
         </motion.div>
       </section>
 
@@ -209,13 +214,14 @@ export default function SmartDevice() {
       </section>
 
       {/* NEW: Human trust section */}
+      {pl && (
       <ServiceHumanSection
         teamLead={{
-          name: 'Tahmid Khan',
-          role: 'Project Lead',
-          avatar: plPhoto,
-          bio: 'Smart Device expert specializing in IoT integrations, embedded systems, and firmware development. Tahmid leads the hardware-software bridge, ensuring every integration is rock-solid.',
-          funFact: 'IoT innovator & embedded systems engineer',
+          name: pl.name,
+          role: pl.role,
+          avatar: pl.image,
+          bio: pl.bio,
+          funFact: pl.funFact,
         }}
         testimonial={{
           quote: 'Boraq\'s IoT team delivered a seamless hardware-software integration for our pilot city. Their systems expertise is world-class.',
@@ -231,6 +237,7 @@ export default function SmartDevice() {
         ]}
         processNote="Tahmid personally reviews every device architecture before a single line of firmware ships."
       />
+      )}
 
       <Testimonials />
       <CallToAction />

@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Eye, Mic, Fingerprint, Expand } from 'lucide-react';
-import ceoPhoto from '../../assets/Team/Md Rubayet Islam - Founder CEO.jpg';
+import { useTeamMembers } from '../../hooks/useApi';
 import HeroTrustStrip from '../../components/sections/HeroTrustStrip';
 import ServiceHumanSection from '../../components/sections/ServiceHumanSection';
 import Testimonials from '../../components/sections/Testimonials';
@@ -158,6 +158,9 @@ function InteractiveVisionDetector() {
 }
 
 export default function VisionSpeech() {
+  const { data: members } = useTeamMembers();
+  const founder = (members || []).find(m => m.memberType === 'founder' || m.isFounder);
+
   return (
     <div className="w-full pb-32">
       {/* Header Section */}
@@ -178,14 +181,16 @@ export default function VisionSpeech() {
           </p>
 
           {/* Human trust strip */}
+          {founder && (
           <HeroTrustStrip
             centered
             lead={{
-              name: 'Md. Rubayet Islam',
+              name: founder.name,
               role: 'CEO: Vision & Speech',
-              avatar: ceoPhoto,
+              avatar: founder.image,
             }}
           />
+          )}
         </motion.div>
       </section>
 
@@ -222,13 +227,14 @@ export default function VisionSpeech() {
       </section>
 
       {/* NEW: Human trust section */}
+      {founder && (
       <ServiceHumanSection
         teamLead={{
-          name: 'Md. Rubayet Islam',
-          role: 'Founder & CEO',
-          avatar: ceoPhoto,
-          bio: 'Computer Vision and NLP researcher. Rubayet specializes in advanced visual data analysis and speech-to-text systems, personally overseeing every deployment in this division.',
-          funFact: 'Computer Vision researcher & full-stack developer',
+          name: founder.name,
+          role: founder.role,
+          avatar: founder.image,
+          bio: founder.bio,
+          funFact: founder.funFact,
         }}
         testimonial={{
           quote: 'Boraq\'s vision and speech solutions brought our data processing to a whole new level. Their research-driven approach delivers real accuracy.',
@@ -244,6 +250,7 @@ export default function VisionSpeech() {
         ]}
         processNote="Rubayet demos working prototypes within the first 2 weeks — you'll see real results before committing further."
       />
+      )}
 
       <Testimonials />
       <CallToAction />

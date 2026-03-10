@@ -1,7 +1,8 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Clock, Video, ArrowRight, ChevronLeft, ChevronRight, Check, User, Mail, MessageSquare } from 'lucide-react';
+import { Calendar, Clock, Video, ArrowRight, ChevronLeft, ChevronRight, Check, User, Mail, MessageSquare, AlertCircle } from 'lucide-react';
 import CallToAction from '../../components/sections/CallToAction';
+import { postApi } from '../../api/client';
 
 const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -141,6 +142,8 @@ export default function BookCall() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const [form, setForm] = useState({ name: '', email: '', notes: '' });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const availableSlots = useMemo(() => getAvailableSlots(selectedDate), [selectedDate]);
 
@@ -159,10 +162,26 @@ export default function BookCall() {
     setStep(3);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email) return;
-    setStep(4);
+    setSubmitting(true);
+    setSubmitError('');
+    try {
+      await postApi('/book-call', {
+        name: form.name,
+        email: form.email,
+        preferred_date: selectedDate.toISOString().split('T')[0],
+        preferred_time: selectedTime,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        message: form.notes || null,
+      });
+      setStep(4);
+    } catch (err) {
+      setSubmitError(err?.data?.message || 'Something went wrong. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const formattedDate = selectedDate
@@ -320,7 +339,7 @@ export default function BookCall() {
                         {formattedDate} &middot; {selectedTime} &middot; 30 min
                       </p>
 
-                      <form onSubmit={handleSubmit} className="flex flex-col gap-5 flex-1">
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-5 flex-1">
                         <div>
                           <label className="text-[10px] font-bold uppercase tracking-widest text-boraq-gray-mid dark:text-boraq-gray-silver mb-1.5 block">Full Name *</label>
                           <div className="relative">
@@ -365,13 +384,23 @@ export default function BookCall() {
                           </div>
                         </div>
 
+                        {submitError && (
+                          <div className="flex items-center gap-2 text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">
+                            <AlertCircle className="w-4 h-4 shrink-0" />
+                            {submitError}
+                          </div>
+                        )}
+
                         <button
                           type="submit"
-                          className="mt-auto w-full group relative overflow-hidden rounded-full bg-boraq-black dark:bg-boraq-white text-boraq-white dark:text-boraq-black py-4 px-8 flex items-center justify-center gap-2 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-[1.02]"
+                          disabled={submitting}
+                          className="mt-auto w-full group relative overflow-hidden rounded-full bg-boraq-black dark:bg-boraq-white text-boraq-white dark:text-boraq-black py-4 px-8 flex items-center justify-center gap-2 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-[1.02] disabled:opacity-50"
                         >
                           <div className="absolute inset-0 bg-boraq-teal-steel transition-transform duration-300 translate-y-full group-hover:translate-y-0" />
-                          <span className="relative z-10 group-hover:text-boraq-black transition-colors duration-300">Confirm Booking</span>
-                          <ArrowRight className="w-5 h-5 relative z-10 group-hover:text-boraq-black transition-colors duration-300" />
+                          <span className="relative z-10 group-hover:text-boraq-black transition-colors duration-300">
+                            {submitting ? 'Booking...' : 'Confirm Booking'}
+                          </span>
+                          {!submitting && <ArrowRight className="w-5 h-5 relative z-10 group-hover:text-boraq-black transition-colors duration-300" />}
                         </button>
                       </form>
                     </motion.div>
