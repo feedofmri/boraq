@@ -41,12 +41,21 @@ export default function OurTeam() {
     return <div className="w-full min-h-screen flex items-center justify-center"><p className="text-boraq-gray-mid">Loading team...</p></div>;
   }
 
-  const isFounderMember = (m) => m.memberType === 'founder' || m.isFounder;
-  const isExecutiveMember = (m) => m.memberType === 'executive' || (!isFounderMember(m) && m.memberType !== 'member' && /^(Chief|CTO|COO|CPO|CFO|VP|Director)/i.test(m.role));
+  // Robust founder detection
+  const founder =
+    members.find(m => m.memberType === 'founder') ||
+    members.find(m => m.isFounder === true || m.isFounder === 1) ||
+    members.find(m => /founder|ceo/i.test(m.role || '')) ||
+    null;
 
-  const founder = members.find(isFounderMember);
-  const executives = members.filter(m => !isFounderMember(m) && isExecutiveMember(m));
-  const regularMembers = members.filter(m => !isFounderMember(m) && !isExecutiveMember(m));
+  const otherMembers = members.filter(m => m.id !== founder?.id);
+
+  // Dynamic categorization: rely on memberType from DB, no hardcoded role patterns
+  const executives = otherMembers.filter(m => m.memberType === 'executive');
+  const regularMembers = otherMembers.filter(m => m.memberType !== 'executive');
+
+  // If DB member_type isn't set (both groups empty but we have members), show all as one group
+  const dbCategorized = executives.length > 0 || regularMembers.length > 0;
 
   return (
     <div className="w-full pb-32">
@@ -119,6 +128,24 @@ export default function OurTeam() {
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {regularMembers.map((member, index) => (
+              <motion.div key={member.id || member.name} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 * (index + 1) }}>
+                <TeamMemberCard member={member} />
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Fallback: if categorization missed everyone, show all non-founder members */}
+      {executives.length === 0 && regularMembers.length === 0 && otherMembers.length > 0 && (
+        <section className="max-w-7xl mx-auto px-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="text-3xl font-bold mb-8 text-boraq-black dark:text-boraq-white text-center">
+              Our <span className="text-boraq-teal-steel">Team</span>
+            </h2>
+          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {otherMembers.map((member, index) => (
               <motion.div key={member.id || member.name} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 * (index + 1) }}>
                 <TeamMemberCard member={member} />
               </motion.div>

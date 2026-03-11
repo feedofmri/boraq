@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Helpers\FileUrl;
 
 class TeamMember extends Model
 {
@@ -46,7 +47,7 @@ class TeamMember extends Model
 
     public function getImageUrlAttribute(): ?string
     {
-        return $this->image_path ? '/api/files/' . $this->image_path : null;
+        return FileUrl::url($this->image_path);
     }
 }
 

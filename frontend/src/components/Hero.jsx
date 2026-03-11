@@ -79,7 +79,7 @@ export default function Hero() {
     const teamFaces = (members || []).slice(0, 4).map(m => m.image).filter(Boolean);
 
     return (
-        <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center pt-32 pb-12 md:pt-24 md:pb-0 overflow-hidden">
+        <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center pt-16 pb-12 md:pt-24 md:pb-0 overflow-hidden">
 
             {/* Background Decorative Blobs */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden flex justify-center items-center">
@@ -182,8 +182,8 @@ export default function Hero() {
                     <motion.div variants={itemVariants} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5">
                         <div className="flex items-center gap-3">
                             <div className="flex -space-x-2">
-                                {teamFaces.map((src, i) => (
-                                    <img key={i} src={src} alt="" className="w-8 h-8 rounded-full border-2 border-boraq-white dark:border-boraq-black object-cover object-top" />
+                                {teamFaces.length > 0 && teamFaces.map((src, i) => (
+                                    <img key={i} src={src} alt={`team member ${i + 1}`} className="w-8 h-8 rounded-full border-2 border-boraq-white dark:border-boraq-black object-cover object-top" />
                                 ))}
                             </div>
                             <span className="text-sm text-boraq-gray-mid dark:text-boraq-gray-silver">

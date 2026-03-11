@@ -5,10 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="003da927-7d00-4dc8-8987-3806b0dc596b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/app/Helpers/FileUrl.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-crm/public/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-crm/src/api/fileUrl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/storage/logs/laravel.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-crm/src/api/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/api/client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Admin/AdminCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Admin/AdminCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/CaseStudy.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/CaseStudy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/CaseStudyImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/CaseStudyImage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/TeamMember.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/TeamMember.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/bootstrap/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/cors.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/cors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/sanctum.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/sanctum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/.env.production" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/dist/assets/index-UlYevUAe.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/components/shared/ImageUpload.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/components/shared/ImageUpload.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/case-studies/CaseStudyList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/case-studies/CaseStudyList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-crm/src/pages/team-members/TeamMemberList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-crm/src/pages/team-members/TeamMemberList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/sections/ExpertTeam.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/sections/ExpertTeam.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/about/OurStory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/about/OurStory.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/about/OurTeam.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/about/OurTeam.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +124,9 @@
       <workItem from="1773084973765" duration="120000" />
       <workItem from="1773085120076" duration="5087000" />
       <workItem from="1773090910694" duration="3076000" />
-      <workItem from="1773152750334" duration="10188000" />
+      <workItem from="1773152750334" duration="17282000" />
+      <workItem from="1773181034306" duration="1202000" />
+      <workItem from="1773220437555" duration="48000" />
     </task>
     <servers />
   </component>

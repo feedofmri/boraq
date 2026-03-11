@@ -66,10 +66,25 @@ export default function ExpertTeam() {
         );
     }
 
-    const isFounderMember = (m) => m.memberType === 'founder' || m.isFounder;
-    const isExecutiveMember = (m) => m.memberType === 'executive' || (!isFounderMember(m) && m.memberType !== 'member' && /^(Chief|CTO|COO|CPO|CFO|VP|Director)/i.test(m.role));
-    const founder = members.find(isFounderMember);
-    const executives = members.filter(m => !isFounderMember(m) && isExecutiveMember(m));
+    // Robust founder detection: trust memberType first, then isFounder flag, then role keyword as last resort
+    const founder =
+        members.find(m => m.memberType === 'founder') ||
+        members.find(m => m.isFounder === true || m.isFounder === 1) ||
+        members.find(m => /founder|ceo/i.test(m.role || '')) ||
+        null;
+
+    // Executives: everyone who is NOT the founder and NOT a regular 'member'
+    // This way any memberType that isn't 'founder' or 'member' is treated as executive
+    const executives = members.filter(m =>
+        m.id !== founder?.id &&
+        m.memberType !== 'member' &&
+        m.memberType !== 'founder'
+    );
+
+    // Fallback: if DB has no member_type set (all nullish/default), show all non-founder members
+    const displayMembers = executives.length > 0
+        ? executives
+        : members.filter(m => m.id !== founder?.id);
 
     return (
         <section className="max-w-7xl mx-auto px-6 py-24">
@@ -85,16 +100,65 @@ export default function ExpertTeam() {
             </div>
 
             {founder && (
-                <div className="mb-12 max-w-md mx-auto">
-                    <MemberCard member={founder} index={0} />
+                <div className="mb-12">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="group"
+                    >
+                        <div className="glass-panel p-6 md:p-8 rounded-3xl flex flex-col md:flex-row items-center md:items-start gap-8 hover:border-boraq-teal-steel/30 transition-colors duration-300">
+                            <div className="w-full md:w-72 shrink-0 aspect-square rounded-2xl overflow-hidden relative">
+                                <img
+                                    src={founder.image}
+                                    alt={founder.name}
+                                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-boraq-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                                    <a href={founder.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-boraq-white/20 hover:bg-boraq-teal-steel hover:text-boraq-black transition-colors backdrop-blur-sm text-boraq-white" aria-label={`${founder.name} on LinkedIn`}>
+                                        <Linkedin className="w-5 h-5" />
+                                    </a>
+                                    <a href={founder.twitter} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-boraq-white/20 hover:bg-boraq-teal-steel hover:text-boraq-black transition-colors backdrop-blur-sm text-boraq-white" aria-label={`${founder.name} on Twitter`}>
+                                        <Twitter className="w-5 h-5" />
+                                    </a>
+                                    <a href={`mailto:${founder.email}`} className="p-2 rounded-full bg-boraq-white/20 hover:bg-boraq-teal-steel hover:text-boraq-black transition-colors backdrop-blur-sm text-boraq-white" aria-label={`Email ${founder.name}`}>
+                                        <Mail className="w-5 h-5" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="flex flex-col text-center md:text-left flex-1 py-2">
+                                <div className="inline-flex items-center gap-2 text-xs font-bold text-boraq-teal-steel mb-3 justify-center md:justify-start">
+                                    <Sparkles className="w-3.5 h-3.5" />
+                                    FOUNDER
+                                </div>
+                                <h3 className="text-2xl md:text-3xl font-bold mb-1 text-boraq-black dark:text-boraq-white">{founder.name}</h3>
+                                <p className="text-boraq-teal-steel font-bold text-sm mb-4">{founder.role}</p>
+                                <p className="text-boraq-gray-mid dark:text-boraq-gray-silver text-sm leading-relaxed mb-4 max-w-xl">
+                                    {founder.bio}
+                                </p>
+                                <p className="text-boraq-gray-mid dark:text-boraq-gray-silver text-sm italic mb-5">
+                                    "{founder.quote}"
+                                </p>
+                                <div className="mt-auto pt-4 border-t border-boraq-gray-silver/10 dark:border-boraq-teal-deep/10">
+                                    <p className="text-xs text-boraq-gray-mid/70 dark:text-boraq-gray-silver/50 flex items-center gap-1.5 justify-center md:justify-start">
+                                        <Sparkles className="w-3 h-3 text-boraq-teal-steel shrink-0" />
+                                        {founder.funFact}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
             )}
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {executives.map((member, index) => (
-                    <MemberCard key={member.id || index} member={member} index={index + 1} />
-                ))}
-            </div>
+            {displayMembers.length > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {displayMembers.map((member, index) => (
+                        <MemberCard key={member.id || index} member={member} index={index} />
+                    ))}
+                </div>
+            )}
         </section>
     );
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Helpers\FileUrl;
 use App\Models\TeamMember;
 use App\Models\Service;
 use App\Models\CaseStudy;
@@ -270,7 +271,7 @@ class ApiController extends Controller
             'category' => $cs->category,
             'tags' => $cs->tags->pluck('tag')->toArray(),
             'cover' => $cs->cover_image_url,
-            'images' => $cs->images->map(fn($i) => $i->image_path ? '/api/files/' . $i->image_path : null)->filter()->values()->toArray(),
+            'images' => $cs->images->map(fn($i) => FileUrl::url($i->image_path))->filter()->values()->toArray(),
             'youtubeUrl' => $cs->youtube_url,
             'liveUrl' => $cs->live_url,
             'overview' => $cs->overview,

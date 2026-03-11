@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Helpers\FileUrl;
 
 class CaseStudyImage extends Model
 {
@@ -11,7 +12,7 @@ class CaseStudyImage extends Model
 
     public function getUrlAttribute(): ?string
     {
-        return $this->image_path ? '/api/files/' . $this->image_path : null;
+        return FileUrl::url($this->image_path);
     }
 }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Helpers\FileUrl;
 use App\Models\{TeamMember, Service, CaseStudy, CaseStudyTag, CaseStudyTechStack, CaseStudyFeature, CaseStudyImage,
     BlogPost, BlogPostTag, BlogPostContentBlock, Testimonial, Faq, Stat, Client, TrustBadge, TrustIndicator,
     ProcessStep, FoundersNote, CompanyInfo, Activity, ContactSubmission, CallBooking, PageView};
@@ -52,7 +53,7 @@ class AdminCrudController extends Controller
 
         return response()->json([
             'path' => $path,
-            'url' => '/api/files/' . $path,
+            'url' => FileUrl::url($path),
         ]);
     }
 

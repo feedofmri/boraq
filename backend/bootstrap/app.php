@@ -12,6 +12,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        // Trust all proxies (cPanel terminates SSL before PHP)
+        $middleware->trustProxies(at: '*');
+
+        // CORS must be in the global middleware so OPTIONS preflight
+        // requests get proper headers before any route matching
+        $middleware->prepend(\Illuminate\Http\Middleware\HandleCors::class);
+
         $middleware->api(prepend: [
             \Illuminate\Http\Middleware\HandleCors::class,
         ]);

@@ -92,7 +92,12 @@ function MilestoneTimeline() {
 
 export default function OurStory() {
   const { data: members } = useTeamMembers();
-  const teamLead = (members || []).find(m => m.slug === 'tahmid-khan') || (members || [])[0];
+  const all = members || [];
+  const founder =
+    all.find(m => m.memberType === 'founder') ||
+    all.find(m => m.isFounder === true || m.isFounder === 1) ||
+    all.find(m => /founder|ceo/i.test(m.role || '')) ||
+    null;
 
   return (
     <div className="w-full pb-32">
@@ -127,7 +132,7 @@ export default function OurStory() {
             <div className="relative w-full aspect-square md:aspect-video lg:aspect-square max-w-lg mx-auto rounded-[3rem] p-2 glass-panel-heavy overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-boraq-teal-steel/20 to-transparent mix-blend-overlay z-0" />
               <img
-                src={teamLead?.image}
+                src={founder?.image}
                 alt="Boraq team lead"
                 className="w-full h-full object-cover rounded-[2.5rem] filter grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 dark:opacity-40 object-top"
               />

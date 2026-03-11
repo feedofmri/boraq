@@ -1,0 +1,35 @@
+<IfModule mod_headers.c>
+    # ── CORS headers (Apache-level fallback) ──────────────────
+    # These ensure browsers get CORS headers even on 404 / preflight
+    # before Laravel has a chance to run.
+    SetEnvIf Origin "https?://(localhost(:[0-9]+)?|boraq\.io|www\.boraq\.io|crm\.boraq\.io|api\.boraq\.io)" CORS_ORIGIN=$0
+    Header always set Access-Control-Allow-Origin  "%{CORS_ORIGIN}e" env=CORS_ORIGIN
+    Header always set Access-Control-Allow-Methods  "GET, POST, PUT, DELETE, OPTIONS, PATCH"
+    Header always set Access-Control-Allow-Headers  "Content-Type, Authorization, Accept, X-Requested-With, Origin"
+    Header always set Access-Control-Allow-Credentials "true"
+    Header always set Access-Control-Max-Age "86400"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send ALL requests (including OPTIONS preflight) to Laravel
+    # so the CORS middleware can handle them properly
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+

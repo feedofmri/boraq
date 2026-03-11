@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Helpers\FileUrl;
 
 class CaseStudy extends Model
 {
@@ -35,7 +36,7 @@ class CaseStudy extends Model
 
     public function getCoverImageUrlAttribute(): ?string
     {
-        return $this->cover_image_path ? '/api/files/' . $this->cover_image_path : null;
+        return FileUrl::url($this->cover_image_path);
     }
 }
 

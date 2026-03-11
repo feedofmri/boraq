@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Serve existing files/directories as-is
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else → index.html (SPA client-side routing)
+  RewriteRule ^ index.html [L]
+</IfModule>
+

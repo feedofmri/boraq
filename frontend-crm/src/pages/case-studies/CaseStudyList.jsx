@@ -1,13 +1,14 @@
 import useResource from '../../hooks/useResource';
 import DataTable from '../../components/shared/DataTable';
 import PageHeader from '../../components/shared/PageHeader';
+import fileUrl from '../../api/fileUrl';
 
 const columns = [
   { key: 'number', label: '#' },
   {
     key: 'cover_image_path', label: 'Cover',
     render: (row) => row.cover_image_path
-      ? <img src={`/api/files/${row.cover_image_path}`} alt="" className="w-16 h-10 rounded object-cover" />
+      ? <img src={fileUrl(row.cover_image_path)} alt="" className="w-16 h-10 rounded object-cover" />
       : <div className="w-16 h-10 rounded bg-surface-elevated" />,
   },
   { key: 'title', label: 'Title' },

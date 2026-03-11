@@ -88,6 +88,58 @@ Route::get('/setup-tables', function () {
     ]);
 });
 
+// Fix member_type values (visit once if team members show incorrectly)
+Route::get('/fix-member-types', function () {
+    $results = [];
+
+    if (!\Illuminate\Support\Facades\Schema::hasTable('team_members')) {
+        return response()->json(['error' => 'team_members table does not exist']);
+    }
+
+    // Add column if missing
+    if (!\Illuminate\Support\Facades\Schema::hasColumn('team_members', 'member_type')) {
+        \Illuminate\Support\Facades\Schema::table('team_members', function ($t) {
+            $t->string('member_type', 20)->default('member')->after('is_founder');
+        });
+        $results[] = 'Added member_type column';
+    }
+
+    // Fix founder
+    $founderCount = \Illuminate\Support\Facades\DB::table('team_members')
+        ->where('is_founder', true)
+        ->update(['member_type' => 'founder']);
+    $results[] = "Set {$founderCount} founder(s)";
+
+    // Fix executives (C-suite roles)
+    $execCount = \Illuminate\Support\Facades\DB::table('team_members')
+        ->where('is_founder', false)
+        ->where('member_type', '!=', 'founder')
+        ->where(function ($q) {
+            $q->where('role', 'like', 'Chief%')
+              ->orWhere('role', 'like', 'CTO%')
+              ->orWhere('role', 'like', 'COO%')
+              ->orWhere('role', 'like', 'CPO%')
+              ->orWhere('role', 'like', 'CFO%')
+              ->orWhere('role', 'like', 'VP %')
+              ->orWhere('role', 'like', 'Vice President%')
+              ->orWhere('role', 'like', 'Director%');
+        })
+        ->update(['member_type' => 'executive']);
+    $results[] = "Set {$execCount} executive(s)";
+
+    // Show current state
+    $members = \Illuminate\Support\Facades\DB::table('team_members')
+        ->select('id', 'name', 'role', 'is_founder', 'member_type', 'sort_order')
+        ->orderBy('sort_order')
+        ->get();
+
+    return response()->json([
+        'message' => 'Member types fixed!',
+        'actions' => $results,
+        'members' => $members,
+    ]);
+});
+
 // Homepage aggregate (single request for all homepage data)
 Route::get('/homepage', [ApiController::class, 'homepage']);
 
@@ -268,4 +320,11 @@ Route::prefix('admin')->group(function () {
         Route::get('/analytics', [AdminCrudController::class, 'analyticsOverview']);
     });
 });
+
+// ─── CORS Preflight catch-all ─────────────────────────────────
+// Handles OPTIONS requests for any API route so the CORS middleware
+// can return proper headers (200 OK) for browser preflight checks.
+Route::options('/{any}', function () {
+    return response()->json(null, 200);
+})->where('any', '.*');
 

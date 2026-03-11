@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Upload, X, Image } from 'lucide-react';
 import api from '../../api/client';
+import fileUrl from '../../api/fileUrl';
 
 export default function ImageUpload({ value, onChange, folder = 'uploads', label = 'Image' }) {
   const [uploading, setUploading] = useState(false);
@@ -30,7 +31,7 @@ export default function ImageUpload({ value, onChange, folder = 'uploads', label
       {value ? (
         <div className="relative inline-block">
           <img
-            src={`/api/files/${value}`}
+            src={fileUrl(value)}
             alt="Preview"
             className="w-32 h-32 object-cover rounded-lg border border-surface-border"
           />
